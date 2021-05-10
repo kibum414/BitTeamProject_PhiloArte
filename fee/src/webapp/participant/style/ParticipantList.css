@@ -1,0 +1,36 @@
+.participant-list-form th,
+.participant-list-form td {
+  line-height: 14px;
+  text-align: left;
+  vertical-align: top;
+  letter-spacing: -1px;
+  border: 0;
+  border-top: 1px solid #e5e5e5;
+}
+
+.participant-list-form th {
+  padding: 32px 31px 32px;
+  text-align: center;
+}
+
+.participant-list-form td {
+  color: #565656;
+  padding: 32px 0 32px 30px;
+}
+
+.participant-list-form th:first-child,
+.participant-list-form td:first-child {
+  width: 10%;
+  padding: 32px 0;
+  text-align: center;
+}
+
+.participant-list-form .subject-th {
+  width: 60%;
+}
+
+.participant-list-form .subject-td {
+  width: 60%;
+  padding: 32px 31px 32px;
+  text-align: left;
+}

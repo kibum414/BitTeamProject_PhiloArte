@@ -1,0 +1,137 @@
+.article {
+  background-color: #ffffff;
+}
+
+.article-form * {
+  box-sizing: border-box;
+}
+
+.article-form table {
+  position: relative;
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0;
+  border-collapse: collapse;
+  word-wrap: break-word;
+  word-break: keep-all;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 25px;
+  border-left: none;
+  border-right: none;
+}
+
+.article-form th,
+.article-form td {
+  line-height: 14px;
+  text-align: center;
+  vertical-align: middle;
+  letter-spacing: -1px;
+  border: 0;
+  border-top: 1px solid #e5e5e5;
+}
+
+.article-form th {
+  color: #333;
+  background: #f9f9f9;
+}
+
+.article-form td {
+  color: #565656;
+  padding: 20px;
+}
+
+.article-form th:first-child,
+.article-form td:first-child {
+  width: 10%;
+  padding: 32px 0;
+}
+
+.article-form input {
+  width: 100%;
+  height: 30px;
+  padding: 15px;
+  display: block;
+  background-color: #fff;
+  border: 1px solid #dadada;
+}
+
+.article-form textarea {
+  width: 100%;
+  height: 200px;
+  padding: 15px;
+  display: block;
+  background-color: #fff;
+  border: 1px solid #dadada;
+}
+
+.article-form input:focus,
+.article-form textarea:focus {
+  background-color: #fff;
+  border: 1px solid #28c759;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+.article-form button {
+  border: 1px solid #24b753;
+  background-color: #10c247;
+  color: white;
+  margin: 5px 0 25px 0;
+  display: inline-block;
+  cursor: pointer;
+  width: 70px;
+  height: 40px;
+  opacity: 0.9;
+  font-size: 15px;
+}
+
+.article-form button:hover {
+  opacity: 1;
+}
+
+/* Extra styles for the cancel button */
+.article-form .delete_btn {
+  background-color: #f33326;
+  border: 1px solid #c73924;
+  margin: 0 20px;
+}
+
+/* Add padding to container elements */
+.article-form  {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.article-form .container {
+  position: relative;
+  max-width: 954px;
+  min-width: 600px;
+  padding: 32px 51px 95px;
+  margin: 0 auto;
+}
+
+.article-form .content {
+  position: relative;
+}
+
+.article-form .btn_area {
+  text-align: right;
+}
+
+/* Clear floats */
+.article-form .btn_area::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .article-form .list_btn,
+  .article-form .write_btn,
+  .article-form .update_btn,
+  .article-form .delete_btn {
+    width: 100%;
+  }
+}
