@@ -1,32 +1,32 @@
 import React from "react";
 // DATA Files
-import dataNavbar from "data/Navbar/main-navbar-data.json";
-import dataCounters from "data/Counters/counters-data.json";
-import dataPortfolio from "data/Portfolio/main-portfolio-data.json";
-import dataServices from "data/Services/services-minimal-data.json";
-import dataTestimonials from "data/Testimonials/testimonials-data.json";
-import dataTeam from "data/Team/team-data.json";
-import dataPricings from "data/Pricings/pricings-data.json";
-import dataClients from "data/Clients/clients-data.json";
+import dataNavbar from "webapp/common/data/Navbar/main-navbar-data.json";
+import dataCounters from "webapp/common/data/Counters/counters-data.json";
+import dataPortfolio from "webapp/common/data/Portfolio/main-portfolio-data.json";
+import dataServices from "webapp/common/data/Services/services-minimal-data.json";
+import dataTestimonials from "webapp/common/data/Testimonials/testimonials-data.json";
+import dataTeam from "webapp/common/data/Team/team-data.json";
+import dataPricings from "webapp/common/data/Pricings/pricings-data.json";
+import dataClients from "webapp/common/data/Clients/clients-data.json";
 // Images
-import imgWhatWeOffer from "assets/images/agency-img.jpg";
-import imgWhatWeDo from "assets/images/bg-right-img.jpg";
-import imgParallax from "assets/images/background/parallax-bg.jpg";
+import imgWhatWeOffer from "webapp/images/agency-img.jpg";
+import imgWhatWeDo from "webapp/images/bg-right-img.jpg";
+import imgParallax from "webapp/images/background/parallax_bg.jpg";
 // Components
-import HeaderOne from "components/Header/HeaderOne";
-import HeroHomeVideo from "components/HeroSlider/HeroHomeVideo";
-import WhatWeOfferEleven from "components/WhatWeOffer/WhatWeOfferEleven";
-import WhatWeDoOne from "components/WhatWeDo/WhatWeDoOne";
-import PortfolioOne from "components/Portfolio/PortfolioOne";
-import TestimonialsOne from "components/Testimonials/TestimonialsOne";
-import TeamOne from "components/Team/TeamOne";
-import ParallaxOne from "components/ParallaxSection/ParallaxOne";
-import PricingsOne from "components/Pricings/PricingsOne";
-import ContactOne from "components/Contact/ContactOne";
-import ClientsCarousel from "components/Carousel/ClientsCarousel";
-import FooterOne from "components/Footer/FooterOne";
-import CountersOne from "components/Counters/CountersOne";
-import Loader from "components/Loader/Loader";
+import HeaderOne from "webapp/common/Header/HeaderOne";
+import HeroHomeVideo from "webapp/common/HeroSlider/HeroHomeVideo";
+import WhatWeOfferEleven from "webapp/common/WhatWeOffer/WhatWeOfferEleven";
+import WhatWeDoOne from "webapp/common/WhatWeDo/WhatWeDoOne";
+import PortfolioOne from "webapp/common/Portfolio/PortfolioOne";
+import TestimonialsOne from "webapp/common/Testimonials/TestimonialsOne";
+import TeamOne from "webapp/common/Team/TeamOne";
+import ParallaxOne from "webapp/common/ParallaxSection/ParallaxOne";
+import PricingsOne from "webapp/common/Pricings/PricingsOne";
+import ContactOne from "webapp/common/Contact/ContactOne";
+import ClientsCarousel from "webapp/common/Carousel/ClientsCarousel";
+import FooterOne from "webapp/common/Footer/FooterOne";
+import CountersOne from "webapp/common/Counters/CountersOne";
+import Loader from "webapp/common/Loader/Loader";
 
 const HomeVideoBg = () => (
   <Loader>
