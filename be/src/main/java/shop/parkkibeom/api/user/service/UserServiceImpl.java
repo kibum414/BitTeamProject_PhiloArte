@@ -48,15 +48,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto signin(UserVo user) {
         try {
-            log.info("아이디 : " + user.getUsername() + " 비밀번호 : " + user.getPassword());
-            UserVo loginedUser = userRepository.signin(user.getUsername(), user.getPassword());
-
             UserDto userDto = modelMapper.map(user, UserDto.class);
 
-            String token = provider.createToken(user.getUsername(), userRepository.findByUsername(user.getUsername()).getRoles());
-            log.info(":::::::::: ISSUED TOKEN :::::::::: ", token);
             // 토큰까지 담아줌
-            userDto.setToken(token);
+            userDto.setToken(
+                    (passwordEncoder.matches(user.getPassword(), userRepository.findByUsername(user.getUsername()).get().getPassword())) // .get() : Optional 객체 내에서 끄집어내기 위해 사용
+                            ?
+                            provider.createToken(user.getUsername(), userRepository.findByUsername(user.getUsername()).get().getRoles())
+                            : "WRONG_PASSWORD"
+            );
 
             return userDto;
         } catch (Exception e) {

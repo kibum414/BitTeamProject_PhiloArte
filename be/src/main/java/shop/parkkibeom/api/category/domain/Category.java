@@ -1,17 +1,17 @@
 package shop.parkkibeom.api.category.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "categories")
 public class Category {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "category_id")
     private long categoryId;
 
-    @Column
-    private long name;
+    @Column(name = "category_name")
+    private String categoryName;
+
 }

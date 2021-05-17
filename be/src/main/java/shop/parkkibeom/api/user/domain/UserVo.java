@@ -16,8 +16,8 @@ public class UserVo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_no")
-	private long userNo;
+	@Column(name = "user_id")
+	private long userId;
 	
 	@Column(unique = true, nullable = false)
 	private String username;
@@ -42,6 +42,9 @@ public class UserVo {
 	
 	@Column(name = "reg_date")
 	private Date regDate;
+
+	@Column(name = "edit_date")
+	private Date editDate;
 
 	// 접속할 때 바로 알려주기 위해 즉시 할당. Authority
 	@ElementCollection(fetch = FetchType.EAGER)

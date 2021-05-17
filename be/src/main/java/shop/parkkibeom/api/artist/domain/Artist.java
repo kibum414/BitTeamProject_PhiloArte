@@ -6,16 +6,16 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
-@Entity
-@Table(name = "artists")
 @Data
 @NoArgsConstructor
+@Entity
+@Table(name = "artists")
 public class Artist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "artist_id")
-    private long artistId;
+    private Long artistId;
 
     @Column(unique = true, nullable = false)
     private String username;
@@ -35,7 +35,13 @@ public class Artist {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "affiliation")
-    private String affiliation;
+    @Column(name = "school")
+    private String school;
+
+    @Column(name = "department")
+    private String department;
+
+    // @ElementCollection(fetch = FetchType.EAGER)
+    // List<Role> roles;
 
 }
