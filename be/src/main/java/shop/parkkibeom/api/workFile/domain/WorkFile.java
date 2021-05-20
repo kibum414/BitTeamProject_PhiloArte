@@ -1,20 +1,26 @@
 package shop.parkkibeom.api.workFile.domain;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import shop.parkkibeom.api.art.domain.Art;
+import shop.parkkibeom.api.common.domain.BaseEntity;
 
 import javax.persistence.*;
 import java.util.UUID;
 
-@Data
+@Getter
+@ToString
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "work_files")
-public class WorkFile {
+public class WorkFile extends BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "file_id")
+    private Long fileId;
+
     @Column(name = "uuid")
     private UUID uuid;
 
