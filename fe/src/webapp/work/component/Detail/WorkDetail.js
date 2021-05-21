@@ -1,22 +1,24 @@
 import React from "react";
 // DATA Files
-import dataNavbar from "data/Navbar/home-business-navbar.json";
-import dataBlog from "data/Blog/blog-data.json";
+import dataNavbar from "webapp/common/data/Navbar/main-navbar-data.json";
 // Images
-import imgTitle from "assets/images/title-bg/title-bg-2.jpg";
 // Components
 import HeaderOne from "webapp/common/Header/HeaderOne";
 import PageTitleWork from "webapp/work/component/PageTitleWork";
-import BlogContent from "webapp/work/component/Detail/WorkContent";
+import WorkContent from "webapp/work/component/Detail/WorkContent";
 import FooterOne from "webapp/common/Footer/FooterOne";
+import { useSelector } from "react-redux";
 
-const WorkDetail = () => (
-  <>
-    <HeaderOne data={dataNavbar} />
-    <PageTitleWork title="작품 상세" image={imgTitle} />
-    <BlogContent post={dataBlog[1]} data={dataBlog} />
-    <FooterOne />
-  </>
-);
+const WorkDetail = (workId) => {
+  
+
+  return (
+    <>
+      <HeaderOne data={dataNavbar} />
+      <PageTitleWork title="작품 상세" />
+      <FooterOne />
+    </>
+  );
+}
 
 export default WorkDetail;

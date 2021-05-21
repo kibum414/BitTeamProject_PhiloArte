@@ -30,7 +30,7 @@ const WorkContent = ({ post, data }) => {
                         <div className="item" key={i}>
                           <img
                             className="img-responsive"
-                            src={require("assets/images/" + image)}
+                            src={image}
                             alt=""
                           />
                         </div>
@@ -38,7 +38,7 @@ const WorkContent = ({ post, data }) => {
                     </Slider>
                   ) : (
                     <img
-                      src={require("assets/images/" + post.image)}
+                      src={post.image}
                       alt=""
                     />
                   )}
@@ -93,7 +93,7 @@ const WorkContent = ({ post, data }) => {
                           <div className="comment-content">
                             <a href={process.env.PUBLIC_URL} className="avatar">
                               <img
-                                src={require("assets/images/" +
+                                src={require("" +
                                   comment.image)}
                                 alt="#"
                               />
@@ -133,7 +133,7 @@ const WorkContent = ({ post, data }) => {
                                         className="avatar"
                                       >
                                         <img
-                                          src={require("assets/images/" +
+                                          src={require("" +
                                             reply.image)}
                                           alt={process.env.PUBLIC_URL}
                                         />
@@ -250,7 +250,7 @@ const WorkContent = ({ post, data }) => {
                               <div className="item" key={i}>
                                 <img
                                   className="img-responsive"
-                                  src={require("assets/images/" + image)}
+                                  src={require("" + image)}
                                   alt=""
                                 />
                               </div>
@@ -280,7 +280,7 @@ const WorkContent = ({ post, data }) => {
                           <div className="post-img">
                             <img
                               className="img-responsive"
-                              src={require("assets/images/" + post.image)}
+                              src={require("" + post.image)}
                               alt=""
                             />
                             <div className="post-metas">

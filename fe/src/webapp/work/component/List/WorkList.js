@@ -1,6 +1,6 @@
 import React from "react";
 import parse from "html-react-parser";
-import PortfolioItem from "webapp/common/Portfolio/PortfolioItem";
+import WorkItem from "webapp/work/component/List/WorkItem";
 import PortfolioFilter from "webapp/common/Portfolio/PortfolioFilter";
 import LoadScript from "webapp/common/helpers/LoadScript";
 
@@ -31,12 +31,12 @@ const WorkList = ({ title, tagline, backfont, data, filter, categories, classes,
             <div id="portfolio-gallery" className="cbp">
               {data
                 .filter((v, i) => i < 8)
-                .map((item, i) => (
-                  <PortfolioItem
-                    key={item.id}
-                    title={item.title}
-                    categories={item.categories}
-                    image={item.image}
+                .map((work, i) => (
+                  <WorkItem
+                    key={work.workId}
+                    id={work.workId}
+                    title={work.title}
+                    image={work.mainImg}
                   />
                 ))}
             </div>
