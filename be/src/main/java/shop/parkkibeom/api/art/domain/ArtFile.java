@@ -6,7 +6,7 @@ import shop.parkkibeom.api.common.domain.BaseEntity;
 import javax.persistence.*;
 
 @Getter
-@ToString
+@ToString(exclude = "art")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,7 +31,7 @@ public class ArtFile extends BaseEntity {
     @Column
     private long fileSize;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "art_id")
     private Art art;
 
