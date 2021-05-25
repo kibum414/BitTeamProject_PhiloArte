@@ -1,16 +1,20 @@
 package shop.parkkibeom.api.art.service;
 
 import org.springframework.data.domain.Page;
-import shop.parkkibeom.api.art.domain.Art;
-import shop.parkkibeom.api.art.domain.ArtDto;
-import shop.parkkibeom.api.art.domain.ArtFile;
-import shop.parkkibeom.api.art.domain.ArtFileDto;
+import shop.parkkibeom.api.art.domain.*;
+import shop.parkkibeom.api.artist.domain.Artist;
+import shop.parkkibeom.api.category.domain.Category;
+import shop.parkkibeom.api.resume.domain.Resume;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public interface ArtService {
-    Page<ArtDto> getAllArtsPaging();
+    Long register(ArtDto artDto);
+    PageResultDTO<ArtDto, Object[]> getArtList(PageRequestDTO pageRequestDTO);
+
+    ArtDto get(Long artId);
+
     ArtDto getArtsByArtId(Long artId);
     List<ArtFile> getFilesByArtId(Long artId);
 
@@ -19,29 +23,30 @@ public interface ArtService {
                 .title(artDto.getTitle())
                 .description(artDto.getDescription())
                 .mainImg(artDto.getMainImg())
+                .artist(Artist.builder().artistId(artDto.getArtist().getArtistId()).build())
+                .category(Category.builder().categoryId(artDto.getCategory().getCategoryId()).build())
+                .resume(Resume.builder().resumeId(artDto.getResume().getResumeId()).build())
                 .build();
     }
 
-    default ArtDto entityToDto(Art art) {
+    default ArtDto entityToDto(Art art, Artist artist, Category category, Resume resume, ArtFile artFile) {
         return ArtDto.builder()
                 .artId(art.getArtId())
                 .title(art.getTitle())
                 .description(art.getDescription())
                 .mainImg(art.getMainImg())
+                .artist(artist)
+                .category(category)
+                .resume(resume)
                 .files(getFilesByArtId(art.getArtId()).stream().map(this::entityToDtoFiles).collect(Collectors.toList()))
-                .artist(art.getArtist())
-                .category(art.getCategory())
                 .build();
-
     }
 
     default ArtFile dtoToEntityFiles(ArtFileDto artFileDto) {
         return ArtFile.builder()
-                .fileId(artFileDto.getFileId())
                 .uuid(artFileDto.getUuid())
                 .originalFileName(artFileDto.getOriginalFileName())
                 .saveFileName(artFileDto.getSaveFileName())
-                .fileSize(artFileDto.getFileSize())
                 .art(artFileDto.getArt())
                 .build();
     }
@@ -52,7 +57,6 @@ public interface ArtService {
                 .uuid(artFile.getUuid())
                 .originalFileName(artFile.getOriginalFileName())
                 .saveFileName(artFile.getSaveFileName())
-                .fileSize(artFile.getFileSize())
                 .art(artFile.getArt())
                 .build();
     }

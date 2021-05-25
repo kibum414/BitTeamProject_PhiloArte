@@ -2,7 +2,6 @@ package shop.parkkibeom.api.art.service;
 
 import org.springframework.web.multipart.MultipartFile;
 import shop.parkkibeom.api.art.domain.ArtFile;
-import shop.parkkibeom.api.art.domain.ArtFileDto;
 
 import java.util.List;
 

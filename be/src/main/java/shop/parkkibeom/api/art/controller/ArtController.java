@@ -1,11 +1,12 @@
 package shop.parkkibeom.api.art.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import shop.parkkibeom.api.art.domain.ArtDto;
+import shop.parkkibeom.api.art.domain.PageRequestDTO;
 import shop.parkkibeom.api.art.service.ArtServiceImpl;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -14,10 +15,11 @@ public class ArtController {
 
     private final ArtServiceImpl artService;
 
-    @GetMapping("/list")
-    public ResponseEntity<Page<ArtDto>> list() {
+    @GetMapping("/list/{page}")
+    public ResponseEntity<List<ArtDto>> list(@PathVariable("page") int page) {
         System.out.println("list()");
-        return ResponseEntity.ok(artService.getAllArtsPaging());
+
+        return ResponseEntity.ok(artService.getArtList(new PageRequestDTO(page)).getDtoList());
     }
 
     @PostMapping("/register")

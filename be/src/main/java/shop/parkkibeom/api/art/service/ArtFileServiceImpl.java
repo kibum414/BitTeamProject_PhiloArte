@@ -6,7 +6,6 @@ import net.coobird.thumbnailator.Thumbnailator;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import shop.parkkibeom.api.art.domain.ArtFileDto;
 import shop.parkkibeom.api.art.repository.ArtFileRepository;
 
 import java.io.File;

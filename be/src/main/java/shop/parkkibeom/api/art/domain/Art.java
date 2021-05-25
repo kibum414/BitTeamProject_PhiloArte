@@ -9,7 +9,7 @@ import shop.parkkibeom.api.resume.domain.Resume;
 import javax.persistence.*;
 
 @Getter
-@ToString
+@ToString(exclude = {"artist", "category", "resume"})
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -39,4 +39,40 @@ public class Art extends BaseEntity {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "resume_id")
+    private Resume resume;
+
 }
+
+/*
+@Data
+@ToString
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class ArtDto {
+
+    // Art
+    private Long artId;
+
+    private String title;
+
+    private String description;
+
+    private String mainImg;
+
+    // Artist
+    private Artist artist;
+
+    // Category
+    private Category category;
+
+    // Resume
+    private Resume resume;
+
+    // ArtFile
+    private List<ArtFileDto> files;
+
+}
+ */

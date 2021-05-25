@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import shop.parkkibeom.api.art.domain.ArtFileDto;
 import shop.parkkibeom.api.art.service.ArtFileServiceImpl;
 
 import java.io.File;

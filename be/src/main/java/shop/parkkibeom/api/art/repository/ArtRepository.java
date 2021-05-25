@@ -17,42 +17,17 @@ import java.util.List;
 @Repository
 public interface ArtRepository extends JpaRepository<Art, Long> {
 
-    // 전체 리스트
-    @EntityGraph(attributePaths = {"artist", "category"}, type = EntityGraph.EntityGraphType.FETCH)
-    @Query("SELECT a FROM Art a ORDER BY a.artId DESC")
-    List<Art> getAllArts();
+    @Query("SELECT a, f FROM Art a LEFT JOIN ArtFile f ON f.art = a WHERE a.artId = :artId")
+    List<Object[]> getArtWithFile(@Param("artId") Long artId);
 
-    // 전체 리스트 페이징
-    @EntityGraph(attributePaths = {"artist", "category", "artist.roles"}, type = EntityGraph.EntityGraphType.FETCH)
-    @Query("SELECT a FROM Art a left outer join a.artist.artistId=artist.artistId ORDER BY a.artId DESC")
-    Page<Art> getAllArtsPaging(Pageable pageable);
+    @Query(value = "SELECT a, t, count(f) FROM Art a LEFT JOIN ArtFile f ON f.art = a GROUP BY a", countQuery = "SELECT count(a) FROM Art a")
+    Page<Object[]> getArtWithFileCount(Pageable pageable);
 
-    // ArtId에 맞는 Art
-    @EntityGraph(attributePaths = {"artist", "category", "artist.roles"}, type = EntityGraph.EntityGraphType.FETCH)
-    @Query("SELECT a FROM Art a INNER JOIN ArtFile f ON f.art = a WHERE a.artId = :artId")
-    Art getArtByArtId(@Param("artId") Long artId);
+    @EntityGraph(attributePaths = {"artist", "category", "resume", "artist.roles"}, type = EntityGraph.EntityGraphType.FETCH)
+    @Query("SELECT a FROM Art a JOIN ArtFile f ON f.art = a")
+    Page<Object[]> getArts(Pageable pageable);
 
-    @Query("SELECT a FROM Art a WHERE a.artist.username = :username")
-    List<Art> searchArtsByUsername(@Param("username") String username);
-
-
-
-
-
-
-    @Modifying
-    @Query("UPDATE FROM Art a SET a.category.categoryId = :categoryId WHERE a.artId = :artId")
-    void updateCategory(@Param("artId") Long artId, @Param("categoryId") Long categoryId);
-
-
-    @Modifying
-    @Query("UPDATE FROM Art a SET a.description = :description WHERE a.artId = :artId")
-    int updateDescription(@Param("artId") Long artId, @Param("description") String description);
-
-    @EntityGraph(attributePaths = {"artist", "category", "resume"}, type = EntityGraph.EntityGraphType.FETCH)
-    @Query("select a from Art a where a.artist.username = :username")
-    Page<Art> searchByArtistNamePaging(@Param("username") String username, Pageable pageable);
-
-
+    //@Query("SELECT a, t, c, r, f FROM Art a LEFT JOIN a.artist t LEFT JOIN a.category c LEFT JOIN a.resume r LEFT JOIN ArtFile f ON f.art = a WHERE a.artId = :artId")
+    //Object getArtsByArtId(@Param("artId") Long artId);
 
 }

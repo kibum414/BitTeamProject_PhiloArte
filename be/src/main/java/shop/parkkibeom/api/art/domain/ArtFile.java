@@ -28,9 +28,6 @@ public class ArtFile extends BaseEntity {
     @Column
     private String saveFileName;
 
-    @Column
-    private long fileSize;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "art_id")
     private Art art;
@@ -40,3 +37,26 @@ public class ArtFile extends BaseEntity {
     }
 
 }
+
+/*
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Component
+public class ArtFileDto {
+
+    // ArtFile
+    private Long fileId;
+
+    private String uuid;
+
+    private String originalFileName;
+
+    private String saveFileName;
+
+    // Art
+    private Art art;
+
+}
+ */

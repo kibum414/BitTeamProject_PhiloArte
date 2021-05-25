@@ -15,7 +15,7 @@ import java.util.List;
 public interface ArtFileRepository extends JpaRepository<ArtFile, Long> {
 
     @EntityGraph(attributePaths = {"art"}, type = EntityGraph.EntityGraphType.FETCH)
-    @Query("SELECT f FROM ArtFile f WHERE f.art.artId = :artId")
+    @Query("SELECT f FROM ArtFile f INNER JOIN f.art a WHERE a.artId = :artId")
     List<ArtFile> getFilesByArtId(@Param("artId") Long artId);
 
     @Transactional
