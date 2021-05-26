@@ -7,7 +7,7 @@ import { ResumeList, ResumeModify, ResumeRead, ResumeRegister } from 'webapp/res
 import { FundingList, FundingModify, FundingRead, FundingRegister } from 'webapp/funding/index'
 import { ItemList, ItemModify, ItemRead, ItemRegister } from 'webapp/item/index'
 import { ReviewList, ReviewModify, ReviewRead, ReviewRegister } from 'webapp/review/index'
-import { WorkPage, WorkRegister, WorkDetail, WorkModify } from 'webapp/work/index'
+import { ArtPage, ArtRegister, ArtDetail, ArtModify } from 'webapp/art/index'
 import { HomeVideoBg } from "webapp/common/index";
 
 const App = () => {
@@ -46,11 +46,11 @@ const App = () => {
             <Route exact path='/review/review-read' component={ReviewRead} />
             <Route exact path='/review/review-register' component={ReviewRegister} />
 
-            {/*Work*/}
-            <Route exact path='/work' component={WorkPage} />
-            <Route exact path='/work/register' component={WorkRegister} />
-            <Route exact path='/work/detail' component={WorkDetail} />
-            <Route exact path='/work/modify' component={WorkModify} />
+            {/*Art*/}
+            <Route exact path='/art' component={ArtPage} />
+            <Route exact path='/art/register' component={ArtRegister} />
+            <Route exact path='/art/detail' component={ArtDetail} />
+            <Route exact path='/art/modify' component={ArtModify} />
           </Switch>
         </ScrollToTop>
       </ScrollIntoView>

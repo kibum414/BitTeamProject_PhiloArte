@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="96908c40-b56f-4a94-8de8-bd33d111943a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/resume/domain/ResumeDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../be/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/controller/ArtController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/controller/ArtController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/controller/ArtFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/controller/ArtFileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/domain/Art.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/domain/Art.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/domain/ArtFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/domain/ArtFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/domain/PageRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/domain/PageRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/domain/PageResultDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/domain/PageResultDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/repository/ArtFileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/repository/ArtFileRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/repository/ArtRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/repository/ArtRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/service/ArtFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/service/ArtFileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/service/ArtFileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/service/ArtFileServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/service/ArtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/service/ArtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/service/ArtServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/art/service/ArtServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/artist/domain/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/artist/domain/Artist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/artist/domain/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/artist/domain/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/category/domain/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/category/domain/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/crawling/domain/Resume.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/crawling/service/SeleniumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/crawling/service/SeleniumService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/like/Like.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/like/domain/Like.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/resume/domain/Resume.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/resume/domain/Resume.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/resume/domain/ResumeDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/review/domain/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/review/domain/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/security/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/security/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/upload/controller/CustomErrorController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/upload/controller/PerformanceController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/upload/controller/UploadController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/upload/dto/PageRequestDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/upload/dto/PerformanceDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/upload/dto/PicturesDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/upload/entity/Performance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/upload/entity/Pictures.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/upload/repository/PerformanceRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/upload/repository/PicturesRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/upload/service/PerformanceService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/upload/service/PerformanceServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/user/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/user/domain/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/user/domain/UserDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/user/domain/UserVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/user/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/user/service/UserDetailsServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/user/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/user/service/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/workFile/controller/WorkFileController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/workFile/domain/WorkFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/workFile/repository/WorkFileRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/workFile/service/WorkFileService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/java/shop/parkkibeom/api/workFile/service/WorkFileServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/test/java/shop/parkkibeom/api/ApiApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/test/java/shop/parkkibeom/api/ApiApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../be/src/test/java/shop/parkkibeom/api/ArtRepositoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../be/src/test/java/shop/parkkibeom/api/ArtRepositoryTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../simpleTodo-master/src/main/resources/application.yml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1t4JZM6oZUoDPxqpC9UbytKdOQ9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="96908c40-b56f-4a94-8de8-bd33d111943a" name="Default Changelist" comment="" />
+      <created>1622022483561</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1622022483561</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -83,8 +83,8 @@
   },
   {
     "id": 5,
-    "title": "작품 등록하기",
-    "path": "/work/work-list"
+    "title": "Art",
+    "path": "/art"
   },
   {
     "id": 6,
