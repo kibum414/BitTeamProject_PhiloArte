@@ -1,15 +1,18 @@
-package shop.parkkibeom.api.like;
+package shop.parkkibeom.api.like.domain;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import shop.parkkibeom.api.common.domain.BaseEntity;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@ToString
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "likes_record")
-public class Like {
+public class Like extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
