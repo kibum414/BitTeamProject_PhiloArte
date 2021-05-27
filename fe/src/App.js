@@ -49,7 +49,7 @@ const App = () => {
             {/*Art*/}
             <Route exact path='/art' component={ArtPage} />
             <Route exact path='/art/register' component={ArtRegister} />
-            <Route exact path='/art/detail' component={ArtDetail} />
+            <Route exact path='/art/:id' component={ArtDetail} />
             <Route exact path='/art/modify' component={ArtModify} />
           </Switch>
         </ScrollToTop>

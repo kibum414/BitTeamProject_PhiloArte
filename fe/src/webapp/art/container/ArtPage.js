@@ -14,12 +14,12 @@ import ArtList from "webapp/art/component/List/ArtList";
 import { getArtList } from 'webapp/art/reducer/art.reducer'
 
 const ArtPage = () => {
-  const arts = useSelector(state => state.Arts)
+  const arts = useSelector(state => state.arts.pageResult)
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getArtList())
+    dispatch(getArtList(arts.page))
   }, [])
 
   return (
@@ -27,14 +27,12 @@ const ArtPage = () => {
       <HeaderOne data={dataNavbar} />
       <PageTitleOne title="작품 목록" image={""} />
       <ArtList
-        data={arts}
+        data={arts.dtoList}
         filter={true}
         categories={[
-          "Branding",
-          "Creative Design",
-          "Web Design",
-          "Stationery",
-          "Photography",
+          "예술",
+          "사진",
+          "연극"
         ]}
 
       />

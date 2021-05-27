@@ -16,10 +16,10 @@ const PortfolioFilter = ({ categories, classes }) => (
         {categories.map((item, i) => (
           <div
             key={i}
-            data-filter={`.${item.replace(/\s+/g, "-").toLowerCase()}`}
+            data-filter={`.${item}`}
             className="cbp-filter-item"
           >
-            {item.charAt(0).toUpperCase() + item.slice(1)}
+            {item}
           </div>
         ))}
       </div>

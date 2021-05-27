@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import BlogSidebar from "webapp/art/component/Detail/ArtSidebar";
+import ArtSidebar from "webapp/art/component/Detail/ArtSidebar";
 import Icofont from "react-icofont";
 
 const ArtContent = ({ post, data }) => {
@@ -342,7 +342,7 @@ const ArtContent = ({ post, data }) => {
               </div>
             </div>
           </div>
-          <BlogSidebar />
+          <ArtSidebar />
         </div>
       </div>
     </section>

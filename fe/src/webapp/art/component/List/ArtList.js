@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import parse from "html-react-parser";
 import ArtItem from "webapp/art/component/List/ArtItem";
 import PortfolioFilter from "webapp/common/Portfolio/PortfolioFilter";
@@ -29,17 +29,16 @@ const ArtList = ({ title, tagline, backfont, data, filter, categories, classes, 
         <div className={"row " + (!filter ? "mt-80" : "")}>
           <div className="col-md-12">
             <div id="portfolio-gallery" className="cbp">
-              {<h1>a</h1>}
-              {/* {data
-                .filter((v, i) => i < 8)
+              {data
                 .map((art, i) => (
                   <ArtItem
                     key={art.artId}
                     id={art.artId}
                     title={art.title}
                     image={art.mainImg}
+                    category={art.category.categoryName}
                   />
-                ))} */}
+                ))}
             </div>
           </div>
         </div>

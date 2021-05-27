@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { ArtService } from 'webapp/art'
 
-export const getArtList = createAsyncThunk("Art_LIST",
-  async () => {
-    const response = await ArtService.list()
+export const getArtList = createAsyncThunk("ART_LIST",
+  async (page) => {
+    const response = await ArtService.list(page)
 
     return response.data
   }
@@ -41,20 +41,34 @@ export const getArtDelete = createAsyncThunk("ART_DELETE",
   }
 )
 
-const ArtSlice = createSlice({
-  name: 'Arts',
-  initialState: [],
-  reducer: {},
+const artSlice = createSlice({
+  name: 'arts',
+  initialState: {
+    pageResult: {
+      dtoList: [],
+      page: 1,
+      pageList: [],
+      start: 1,
+      end: 1,
+      prev: false,
+      next: false
+    },
+    art: {},
+    
+  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getArtList.fulfilled, (state, { payload }) => {
-        return [...payload]
+        state.pageResult = payload
+        console.log(state.pageResult)
       })
       .addCase(getArtRegister.fulfilled, (state, { payload }) => {
         alert(`등록 : ${payload}`)
       })
       .addCase(getArtRead.fulfilled, (state, { payload }) => {
-        return [...payload]
+        state.art = payload
+        console.log(state.art)
       })
       .addCase(getArtModify.fulfilled, (state, { payload }) => {
 
@@ -65,6 +79,6 @@ const ArtSlice = createSlice({
   }
 })
 
-const { actions, reducer } = ArtSlice
+const { actions, reducer } = artSlice
 export const { } = actions
 export default reducer
