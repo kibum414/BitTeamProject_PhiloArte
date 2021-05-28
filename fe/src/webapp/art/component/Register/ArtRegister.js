@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 // DATA Files
@@ -6,35 +6,44 @@ import dataNavbar from "webapp/common/data/Navbar/main-navbar-data.json";
 // Components
 import { HeaderOne, FooterOne } from 'webapp/common';
 import PageTitleArt from 'webapp/art/component/PageTitleArt';
-import { getArtRegister } from 'webapp/art/reducer/art.reducer';
+import { getArtList, getArtRegister, getArtUpload } from 'webapp/art/reducer/art.reducer';
 
 import 'webapp/art/style/Art.css'
 
 const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
 
+  const titleRef = useRef()
+  const categoryRef = useRef()
+  const descriptionRef = useRef()
+  const fileRef = useRef()
+
   const dispatch = useDispatch()
   const history = useHistory()
 
-  const [input, setInput] = useState({
-    title: "",
-    category: "",
-    description: ""
-  })
-
-  const inputChange = useCallback(e => {
-    setInput({
-      ...input,
-      [e.target.name]: e.target.value
-    })
-  }, [input])
-
-  const ArtRegister = e => {
+  const ArtRegister = useCallback(e => {
     e.preventDefault()
 
-    dispatch(getArtRegister(input))
+    const input = {
+      title: titleRef.current.value,
+      category: { categoryId: Number(categoryRef.current.value) },
+      description: descriptionRef.current.value,
+      mainImg: "http://www.yck.kr/_data/file/bbsData/86d2f471ffc196ee508845737375d38d.jpg",
+      artist: { artistId: 333 },
+      resume: { resumeId: 100 },
+    }
 
-    history.push('/art')
-  }
+    const file = fileRef.current.files
+
+    console.log("TITLE: " + titleRef.current.value)
+    console.log("CATEGORY: " + typeof categoryRef.current.value)
+    console.log("DESCRIPTION: " + descriptionRef.current.value)
+    console.log(fileRef.current.files)
+    
+    dispatch(getArtRegister(input))
+    dispatch(getArtUpload(file))
+
+    // history.push('/art')
+  })
 
   return (
     <>
@@ -69,7 +78,7 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
                       id="title"
                       required
                       data-error="작품명을 입력하세요."
-                      onChange={inputChange}
+                      ref={titleRef}
                     />
                   </div>
                 </div>
@@ -79,17 +88,18 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
                       카테고리
                     </label>
                     <select
-                      type="text"
+                      type="number"
                       name="category"
                       className="md-input style-02 sel_arrow input_white"
                       id="category"
                       required
                       data-error="카테고리를 선택해주세요."
-                      onChange={inputChange}
+                      ref={categoryRef}
                     >
                       <option>카테고리</option>
-                      <option value="인물">인물</option>
-                      <option value="풍경">풍경</option>
+                      <option value="1">예술</option>
+                      <option value="2">사진</option>
+                      <option value="3">연극</option>
                     </select>
                   </div>
                 </div>
@@ -105,7 +115,7 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
                       rows="7"
                       required
                       data-error="작품에 대한 설명을 입력해주세요."
-                      onChange={inputChange}
+                      ref={descriptionRef}
                     />
                   </div>
                 </div>
@@ -117,9 +127,12 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
                     <input
                       type="file"
                       name="art"
+                      accept="image/*"
                       className="md-input style-02 input_white"
                       id="art"
+                      multiple={true}
                       data-error="작품 파일을 첨부해주세요."
+                      ref={fileRef}
                     />
                   </div>
                 </div>

@@ -11,7 +11,17 @@ export const getArtList = createAsyncThunk("ART_LIST",
 
 export const getArtRegister = createAsyncThunk("ART_REGISTER",
   async (args) => {
+    console.log('REGISTER : ' + JSON.stringify(args))
     const response = await ArtService.register(args)
+
+    return response.data
+  }
+)
+
+export const getArtUpload = createAsyncThunk("ART_UPLOAD",
+  async (args) => {
+    console.log('UPLOAD : ' + JSON.stringify(args))
+    const response = await ArtService.upload(args)
 
     return response.data
   }
@@ -54,6 +64,7 @@ const artSlice = createSlice({
       next: false
     },
     art: {},
+    category: '',
     
   },
   reducers: {},
@@ -64,7 +75,10 @@ const artSlice = createSlice({
         console.log(state.pageResult)
       })
       .addCase(getArtRegister.fulfilled, (state, { payload }) => {
-        alert(`등록 : ${payload}`)
+        alert(`${payload}번 게시물 등록 완료 !`)
+      })
+      .addCase(getArtUpload.fulfilled, (state, { payload }) => {
+        alert(`${payload} 파일 등록 완료 !`)
       })
       .addCase(getArtRead.fulfilled, (state, { payload }) => {
         state.art = payload

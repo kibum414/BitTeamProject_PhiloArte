@@ -20,7 +20,7 @@ const ArtPage = () => {
 
   useEffect(() => {
     dispatch(getArtList(arts.page))
-  }, [])
+  }, [arts.page])
 
   return (
     <>
