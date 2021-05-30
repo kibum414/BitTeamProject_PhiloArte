@@ -31,8 +31,19 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
       artist: { artistId: 333 },
       resume: { resumeId: 100 },
     }
+    
+    const files = fileRef.current.files
 
-    const file = fileRef.current.files
+    const formData = new FormData()
+
+    for (let i = 0; i < files.length; i++) {
+      formData.append("files", files[i])
+    }
+
+    console.log('FORMDATA: ' + JSON.stringify(formData))
+
+    // art 번호를 어떻게 추가 ?
+
 
     console.log("TITLE: " + titleRef.current.value)
     console.log("CATEGORY: " + typeof categoryRef.current.value)
@@ -40,9 +51,23 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
     console.log(fileRef.current.files)
     
     dispatch(getArtRegister(input))
-    dispatch(getArtUpload(file))
+    dispatch(getArtUpload(files))
 
     // history.push('/art')
+  })
+
+  const upload = useCallback(e => {
+
+    console.log('dadada: ', e.target.files)
+
+    const formData = new FormData()
+    const files = e.target.files
+
+    for (let i = 0; i < files.length; i++) {
+      formData.append("files", files[i])
+    }
+
+    console.log('FORMDATA2: ' + JSON.stringify(formData))
   })
 
   return (
@@ -133,6 +158,7 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
                       multiple={true}
                       data-error="작품 파일을 첨부해주세요."
                       ref={fileRef}
+                      onChange={upload}
                     />
                   </div>
                 </div>

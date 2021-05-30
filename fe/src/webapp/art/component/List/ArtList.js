@@ -7,8 +7,8 @@ import { useSelector } from "react-redux";
 
 const ArtList = ({ title, tagline, backfont, data, filter, categories, classes, dash, dashColor }) => {
   LoadScript("js/portfolio/portfolio-grid.js");
-  const category = useSelector(state => state.arts.category)
-  console.log(category)
+  
+  let category = null
 
   const getList = useCallback(data.map((art, i) => {
 
@@ -22,7 +22,13 @@ const ArtList = ({ title, tagline, backfont, data, filter, categories, classes, 
         category={art.category.categoryName}
         />
       </div>
-  )}))
+    )
+  }))
+  
+  const getCategory = (getCategoryResult) => {
+    console.log('getCategory')
+    category = getCategoryResult
+  }
 
   return (
     <section id="portfolio" className={"pt-0 pb-0 " + classes}>
@@ -39,7 +45,7 @@ const ArtList = ({ title, tagline, backfont, data, filter, categories, classes, 
           </div>
         </div>
         {filter === true && Array.isArray(categories) ? (
-          <PortfolioFilter categories={categories} category={category} classes="mb-80" />
+          <PortfolioFilter categories={categories} getCategory={getCategory} classes="mb-80" />
         ) : null}
       </div>
       <div className="container-fluid remove-padding">

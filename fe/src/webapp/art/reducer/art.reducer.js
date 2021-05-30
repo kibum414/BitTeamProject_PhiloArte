@@ -29,6 +29,7 @@ export const getArtUpload = createAsyncThunk("ART_UPLOAD",
 
 export const getArtRead = createAsyncThunk("ART_READ",
   async (args) => {
+    console.log(args)
     const response = await ArtService.read(args)
 
     return response.data

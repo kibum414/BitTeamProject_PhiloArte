@@ -27,9 +27,9 @@ const ArtDetail = () => {
 
   return (
     <>
-      {/* <HeaderOne data={dataNavbar} />
+      <HeaderOne data={dataNavbar} />
       <PageTitleArt title="작품 상세" />
-      <FooterOne /> */}
+      <FooterOne />
     </>
   );
 }

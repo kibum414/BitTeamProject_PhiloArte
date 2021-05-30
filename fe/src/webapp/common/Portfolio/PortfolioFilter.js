@@ -1,6 +1,6 @@
 import React from "react";
 
-const PortfolioFilter = ({ categories, category, classes }) => {
+const PortfolioFilter = ({ categories, getCategory, classes }) => {
 
   return (
     <div className="row mt-50">
