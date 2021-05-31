@@ -4,11 +4,12 @@ import ArtSidebar from "webapp/art/component/Detail/ArtSidebar";
 import Icofont from "react-icofont";
 
 const ArtContent = ({ post, data }) => {
+
   const settings = {
     dots: false,
     infinite: true,
     centerMode: true,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -24,7 +25,7 @@ const ArtContent = ({ post, data }) => {
             <div className="row">
               <div className="col-md-12 col-sm-12 col-xs-12 mb-20 xs-mb-50">
                 <div className="post">
-                  {post.type === "slide" ? (
+                  {/* {post.type === "slide" ? (
                     <Slider {...settings}>
                       {post.slides.map((image, i) => (
                         <div className="item" key={i}>
@@ -41,40 +42,40 @@ const ArtContent = ({ post, data }) => {
                       src={post.image}
                       alt=""
                     />
-                  )}
+                  )} */}
+                  {
+                    <Slider {...settings}>
+                      {post?.files.map((image, i) => (
+                        <div className="item" key={i}>
+                          <img
+                            className="img-responsive"
+                            src={`http://localhost:8080/art_files/display/${image.saveFileName}`}
+                            alt=""
+                          />
+                        </div>
+                      ))}
+                    </Slider>
+                  }
                   <div className="post-metas">
                     <div className="post-metas-center">
-                      <p className="post-date">{post.published}</p>
+                      <p className="post-date">{post?.regDate}</p>
                     </div>
                   </div>
                   <div className="post-info all-padding-20">
-                    <h3>
-                      <a href={process.env.PUBLIC_URL}>{post.title}</a>
-                    </h3>
-                    <p>{post.text}</p>
+                    <h3>{post?.title}</h3>
                   </div>
                 </div>
               </div>
 
               <div className="col-md-12 col-sm-12 col-xs-12 mb-20">
                 <div className="blog-standard">
-                  <p>
-                    We’ve collected 10 Top Tips to to help you deliver better
-                    support for your items. Although it’s not mandatory, some of
-                    our most successful authors do an awesome job at providing
-                    support for their buyers, and we want to share their
-                    techniques.
-                  </p>
                   <blockquote>
                     <p>
-                      For some buyers, the difference between items is based on
-                      the professionalism of the support offered. So read on to
-                      find out how Envato’s top authors deliver fantastic
-                      support.
+                      {post?.description}
                     </p>
                   </blockquote>
                 </div>
-                {post.tags ? (
+                {/* {post.tags ? (
                   <div className="post-tags">
                     {post.tags.map((tag, i) => (
                       <a href={process.env.PUBLIC_URL} key={i}>
@@ -82,12 +83,12 @@ const ArtContent = ({ post, data }) => {
                       </a>
                     ))}
                   </div>
-                ) : null}
+                ) : null} */}
                 <h2 className="comment-reply-title mt-30">
-                  {post.comments.length + " Comments"}
+                  {/* {post.comments.length + " Comments"} */}
                 </h2>
                 <ul className="comment-box">
-                  {post.comments.length > 0
+                  {/* {post.comments.length > 0
                     ? post.comments.map((comment) => (
                         <li className="post-comment" key={comment.id}>
                           <div className="comment-content">
@@ -170,7 +171,7 @@ const ArtContent = ({ post, data }) => {
                             : null}
                         </li>
                       ))
-                    : "There are no comments yet."}
+                    : "There are no comments yet."} */}
                 </ul>
                 <div id="respond" className="comment-respond">
                   <h2 id="reply-title" className="comment-reply-title">
@@ -238,7 +239,7 @@ const ArtContent = ({ post, data }) => {
 
                 <h2 className="recent-post-title">Recent Posts</h2>
                 <div className="row blog-style-01">
-                  {data.slice(0, 2).map((post) =>
+                  {/* {data.slice(0, 2).map((post) =>
                     post.slides ? (
                       <div
                         className="col-md-6 col-sm-6 col-xs-12"
@@ -300,7 +301,7 @@ const ArtContent = ({ post, data }) => {
                         </div>
                       </div>
                     )
-                  )}
+                  )} */}
                 </div>
               </div>
             </div>

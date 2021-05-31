@@ -1,30 +1,26 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import parse from "html-react-parser";
 import ArtItem from "webapp/art/component/List/ArtItem";
 import PortfolioFilter from "webapp/common/Portfolio/PortfolioFilter";
 import LoadScript from "webapp/common/helpers/LoadScript";
-import { useSelector } from "react-redux";
 
 const ArtList = ({ title, tagline, backfont, data, filter, categories, classes, dash, dashColor }) => {
   LoadScript("js/portfolio/portfolio-grid.js");
-  
-  let category = null
 
+  let category = null
   const getList = useCallback(data.map((art, i) => {
 
     return (
-      <div className="cbp-wrapper-outer cbp-wrapper">
-      <ArtItem
-        key={art.artId}
-        id={art.artId}
-        title={art.title}
-        image={art.mainImg}
-        category={art.category.categoryName}
+        <ArtItem
+          key={i}
+          id={art.artId}
+          title={art.title}
+          image={art.mainImg}
+          category={art.category.categoryName}
         />
-      </div>
     )
   }))
-  
+
   const getCategory = (getCategoryResult) => {
     console.log('getCategory')
     category = getCategoryResult

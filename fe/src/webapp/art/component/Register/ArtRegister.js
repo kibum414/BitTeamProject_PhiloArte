@@ -23,51 +23,31 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
   const ArtRegister = useCallback(e => {
     e.preventDefault()
 
+    const formData = new FormData()
+
     const input = {
       title: titleRef.current.value,
       category: { categoryId: Number(categoryRef.current.value) },
       description: descriptionRef.current.value,
       mainImg: "http://www.yck.kr/_data/file/bbsData/86d2f471ffc196ee508845737375d38d.jpg",
-      artist: { artistId: 333 },
-      resume: { resumeId: 100 },
+      artist: { artistId: 333 }, // 아티스트 정보 가져올 곳
+      resume: { resumeId: 100 }, // 레쥬메 정보 가져올 곳
     }
-    
-    const files = fileRef.current.files
 
-    const formData = new FormData()
+    const files = fileRef.current.files
+    const json = JSON.stringify(input);
+    const blob = new Blob([json], {
+      type: 'application/json'
+    });
+    formData.append("input", blob)
 
     for (let i = 0; i < files.length; i++) {
       formData.append("files", files[i])
     }
 
-    console.log('FORMDATA: ' + JSON.stringify(formData))
-
-    // art 번호를 어떻게 추가 ?
-
-
-    console.log("TITLE: " + titleRef.current.value)
-    console.log("CATEGORY: " + typeof categoryRef.current.value)
-    console.log("DESCRIPTION: " + descriptionRef.current.value)
-    console.log(fileRef.current.files)
-    
-    dispatch(getArtRegister(input))
-    dispatch(getArtUpload(files))
+    dispatch(getArtRegister(formData))
 
     // history.push('/art')
-  })
-
-  const upload = useCallback(e => {
-
-    console.log('dadada: ', e.target.files)
-
-    const formData = new FormData()
-    const files = e.target.files
-
-    for (let i = 0; i < files.length; i++) {
-      formData.append("files", files[i])
-    }
-
-    console.log('FORMDATA2: ' + JSON.stringify(formData))
   })
 
   return (
@@ -158,7 +138,6 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
                       multiple={true}
                       data-error="작품 파일을 첨부해주세요."
                       ref={fileRef}
-                      onChange={upload}
                     />
                   </div>
                 </div>

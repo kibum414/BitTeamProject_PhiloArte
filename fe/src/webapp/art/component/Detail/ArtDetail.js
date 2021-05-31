@@ -12,23 +12,22 @@ import { getArtRead } from "webapp/art/reducer/art.reducer";
 import { useParams } from "react-router";
 
 const ArtDetail = () => {
-  const { id } = useParams()
-  console.log(id)
 
-  const art = useSelector(state => state.arts.art)
-  console.log(art)
+  const { id } = useParams()
+
+  const art = useSelector(state => state.arts.current)
 
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getArtRead(id))
   }, [])
-  
 
   return (
     <>
       <HeaderOne data={dataNavbar} />
       <PageTitleArt title="작품 상세" />
+      <ArtContent post={art} />
       <FooterOne />
     </>
   );

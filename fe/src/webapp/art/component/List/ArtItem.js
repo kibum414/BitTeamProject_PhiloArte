@@ -12,7 +12,6 @@ const ArtItem = ({ id, title, image, category }) => {
         // +
         // categories.join(',').replace(/\s+/g, "-").replace(/,/g, ' ').toLowerCase().split()
       }
-      style={{position: "relative"}}
     >
 
       <div className="portfolio-item">
