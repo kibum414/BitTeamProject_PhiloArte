@@ -4,7 +4,7 @@ import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import shop.parkkibeom.api.crawling.domain.Resume;
+import shop.parkkibeom.api.resume.domain.Resume;
 
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
@@ -45,8 +45,8 @@ public class CrawlerService {
 
             for (int i = 0; i < elements.size(); i++) {
                 Resume resume = new Resume();
-                resume.setTitle(elements.get(i).text());
-                resume.setDetail(elements.get(i).text());
+//                resume.setTitle(elements.get(i).text());
+//                resume.setDetail(elements.get(i).text());
                 System.out.println(resume);
 
                 list.add(resume);

@@ -4,32 +4,53 @@ import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
-import shop.parkkibeom.api.art.domain.Art;
+import shop.parkkibeom.api.art.domain.*;
+import shop.parkkibeom.api.art.repository.ArtFileRepository;
 import shop.parkkibeom.api.art.repository.ArtRepository;
+import shop.parkkibeom.api.art.service.ArtService;
+import shop.parkkibeom.api.artist.domain.Artist;
+import shop.parkkibeom.api.category.domain.Category;
+import shop.parkkibeom.api.resume.domain.Resume;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 @SpringBootTest
 @Log4j2
 public class ArtRepositoryTests {
 
     @Autowired
+    private ArtService artService;
+
+    @Autowired
     private ArtRepository artRepository;
 
-    @Test
-    public void testInsert() {
+    @Autowired
+    private ArtFileRepository artFileRepository;
 
-        artRepository.save(
-                Art.builder()
-                .title("")
-                .description("")
-                .mainImg("")
-                .build());
+    @Test
+    public void testSaveArts() {
+
+        for (int i = 0; i < 30; i++) {
+            artRepository.save(
+                    Art.builder()
+                            .title("제목 " + i)
+                            .description("설명 " + i)
+                            .mainImg("이미지 " + i)
+                            .artist(Artist.builder().artistId((long) (Math.random() * 404 + 1)).build())
+                            .category(Category.builder().categoryId((long) (Math.random() * 3 + 1)).build())
+                            .resume(Resume.builder().resumeId((long) (Math.random() * 100 + 1)).build())
+                            .build());
+        }
 
 //        artRepository.insertData(
 //                "[INTERVIEW] 싱그러운 꽃잎에 담긴 진심, 박진희",
@@ -88,20 +109,19 @@ public class ArtRepositoryTests {
     }
 
     @Test
-    public void testRead() {
-        Optional<Art> art = artRepository.findById(1L);
+    public void testSaveArtFiles() {
 
-
-    }
-
-    @Transactional
-    @Commit
-    @Test
-    public void testUpdateDescription() {
-        Art art = artRepository.findById(1L).get();
-
-
-        artRepository.save(art);
+        String uuid;
+        for (int i = 0; i < 30; i++) {
+            uuid = UUID.randomUUID().toString();
+            artFileRepository.save(
+                    ArtFile.builder()
+                            .uuid(uuid)
+                            .originalFileName("Vuex.png")
+                            .saveFileName(uuid + "_Vuex.png")
+                            .art(Art.builder().artId((long) (Math.random() * 27 + 104)).build())
+                            .build());
+        }
     }
 
     @Test
@@ -109,31 +129,134 @@ public class ArtRepositoryTests {
 
     }
 
+    @Transactional
     @Test
-    public void testFindAll() {
-        List<Art> result = artRepository.getAllArts();
+    public void testRead1() {
+        Optional<Art> result = artRepository.findById(121L);
 
-        for (Art art : result) {
-            System.out.println(art);
+        Art art = result.get();
+
+        System.out.println(art);
+        System.out.println(art.getArtist());
+    }
+
+    /*
+    @Test
+    public void testArtWithArtist() {
+        Object result = artRepository.getArtWithArtist(121L);
+
+        Object[] arr = (Object[]) result;
+
+        System.out.println(Arrays.toString(arr));
+    }
+
+    @Test
+    public void testGetArtWithFile() {
+        List<Object[]> result = artRepository.getArtWithFile(121L);
+        for (Object[] arr : result) {
+            System.out.println(Arrays.toString(arr));
         }
     }
 
     @Test
-    public void testFindAllPaging() {
-        Pageable pageable = PageRequest.of(1, 10);
+    public void testWithFileCount() {
+        Pageable pageable = PageRequest.of(0, 10, Sort.by("artId").descending());
 
-        artRepository.getAllArtsPaging(pageable).get().forEach(art -> {
-            log.info(art);
+        Page<Object[]> result = artRepository.getArtWithFileCount(pageable);
+
+        result.get().forEach(row -> {
+            Object[] arr = (Object[]) row;
+
+            System.out.println(Arrays.toString(arr));
         });
+    }
+    */
+
+    @Test
+    public void testRegister() {
+//        ArtDTO artDTO = ArtDTO.builder()
+//                .title("Test.")
+//                .description("Test...")
+//                .mainImg("Test.......")
+//                .artist(Artist.builder().artistId(100L).build())
+//                .category(Category.builder().categoryId(2L).build())
+//                .resume(Resume.builder().resumeId(10L).build())
+//                .build();
+//
+//        System.out.println(artService.register(artDTO));
+    }
+
+    @Test
+    public void testRead3() {
+//        Object result = artRepository.getArtByArtId(123L);
+//
+//        Object[] arr = (Object[]) result;
+//
+//        System.out.println(Arrays.toString(arr));
+    }
+
+    @Transactional
+    @Test
+    public void testList() {
+        PageRequestDTO pageRequestDTO = new PageRequestDTO();
+
+        PageResultDTO<ArtDTO, Object[]> result = artService.getArtList(pageRequestDTO);
+
+        for (ArtDTO artDTO : result.getDtoList()) {
+            System.out.println(artDTO);
+        }
+    }
+
+    @Transactional
+    @Test
+    public void testGet() {
+        ArtDTO artDTO = artService.get(123L);
+
+        System.out.println(artDTO);
+    }
+
+    @Test
+    public void testArts() {
+
+        Page<Object[]> result = artRepository.getArts(PageRequest.of(0, 10, Sort.by("artId").descending()));
+
+        result.get().forEach(arr -> {
+            System.out.println(Arrays.toString(arr));
+            System.out.println("--------------------------");
+        });
+
+    }
+
+    @Test
+    public void testArtsTest() {
+        List<Object[]> result = artRepository.getArtsTest(PageRequest.of(0, 10));
+
+        result.forEach(arr -> {
+            System.out.println(Arrays.toString(arr));
+        });
+    }
+
+    @Test
+    public void testRemove() {
+        artService.delete(112L);
     }
 
     @Transactional
     @Commit
     @Test
-    public void testGetArtAndFilesByArtId() {
-        List<Object[]> list = artRepository.getArtAndFilesByArtId();
+    public void testModify() {
 
-        log.info("list.get(0)[0] : " + list.get(0)[0]);
+        ArtDTO artDTO = ArtDTO.builder()
+                .artId(133L)
+                .title("제목 변경")
+                .description("내용 변경")
+                .mainImg("메인 이미지 변경")
+                .build();
+
+        System.out.println("--------------변경 준비");
+        System.out.println(artService.modify(artDTO));
+        System.out.println("--------------변경 완료");
+
     }
 
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 // DATA Files
 import dataNavbar from "webapp/common/data/Navbar/main-navbar-data.json";
 // Components
@@ -6,8 +6,39 @@ import { HeaderOne, FooterOne } from 'webapp/common'
 import PageTitleArt from 'webapp/art/component/PageTitleArt';
 
 import 'webapp/art/style/Art.css'
+import { useDispatch, useSelector } from 'react-redux';
 
-const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
+const ArtModify = ({ tagline, title, backfont, dash, textBtn, classes }) => {
+
+  const art = useSelector(state => state.arts.current)
+  console.log(art)
+
+  const [input, setInput] = useState({
+    title: art.title,
+    category: art.category.categoryId,
+    description: art.description,
+  })
+
+  const dispatch = useDispatch()
+
+  const handleChange = e => {
+    setInput({
+      [e.target.name]: [e.target.value]
+    })
+  }
+
+  const ArtModify = useCallback(e => {
+    e.preventDefault()
+
+    const formData = new FormData()
+
+    const update = {
+      
+
+    }
+    
+
+  })
 
   return (
     <>
@@ -32,15 +63,17 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
               <div className="row">
                 <div className="col-md-12 col-sm-12">
                   <div className="form-group">
-                    <label htmlFor="name" className="dark-color">
+                    <label htmlFor="title" className="dark-color">
                       작품명
                 </label>
                     <input
                       type="text"
-                      name="name"
+                      name="title"
                       className="md-input style-02 input_white"
-                      id="name"
-                      readOnly
+                      id="title"
+                      required
+                      data-error="작품명을 입력하세요."
+                      value={input.title}
                     />
                   </div>
                 </div>
@@ -57,9 +90,10 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
                       required
                       data-error="카테고리를 선택해주세요"
                     >
-                      <option value selected>카테고리</option>
-                      <option value="인물">인물</option>
-                      <option value="풍경">풍경</option>
+                      <option>{input.category}</option>
+                      <option value="1">예술</option>
+                      <option value="2">사진</option>
+                      <option value="3">연극</option>
                     </select>
                   </div>
                 </div>
@@ -75,14 +109,24 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
                       rows="7"
                       required
                       data-error="작품에 대한 설명을 입력해주세요."
-                    ></textarea>
+                      value={input.description}
+                      />
                   </div>
                 </div>
                 <div className="col-md-12 col-sm-12">
                   <div className="form-group">
                     <label htmlFor="message" className="dark-color">
                       파일 첨부
-                </label>
+                    </label>
+                    {art?.files.map((image, i) => (
+                      <div className="item" key={i}>
+                        <img
+                          className="img-responsive"
+                          src={`http://localhost:8080/art_files/display?fileName=${image.saveFileName}`}
+                          alt={image.originalFileName}
+                        />
+                      </div>
+                    ))}
                     <input
                       type="file"
                       name="art"
@@ -116,4 +160,4 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
   )
 }
 
-export default ArtRegister
+export default ArtModify

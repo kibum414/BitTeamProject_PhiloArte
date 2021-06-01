@@ -1,10 +1,16 @@
 import React from "react";
 import Icofont from "react-icofont";
+import { Link } from "react-router-dom";
 
-const ArtSidebar = () => (
+const ArtSidebar = ({ post, name, category }) => (
   <div className="col-md-3 col-sm-3 col-xs-12">
     <div className="widget sidebar_widget">
-      <h5 className="aside-title">Newsletter</h5>
+      <Link
+        to={`/art/modify/${post?.artId}`}
+        className="btn btn-md btn-dark-outline btn-square mt-10"
+      >
+        수정
+      </Link>
       <form className="search-form" method="get">
         <input
           type="text"
@@ -21,18 +27,17 @@ const ArtSidebar = () => (
     </div>
     <div className="mb-50">
       <h5 className="aside-title">About Me</h5>
-      <a href="about-me.html">
-        <img src={""} alt="about-me" />
-      </a>
+      {/* <a href="about-me.html">
+        <img src={""} alt="" />
+      </a> */}
       <p className="mt-30">
-        Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed dui lorem
-        adipiscing in adipiscing et.
+        {name}
       </p>
       <a
         href={process.env.PUBLIC_URL}
         className="btn btn-md btn-dark-outline btn-square mt-10"
       >
-        About Author
+        About Artist
       </a>
     </div>
     <div className="sidebar_widget widget_archive mb-50">
@@ -87,10 +92,10 @@ const ArtSidebar = () => (
     </div>
 
     <div className="sidebar_widget widget_categories mb-50">
-      <h5 className="aside-title">Categories</h5>
+      <h5 className="aside-title">Category</h5>
       <ul>
         <li>
-          <a href={process.env.PUBLIC_URL}>Business</a>
+          {category}
         </li>
         <li>
           <a href={process.env.PUBLIC_URL}>Health</a>

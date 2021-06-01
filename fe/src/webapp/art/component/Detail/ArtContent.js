@@ -25,31 +25,13 @@ const ArtContent = ({ post, data }) => {
             <div className="row">
               <div className="col-md-12 col-sm-12 col-xs-12 mb-20 xs-mb-50">
                 <div className="post">
-                  {/* {post.type === "slide" ? (
-                    <Slider {...settings}>
-                      {post.slides.map((image, i) => (
-                        <div className="item" key={i}>
-                          <img
-                            className="img-responsive"
-                            src={image}
-                            alt=""
-                          />
-                        </div>
-                      ))}
-                    </Slider>
-                  ) : (
-                    <img
-                      src={post.image}
-                      alt=""
-                    />
-                  )} */}
                   {
                     <Slider {...settings}>
                       {post?.files.map((image, i) => (
                         <div className="item" key={i}>
                           <img
                             className="img-responsive"
-                            src={`http://localhost:8080/art_files/display/${image.saveFileName}`}
+                            src={`http://localhost:8080/art_files/display?fileName=${image.saveFileName}`}
                             alt=""
                           />
                         </div>
@@ -343,7 +325,7 @@ const ArtContent = ({ post, data }) => {
               </div>
             </div>
           </div>
-          <ArtSidebar />
+          <ArtSidebar post={post} name={post?.artist.name} category={post?.category.categoryName} />
         </div>
       </div>
     </section>

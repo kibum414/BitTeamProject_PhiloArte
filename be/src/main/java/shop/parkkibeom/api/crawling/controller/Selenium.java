@@ -8,6 +8,6 @@ public class Selenium {
     public static void main(String[] args) throws IOException {
         SeleniumService seleniumService = new SeleniumService();
 
-        seleniumService.scrapResume();
+        seleniumService.scrapArts();
     }
 }

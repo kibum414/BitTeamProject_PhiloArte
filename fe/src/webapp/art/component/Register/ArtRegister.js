@@ -33,13 +33,14 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
       artist: { artistId: 333 }, // 아티스트 정보 가져올 곳
       resume: { resumeId: 100 }, // 레쥬메 정보 가져올 곳
     }
-
-    const files = fileRef.current.files
-    const json = JSON.stringify(input);
-    const blob = new Blob([json], {
+    
+    const blob = new Blob([JSON.stringify(input)], {
       type: 'application/json'
     });
+
     formData.append("input", blob)
+
+    const files = fileRef.current.files
 
     for (let i = 0; i < files.length; i++) {
       formData.append("files", files[i])

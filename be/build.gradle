@@ -15,18 +15,12 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: '2.4.5'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.4.5'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.4.5'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.security:spring-security-test'
 	implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.7.2'
-	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
-	testCompileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
-	annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
-	testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
 	implementation group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4'
 	implementation group: 'commons-io', name: 'commons-io', version: '2.8.0'
 	implementation group: 'org.jsoup', name: 'jsoup', version: '1.13.1'
@@ -37,6 +31,17 @@ dependencies {
 	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
 	implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.4.2'
 	implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+	implementation group: 'net.coobird', name: 'thumbnailator', version: '0.4.14'
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.25'
+
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
+	annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testCompileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
+	testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
 }
 
 test {

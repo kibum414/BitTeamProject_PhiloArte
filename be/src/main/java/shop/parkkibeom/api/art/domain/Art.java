@@ -43,36 +43,16 @@ public class Art extends BaseEntity {
     @JoinColumn(name = "resume_id")
     private Resume resume;
 
-}
+    public void changeTitle(String title) {
+        this.title = title;
+    }
 
-/*
-@Data
-@ToString
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class ArtDto {
+    public void changeDescription(String description) {
+        this.description = description;
+    }
 
-    // Art
-    private Long artId;
-
-    private String title;
-
-    private String description;
-
-    private String mainImg;
-
-    // Artist
-    private Artist artist;
-
-    // Category
-    private Category category;
-
-    // Resume
-    private Resume resume;
-
-    // ArtFile
-    private List<ArtFileDto> files;
+    public void changeMainImg(String mainImg) {
+        this.mainImg = mainImg;
+    }
 
 }
- */

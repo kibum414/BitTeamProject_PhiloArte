@@ -6,6 +6,9 @@ import net.coobird.thumbnailator.Thumbnailator;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import shop.parkkibeom.api.art.domain.Art;
+import shop.parkkibeom.api.art.domain.ArtDTO;
+import shop.parkkibeom.api.art.domain.ArtFileDTO;
 import shop.parkkibeom.api.art.repository.ArtFileRepository;
 
 import java.io.File;
@@ -27,9 +30,9 @@ public class ArtFileServiceImpl implements ArtFileService {
     private String uploadPath;
 
     @Override
-    public List<ArtFileDto> uploadFiles(List<MultipartFile> files) {
+    public List<ArtFileDTO> uploadFiles(List<MultipartFile> files, Long artId) {
 
-        List<ArtFileDto> resultDtoList = new ArrayList<>();
+        List<ArtFileDTO> resultDtoList = new ArrayList<>();
 
         for (MultipartFile file : files) {
             // 실제 파일 이름에 IE나 Edge는 전체 경로가 들어오므로 \\로 구분된 마지막 글자가 파일명
@@ -57,16 +60,16 @@ public class ArtFileServiceImpl implements ArtFileService {
                 // 썸네일 생성
                 Thumbnailator.createThumbnail(savePath.toFile(), thumbnailFile, 100, 100);
 
-                ArtFileDto artFileDto = ArtFileDto.builder()
+                ArtFileDTO artFileDTO = ArtFileDTO.builder()
                         .uuid(uuid)
                         .originalFileName(fileName)
                         .saveFileName(uuid + "_" + fileName)
-                        .fileSize(file.getSize())
+                        .art(ArtDTO.builder().artId(artId).build())
                         .build();
 
-                resultDtoList.add(artFileDto);
+                resultDtoList.add(artFileDTO);
 
-                artFileRepository.save(dtoToEntity(artFileDto));
+                artFileRepository.save(dtoToEntity(artFileDTO));
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -77,7 +80,7 @@ public class ArtFileServiceImpl implements ArtFileService {
     }
 
     @Override
-    public List<ArtFileDto> updateFiles(List<MultipartFile> files) {
+    public List<ArtFileDTO> updateFiles(List<MultipartFile> files) {
         return null;
     }
 

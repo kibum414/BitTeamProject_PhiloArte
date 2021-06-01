@@ -37,26 +37,3 @@ public class ArtFile extends BaseEntity {
     }
 
 }
-
-/*
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Component
-public class ArtFileDto {
-
-    // ArtFile
-    private Long fileId;
-
-    private String uuid;
-
-    private String originalFileName;
-
-    private String saveFileName;
-
-    // Art
-    private Art art;
-
-}
- */

@@ -14,14 +14,20 @@ public class PageRequestDTO {
 
     private int page;
     private int size;
+    private String type;
+    private String keyword;
 
-    public PageRequestDTO(int page) {
-        this.page = page;
+    public PageRequestDTO() {
+
+        this.page = 1;
         this.size = 10;
+
     }
 
     public Pageable getPageable(Sort sort) {
+
         return PageRequest.of(page - 1, size, sort);
+
     }
 
 }

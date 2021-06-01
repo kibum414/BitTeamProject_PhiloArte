@@ -68,37 +68,49 @@
   },
   {
     "id": 2,
-    "title": "펀딩하기",
+    "title": "FUNDING",
     "path": "/funding/funding-list"
   },
   {
     "id": 3,
-    "title": "Resume",
+    "title": "RESUME",
     "path": "/resume/resume-list"
   },
   {
     "id": 4,
-    "title": "Item",
+    "title": "ITEM",
     "path": "/item/item-list"
   },
   {
     "id": 5,
-    "title": "Art",
-    "path": "/art"
+    "title": "ART",
+    "path": "/art/list",
+    "subMenu": [
+      {
+        "id": 1,
+        "title": "LIST",
+        "path": "/art/list"
+      },
+      {
+        "id": 2,
+        "title": "REGISTER",
+        "path": "/art/register"
+      }
+    ]
   },
   {
     "id": 6,
-    "title": "Review",
+    "title": "REVIEW",
     "path": "/review/review-list"
   },
   {
     "id": 7,
-    "title": "로그인",
+    "title": "LOGIN",
     "path": "#contact"
   },
   {
     "id": 8,
-    "title": "회원가입",
+    "title": "SIGN UP",
     "path": "#contact"
   }
 ]

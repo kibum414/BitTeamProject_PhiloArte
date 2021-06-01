@@ -1,17 +1,20 @@
 package shop.parkkibeom.api.review.domain;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import shop.parkkibeom.api.art.domain.Art;
 import shop.parkkibeom.api.artist.domain.Artist;
+import shop.parkkibeom.api.common.domain.BaseEntity;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@ToString
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "reviews")
-public class Review {
+public class Review extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +26,6 @@ public class Review {
 
     @Column(name = "comment")
     private String comment;
-
-    // @ManyToOne
-    // @JoinColumn(name = "funding_id")
-    // private Funding funding;
 
     @ManyToOne
     @JoinColumn(name = "artist_id")

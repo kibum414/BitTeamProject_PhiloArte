@@ -34,14 +34,17 @@ public class PageResultDTO<DTO, EN> {
     private List<Integer> pageList;
 
     public PageResultDTO(Page<EN> result, Function<EN, DTO> fn) {
+
         dtoList = result.stream().map(fn).collect(Collectors.toList());
 
         totalPage = result.getTotalPages();
 
         makePageList(result.getPageable());
+
     }
 
     private void makePageList(Pageable pageable) {
+
         this.page = pageable.getPageNumber() + 1; // 0부터 시작하므로 1을 추가
         this.size = pageable.getPageSize();
 
@@ -57,5 +60,6 @@ public class PageResultDTO<DTO, EN> {
         next = totalPage > tempEnd;
 
         pageList = IntStream.rangeClosed(start, end).boxed().collect(Collectors.toList());
+
     }
 }

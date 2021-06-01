@@ -15,12 +15,11 @@ import java.util.List;
 public interface ArtFileRepository extends JpaRepository<ArtFile, Long> {
 
     @EntityGraph(attributePaths = {"art"}, type = EntityGraph.EntityGraphType.FETCH)
-    @Query("SELECT f FROM ArtFile f INNER JOIN f.art a WHERE a.artId = :artId")
+    @Query("SELECT f FROM ArtFile f WHERE f.art.artId = :artId")
     List<ArtFile> getFilesByArtId(@Param("artId") Long artId);
 
-    @Transactional
     @Modifying
-    @Query("delete from ArtFile a where a.fileId = :fileId")
-    int deleteByFileId(@Param("fileId") Long fileId);
+    @Query("DELETE FROM ArtFile f WHERE f.art.artId = :artId")
+    void deleteByArtId(@Param("artId") Long artId);
 
 }
