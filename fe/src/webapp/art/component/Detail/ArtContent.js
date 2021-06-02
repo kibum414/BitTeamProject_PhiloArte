@@ -25,19 +25,17 @@ const ArtContent = ({ post, data }) => {
             <div className="row">
               <div className="col-md-12 col-sm-12 col-xs-12 mb-20 xs-mb-50">
                 <div className="post">
-                  {
-                    <Slider {...settings}>
-                      {post?.files.map((image, i) => (
-                        <div className="item" key={i}>
-                          <img
-                            className="img-responsive"
-                            src={`http://localhost:8080/art_files/display?fileName=${image.saveFileName}`}
-                            alt=""
-                          />
-                        </div>
-                      ))}
-                    </Slider>
-                  }
+                  <Slider {...settings}>
+                    {post?.files.map((image, i) => (
+                      <div className="item" key={i}>
+                        <img
+                          className="img-responsive"
+                          src={`http://localhost:8080/art_files/display?fileName=${image.saveFileName}`}
+                          alt=""
+                        />
+                      </div>
+                    ))}
+                  </Slider>
                   <div className="post-metas">
                     <div className="post-metas-center">
                       <p className="post-date">{post?.regDate}</p>

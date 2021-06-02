@@ -12,6 +12,7 @@ import ClientsCarousel from "webapp/common/Carousel/ClientsCarousel";
 import ArtList from "webapp/art/component/List/ArtList";
 
 import { getArtList } from 'webapp/art/reducer/art.reducer'
+import { SearchBar } from "..";
 
 const ArtPage = () => {
   const arts = useSelector(state => state.arts.pageResult)
@@ -34,8 +35,8 @@ const ArtPage = () => {
           "사진",
           "연극"
         ]}
-
       />
+      <SearchBar />
       <ClientsCarousel data={dataClients} />
       <FooterOne />
     </>

@@ -14,7 +14,7 @@ const PageTitleArt = ({ title, image }) => (
               <div className="breadcrumb mt-20">
                 <ul>
                   <li>
-                    <a href={`${process.env.PUBLIC_URL}/art`}>작품 목록</a>
+                    <a href={`${process.env.PUBLIC_URL}/art/list`}>작품 목록</a>
                   </li>
                   <li>{title}</li>
                 </ul>

@@ -3,6 +3,7 @@ import { ArtService } from 'webapp/art'
 
 export const getArtList = createAsyncThunk("ART_LIST",
   async (page) => {
+    console.log("pageResult", page)
     const response = await ArtService.list(page)
 
     return response.data
@@ -65,10 +66,17 @@ const artSlice = createSlice({
       prev: false,
       next: false
     },
+    type: '',
+    keyword: '',
     category: '',
     
   },
-  reducers: {},
+  reducers: {
+    changeSearch: (state, action) => {
+      state.type = action.payload.type
+      state.keyword = action.payload.keyword
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getArtList.fulfilled, (state, { payload }) => {
@@ -95,5 +103,5 @@ const artSlice = createSlice({
 })
 
 const { actions, reducer } = artSlice
-export const { } = actions
+export const { changeSearch } = actions
 export default reducer

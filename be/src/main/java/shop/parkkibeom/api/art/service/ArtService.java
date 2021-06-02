@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public interface ArtService {
     Long register(ArtDTO artDTO, List<MultipartFile> files);
 
-    PageResultDTO<ArtDTO, Object[]> getArtList(PageRequestDTO pageRequestDTO); // 목록 처리
+    PageResultDTO<ArtDTO, Object[]> getList(PageRequestDTO pageRequestDTO); // 목록 처리
 
     ArtDTO get(Long artId);
 

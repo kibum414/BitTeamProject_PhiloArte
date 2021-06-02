@@ -48,7 +48,7 @@ const App = () => {
             <Route exact path='/review/review-register' component={ReviewRegister} />
 
             {/*Art*/}
-            <Route exact path='/art' component={ArtPage} />
+            <Route exact path='/art/list' component={ArtPage} />
             <Route exact path='/art/register' component={ArtRegister} />
             <Route exact path='/art/read/:id' component={ArtDetail} />
             <Route exact path='/art/modify/:id' component={ArtModify} />

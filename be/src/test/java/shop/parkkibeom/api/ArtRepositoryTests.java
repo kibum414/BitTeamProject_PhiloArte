@@ -1,5 +1,7 @@
 package shop.parkkibeom.api;
 
+import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -200,7 +202,7 @@ public class ArtRepositoryTests {
     public void testList() {
         PageRequestDTO pageRequestDTO = new PageRequestDTO();
 
-        PageResultDTO<ArtDTO, Object[]> result = artService.getArtList(pageRequestDTO);
+        PageResultDTO<ArtDTO, Object[]> result = artService.getList(pageRequestDTO);
 
         for (ArtDTO artDTO : result.getDtoList()) {
             System.out.println(artDTO);
@@ -256,6 +258,108 @@ public class ArtRepositoryTests {
         System.out.println("--------------변경 준비");
         System.out.println(artService.modify(artDTO));
         System.out.println("--------------변경 완료");
+
+    }
+
+    @Test
+    public void updateTest() {
+
+        Optional<Art> result = artRepository.findById(161L);
+
+        if(result.isPresent()) {
+
+            Art art = result.get();
+
+            art.changeTitle("Changed Title...");
+            art.changeDescription("Changed Description...");
+
+            artRepository.save(art);
+
+        }
+
+    }
+
+    @Test
+    public void testQuery1() {
+
+//        Pageable pageable = PageRequest.of(0, 10, Sort.by("artId").descending());
+//
+//        QArt qArt = QArt.art; // 동적으로 처리하기 위해 Q도메인 클래스 얻어옴. 엔티티 클래스에 선언된 필드들을 변수로 활용 가능
+//
+//        String keyword = "1";
+//
+//        BooleanBuilder builder = new BooleanBuilder(); // BooleanBuilder : where 문에 들어가는 조건들을 넣어주는 컨테이너
+//
+//        BooleanExpression expression = qArt.title.contains(keyword); // 원하는 조건은 필드 값과 같이 결합해서 생성
+//
+//        builder.and(expression); // 만들어진 조건은 where 문의 and 나 or 같은 키워드와 결합
+//
+//        Page<Art> result = artRepository.findAll(builder, pageable); // BooleanBuilder는 QuerydslPredicateExcutor 인터페이스의 findAll() 사용 가능
+//
+//        result.stream().forEach(art -> {
+//            System.out.println(art);
+//        });
+
+    }
+
+    @Test
+    public void testQuery2() {
+
+//        Pageable pageable = PageRequest.of(0, 10, Sort.by("artId").descending());
+//
+//        QArt qArt = QArt.art;
+//
+//        String keyword = "1";
+//
+//        BooleanBuilder builder = new BooleanBuilder();
+//
+//        BooleanExpression exTitle = qArt.title.contains(keyword);
+//
+//        BooleanExpression exDescription = qArt.description.contains(keyword);
+//
+//        BooleanExpression exAll = exTitle.or(exDescription); // exTitle과 exDescription라는 BooleanExpression을 결합
+//
+//        builder.and(exAll); // BooleanBuilder에 추가
+//
+//        builder.and(qArt.artId.gt(0L)); // artId > 0
+//
+//        Page<Art> result = artRepository.findAll(builder, pageable);
+//
+//        result.stream().forEach(art -> {
+//            System.out.println(art);
+//        });
+
+    }
+
+    @Test
+    public void testSearch1() {
+        PageRequestDTO pageRequestDto = PageRequestDTO.builder()
+                .page(1)
+                .size(10)
+                .type("t")
+                .keyword("유아연")
+                .build();
+        PageResultDTO<ArtDTO, Object[]> reviewDtoReviewPageResultDto = artService.getList(pageRequestDto);
+        System.out.println("prev : " + reviewDtoReviewPageResultDto.isPrev());
+        System.out.println("next : " + reviewDtoReviewPageResultDto.isNext());
+        System.out.println("total : " + reviewDtoReviewPageResultDto.getTotalPage());
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        for (ArtDTO reviewDto : reviewDtoReviewPageResultDto.getDtoList()) {
+            System.out.println(reviewDto);
+        }
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        reviewDtoReviewPageResultDto.getPageList().forEach(i -> System.out.println(i));
+    }
+
+    @Test
+    public void testSearchPage() {
+
+        Pageable pageable =
+                PageRequest.of(0, 10,
+                        Sort.by("artId").descending()
+                                .and(Sort.by("title").ascending()));
+
+        Page<Object[]> result = artRepository.searchPage("", "",pageable);
 
     }
 

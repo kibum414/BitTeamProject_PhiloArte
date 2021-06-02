@@ -50,6 +50,22 @@ const ArtModify = ({ tagline, title, backfont, dash, textBtn, classes }) => {
         id="contact"
       >
         <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-12 col-sm-12 col-xs-12 mb-20 xs-mb-50">
+          <div className="post">
+            {art?.files.map((image, i) => (
+              <div className="item" key={i}>
+                <img
+                  className="img-responsive"
+                  src={`http://localhost:8080/art_files/display?fileName=${image.saveFileName}`}
+                  alt={image.originalFileName}
+                />
+                <button className="btn">삭제</button>
+              </div>
+            ))}
+              </div>
+            </div>
+            </div>
           <div className="col-md-5 col-sm-7 pt-50 pb-70 pl-70 pr-70 xs-pt-20 xs-pb-80" style={{ float: "none", margin: "0 auto" }}>
 
             <form
@@ -118,15 +134,6 @@ const ArtModify = ({ tagline, title, backfont, dash, textBtn, classes }) => {
                     <label htmlFor="message" className="dark-color">
                       파일 첨부
                     </label>
-                    {art?.files.map((image, i) => (
-                      <div className="item" key={i}>
-                        <img
-                          className="img-responsive"
-                          src={`http://localhost:8080/art_files/display?fileName=${image.saveFileName}`}
-                          alt={image.originalFileName}
-                        />
-                      </div>
-                    ))}
                     <input
                       type="file"
                       name="art"

@@ -3,6 +3,7 @@ import parse from "html-react-parser";
 import ArtItem from "webapp/art/component/List/ArtItem";
 import PortfolioFilter from "webapp/common/Portfolio/PortfolioFilter";
 import LoadScript from "webapp/common/helpers/LoadScript";
+import PageList from "./PageList";
 
 const ArtList = ({ title, tagline, backfont, data, filter, categories, classes, dash, dashColor }) => {
   LoadScript("js/portfolio/portfolio-grid.js");
@@ -52,6 +53,7 @@ const ArtList = ({ title, tagline, backfont, data, filter, categories, classes, 
             </div>
           </div>
         </div>
+        <PageList />
       </div>
     </section>
   );

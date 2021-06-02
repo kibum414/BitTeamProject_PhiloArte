@@ -59,12 +59,23 @@ public class ArtServiceImpl implements ArtService {
 
     @Transactional
     @Override
-    public PageResultDTO<ArtDTO, Object[]> getArtList(PageRequestDTO pageRequestDTO) {
+    public PageResultDTO<ArtDTO, Object[]> getList(PageRequestDTO pageRequestDTO) {
+
+        log.info(pageRequestDTO);
 
         Function<Object[], ArtDTO> fn = (entity ->
                 entityToDto((Art) entity[0], (Artist) entity[1], (Category) entity[2], (Resume) entity[3], getFilesByArtId(((Art) entity[0]).getArtId())));
 
-        Page<Object[]> result = artRepository.getArts(pageRequestDTO.getPageable(Sort.by("artId").descending()));
+        // Page<Object[]> result = artRepository.getArts(pageRequestDTO.getPageable(Sort.by("artId").descending()));
+
+        log.info("---------------------------");
+        log.info(pageRequestDTO.toString());
+
+        Page<Object[]> result = artRepository.searchPage(
+                pageRequestDTO.getType(),
+                pageRequestDTO.getKeyword(),
+                pageRequestDTO.getPageable(Sort.by("artId").descending())
+        );
 
         return new PageResultDTO<>(result, fn);
 

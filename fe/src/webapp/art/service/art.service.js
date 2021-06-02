@@ -1,6 +1,14 @@
 import axios from 'axios'
 
-const list = (page) => axios.get(`http://localhost:8080/arts/list?page=${page}`)
+const list = (param) => {
+
+  console.log("page", param)
+  
+  const str = "page=" + (!param.page ? 1 : param.page) + "&type=" + (param.type) + "&keyword=" + (param.keyword)
+ 
+  console.log(str)
+  return axios.get(`http://localhost:8080/arts/list?` + str)
+}
 const register = (payload) => axios.post(`http://localhost:8080/arts/register`, payload,
   {
     headers: {

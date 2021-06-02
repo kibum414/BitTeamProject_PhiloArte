@@ -23,7 +23,7 @@ public class ArtController {
     public ResponseEntity<PageResultDTO<ArtDTO, Object[]>> list(PageRequestDTO pageRequestDTO) {
         System.out.println("list() : " + pageRequestDTO);
 
-        return ResponseEntity.ok(artService.getArtList(pageRequestDTO));
+        return ResponseEntity.ok(artService.getList(pageRequestDTO));
     }
 
     @PostMapping("/register")
