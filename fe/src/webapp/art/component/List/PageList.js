@@ -1,21 +1,28 @@
 import React, { useState } from 'react';
 import Icofont from 'react-icofont';
 import { useSelector, useDispatch } from "react-redux";
-import { getArtList } from 'webapp/art/reducer/art.reducer';
+import { getArtList, getArtSearch } from 'webapp/art/reducer/art.reducer';
 
 const PageList = () => {
 
   const { pageList, start, end, prev, next } = useSelector(state => state.arts.pageResult)
+  const type = useSelector(state => state.arts.type)
+  const keyword = useSelector(state => state.arts.keyword)
+
 
   const dispatch = useDispatch()
-
-  const [active, setActive] = useState('')
 
   console.log("PageList : " + pageList);
 
   const movePage = (page) => {
-    dispatch(getArtList(page))
-    setActive("active")
+    console.log("page", page)
+    console.log("type", type)
+    console.log("keyword", keyword)
+
+    return (!type && !keyword) ?
+      dispatch(getArtList(page))
+      :
+      dispatch(getArtSearch({ type: type, keyword: keyword, page: page }))
   }
 
   const list = pageList.map(i => (

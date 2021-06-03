@@ -2,27 +2,28 @@ import React from "react";
 import Icofont from "react-icofont";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { getArtDelete } from "webapp/art/reducer/art.reducer";
 
 const ArtSidebar = ({ post, name, category }) => {
   
   const dispatch = useDispatch()
+  console.log("post", post)
 
   const deleteArt = () => {
-    
-    dispatch()
+    dispatch(getArtDelete(post))
   }
 
   return (
     <div className="col-md-3 col-sm-3 col-xs-12">
-      <div className="widget sidebar_widget">
+      <div className="widget sidebar_widget text-center">
         <Link
           to={`/art/modify/${post?.artId}`}
-          className="btn btn-md btn-dark-outline btn-square mt-10"
+          className="btn btn-lg btn-dark-outline btn-square mt-10 mr-30"
         >
           수정
       </Link>
         <button
-          className="btn btn-md btn-dark-outline btn-square mt-10"
+          className="btn btn-lg btn-dark-outline btn-square mt-10 ml-30"
           onClick={deleteArt}
         >
           삭제

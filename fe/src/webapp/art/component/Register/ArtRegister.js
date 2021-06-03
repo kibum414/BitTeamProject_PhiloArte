@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 // DATA Files
 import dataNavbar from "webapp/common/data/Navbar/main-navbar-data.json";
@@ -10,58 +10,24 @@ import { getArtList, getArtRegister, getArtUpload } from 'webapp/art/reducer/art
 
 import 'webapp/art/style/Art.css'
 import Slider from 'react-slick';
+import ArtUpload from './ArtUpload';
 
 const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
-  
-  const settings = {
-    dots: false,
-    infinite: true,
-    centerMode: true,
-    autoplay: false,
-    autoplaySpeed: 5000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    centerPadding: "0",
-    className: "blog-grid-slider slick",
-  };
 
-  const [images, setImages] = useState([])
+  const fileList = useSelector(state => state.arts.fileList)
 
   const titleRef = useRef()
   const categoryRef = useRef()
   const descriptionRef = useRef()
-  const fileRef = useRef()
 
   const dispatch = useDispatch()
   const history = useHistory()
 
-  const handleUpload = e => {
-    const files = e.target.files
-    console.log(files)
-
-    const fileURLs = []
-
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-
-      const reader = new FileReader();
-
-      reader.onload = e => {
-        fileURLs[i] = reader.result
-
-        setImages([...fileURLs])
-      }
-      reader.readAsDataURL(file);
-    }
-  }
-  console.log(images)
-
   const ArtRegister = e => {
+    e.stopPropagation()
     e.preventDefault()
 
-    const formData = new FormData()
-
-    const input = {
+    const art = {
       title: titleRef.current.value,
       category: { categoryId: Number(categoryRef.current.value) },
       description: descriptionRef.current.value,
@@ -70,21 +36,11 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
       resume: { resumeId: 1 }, // 레쥬메 정보 가져올 곳
     }
     
-    const blob = new Blob([JSON.stringify(input)], {
-      type: 'application/json'
-    });
+    const data = {...art, files: fileList.map(i => i.file)}
 
-    formData.append("input", blob)
+    dispatch(getArtRegister(data))
 
-    const files = fileRef.current.files
-
-    for (let i = 0; i < files.length; i++) {
-      formData.append("files", files[i])
-    }
-
-    dispatch(getArtRegister(formData))
-
-    // history.push('/art')
+    history.push('/art/list')
   }
 
   return (
@@ -92,31 +48,17 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
       <HeaderOne data={dataNavbar} />
       <PageTitleArt title="작품 등록" />
 
-      
       <section
         className={"pt-0 pb-0 transition-none " + classes}
         id="contact"
       >
-        <div className="col-md-6 col-sm-4 bg-flex bg-flex-right">
-          <div className="pt-50 pb-70 pl-70 pr-70 xs-pt-20 xs-pb-80 bg-flex-holder bg-flex-cover">
-            <Slider {...settings}>
-              {
-                images.map((image, i) => (
-                  <div key={i}>
-                    <img
-                      className="img-responsive"
-                      src={image}
-                      alt=""
-                    />
-                  </div>
-                ))
-              }
-            </Slider>
+        <div className="col-md-6 col-sm-4 ">
+          <div className="pt-50 pb-70 pl-70 pr-70 xs-pt-20 xs-pb-80 ">
+            <ArtUpload />
           </div>
         </div>
         <div className="container-fluid">
           <div className="col-md-5 col-sm-7 pt-50 pb-70 pl-70 pr-70 xs-pt-20 xs-pb-80">
-
             <form
               name="art-register-form"
               id="art-register-form"
@@ -180,24 +122,6 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
                   </div>
                 </div>
                 <div className="col-md-12 col-sm-12">
-                  <div className="form-group">
-                    <label htmlFor="message" className="dark-color">
-                      파일 첨부
-                  </label>
-                    <input
-                      type="file"
-                      name="files"
-                      accept="image/*"
-                      className="md-input style-02 input_white"
-                      id="files"
-                      multiple={true}
-                      data-error="작품 파일을 첨부해주세요."
-                      ref={fileRef}
-                      onChange={handleUpload}
-                    />
-                  </div>
-                </div>
-                <div className="col-md-12 col-sm-12">
                   <div className="text-center mt-20">
                     <button
                       type="submit"
@@ -205,12 +129,13 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
                       className="btn btn-xl btn-color btn-square remove-margin"
                       style={{ width: "50%" }}
                     >
-                      {textBtn || "등록하기"}
+                      등록하기
                     </button>
                   </div>
                 </div>
               </div>
             </form>
+            
           </div>
         </div>
       </section>

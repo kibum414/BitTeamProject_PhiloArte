@@ -1,31 +1,26 @@
 import React, { useCallback } from "react";
 import parse from "html-react-parser";
 import ArtItem from "webapp/art/component/List/ArtItem";
-import PortfolioFilter from "webapp/common/Portfolio/PortfolioFilter";
+import PortfolioFilter from "webapp/art/component/List/PortfolioFilter";
 import LoadScript from "webapp/common/helpers/LoadScript";
 import PageList from "./PageList";
 
 const ArtList = ({ title, tagline, backfont, data, filter, categories, classes, dash, dashColor }) => {
   LoadScript("js/portfolio/portfolio-grid.js");
 
-  let category = null
   const getList = useCallback(data.map((art, i) => {
 
     return (
-        <ArtItem
-          key={i}
-          id={art.artId}
-          title={art.title}
-          image={art.mainImg}
-          category={art.category.categoryName}
-        />
+      <ArtItem
+        key={i}
+        id={art.artId}
+        title={art.title}
+        image={art.mainImg}
+        category={art.category.categoryName}
+        files={art.files}
+      />
     )
   }))
-
-  const getCategory = (getCategoryResult) => {
-    console.log('getCategory')
-    category = getCategoryResult
-  }
 
   return (
     <section id="portfolio" className={"pt-0 pb-0 " + classes}>
@@ -42,7 +37,7 @@ const ArtList = ({ title, tagline, backfont, data, filter, categories, classes, 
           </div>
         </div>
         {filter === true && Array.isArray(categories) ? (
-          <PortfolioFilter categories={categories} getCategory={getCategory} classes="mb-80" />
+          <PortfolioFilter categories={categories} classes="mb-80" />
         ) : null}
       </div>
       <div className="container-fluid remove-padding">

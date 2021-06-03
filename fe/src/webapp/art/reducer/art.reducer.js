@@ -3,8 +3,8 @@ import { ArtService } from 'webapp/art'
 
 export const getArtList = createAsyncThunk("ART_LIST",
   async (page) => {
-    console.log("pageResult", page)
-    const response = await ArtService.list(page)
+    console.log("getArtList", page)
+    const response = await ArtService.artList(page)
 
     return response.data
   }
@@ -12,10 +12,8 @@ export const getArtList = createAsyncThunk("ART_LIST",
 
 export const getArtRegister = createAsyncThunk("ART_REGISTER",
   async (args) => {
-    for (var pair of args.entries()) {
-      console.log(pair[0] + ', ' + pair[1]);
-    }
-    const response = await ArtService.register(args)
+    console.log(args)
+    const response = await ArtService.artRegister(args)
 
     return response.data
   }
@@ -24,7 +22,7 @@ export const getArtRegister = createAsyncThunk("ART_REGISTER",
 export const getArtUpload = createAsyncThunk("ART_UPLOAD",
   async (args) => {
     console.log('UPLOAD : ' + JSON.stringify(args))
-    const response = await ArtService.upload(args)
+    const response = await ArtService.artUpload(args)
 
     return response.data
   }
@@ -32,7 +30,7 @@ export const getArtUpload = createAsyncThunk("ART_UPLOAD",
 
 export const getArtRead = createAsyncThunk("ART_READ",
   async (args) => {
-    const response = await ArtService.read(args)
+    const response = await ArtService.artRead(args)
 
     return response.data
   }
@@ -40,7 +38,7 @@ export const getArtRead = createAsyncThunk("ART_READ",
 
 export const getArtModify = createAsyncThunk("ART_MODIFY",
   async (args) => {
-    const response = await ArtService.modify(args)
+    const response = await ArtService.artModify(args)
 
     return response.data
   }
@@ -48,11 +46,22 @@ export const getArtModify = createAsyncThunk("ART_MODIFY",
 
 export const getArtDelete = createAsyncThunk("ART_DELETE",
   async (args) => {
-    const response = await ArtService.del(args)
+    console.log("delete", args)
+    const response = await ArtService.artDelete(args)
 
     return response.data
   }
 )
+
+export const getArtSearch = createAsyncThunk("ART_SEARCH",
+  async (args) => {
+    const response = await ArtService.artSearch(args)
+
+    return response.data
+  }
+)
+
+const isRejectedAction = action => (action.type.endsWith('rejected'))
 
 const artSlice = createSlice({
   name: 'arts',
@@ -66,15 +75,27 @@ const artSlice = createSlice({
       prev: false,
       next: false
     },
+    fileList: [],
     type: '',
     keyword: '',
     category: '',
     
   },
   reducers: {
-    changeSearch: (state, action) => {
-      state.type = action.payload.type
-      state.keyword = action.payload.keyword
+    changeSearch: (state, { payload }) => {
+      state.type = payload.type
+      state.keyword = payload.keyword
+    },
+    addFileList: (state, { payload }) => {
+      state.fileList.push(payload)
+    },
+    changeFileList: (state, { payload }) => {
+      const idx = state.fileList?.findIndex(file => file.uuid === payload.uuid)
+
+      state.fileList[idx].file = payload.file
+    },
+    deleteFileList: (state, { payload }) => {
+      state.fileList = state.fileList.filter(file => file.uuid !== payload.uuid)
     }
   },
   extraReducers: (builder) => {
@@ -99,9 +120,14 @@ const artSlice = createSlice({
       .addCase(getArtDelete.fulfilled, (state, { payload }) => {
 
       })
+      .addCase(getArtSearch.fulfilled, (state, { payload }) => {
+        state.pageResult = payload
+      })
+      .addMatcher(isRejectedAction).addDefaultCase()
+      .addDefaultCase((state, payload) => { })
   }
 })
 
 const { actions, reducer } = artSlice
-export const { changeSearch } = actions
+export const { changeSearch, addFileList, changeFileList, deleteFileList } = actions
 export default reducer

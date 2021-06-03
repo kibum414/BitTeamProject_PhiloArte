@@ -30,7 +30,7 @@ const ArtContent = ({ post, data }) => {
                       <div className="item" key={i}>
                         <img
                           className="img-responsive"
-                          src={`http://localhost:8080/art_files/display?fileName=${image.saveFileName}`}
+                          src={`http://localhost:8080/art_files/display?fileName=${image.savedFileName}`}
                           alt=""
                         />
                       </div>
