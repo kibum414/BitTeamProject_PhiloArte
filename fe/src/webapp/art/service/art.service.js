@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const artList = (page) => {
   console.log("list", page)
-  return axios.get(`http://localhost:8080/arts/list?` + page)
+  return axios.get(`http://localhost:8080/arts/list?page=${page}`)
 }
 const artSearch = (param) => {
 
@@ -26,4 +26,6 @@ const artRead = (payload) => axios.get(`http://localhost:8080/arts/read/${payloa
 const artModify= (payload) => axios.put(`http://localhost:8080/arts/modify`, payload)
 const artDelete = (payload) => axios.delete(`http://localhost:8080/arts/delete`, payload)
 
-export default { artList, artRegister, artUpload, artFileDelete, artRead, artModify, artDelete, artSearch }
+const categoryList = () => axios.get(`http://localhost:8080/categories/list`)
+
+export default { artList, artRegister, artUpload, artFileDelete, artRead, artModify, artDelete, artSearch, categoryList }

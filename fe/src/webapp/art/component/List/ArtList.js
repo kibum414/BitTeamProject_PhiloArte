@@ -8,8 +8,7 @@ import PageList from "./PageList";
 const ArtList = ({ title, tagline, backfont, data, filter, categories, classes, dash, dashColor }) => {
   LoadScript("js/portfolio/portfolio-grid.js");
 
-  const getList = useCallback(data.map((art, i) => {
-
+  const getList = data.map((art, i) => {
     return (
       <ArtItem
         key={i}
@@ -20,7 +19,7 @@ const ArtList = ({ title, tagline, backfont, data, filter, categories, classes, 
         files={art.files}
       />
     )
-  }))
+  })
 
   return (
     <section id="portfolio" className={"pt-0 pb-0 " + classes}>

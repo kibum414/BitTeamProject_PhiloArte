@@ -23,7 +23,7 @@ const ArtFile = ({ uuid, originalFileName }) => {
     setArtFile({ ...artFile })
     console.log(artFile)
 
-    dispatch(changeFileList({ uuid: e.target.getAttribute("data-uuid"), file: { ...artFile } }))
+    dispatch(changeFileList(artFile))
   }
 
   const repImgChange = e => {
@@ -36,9 +36,7 @@ const ArtFile = ({ uuid, originalFileName }) => {
 
     setArtFile({ ...artFile })
 
-    dispatch(changeFileList({ uuid: e.target.getAttribute("data-uuid"), file: { ...artFile } }))
-
-    console.log(e.target.value)
+    dispatch(changeFileList(artFile))
 
     console.log("repImg", artFile)
   }

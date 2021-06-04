@@ -9,11 +9,11 @@ const PageList = () => {
   const type = useSelector(state => state.arts.type)
   const keyword = useSelector(state => state.arts.keyword)
 
-
   const dispatch = useDispatch()
 
-  console.log("PageList : " + pageList);
-
+  // const movePage = (page) => {
+  //   dispatch(getArtList(page))
+  // }
   const movePage = (page) => {
     console.log("page", page)
     console.log("type", type)

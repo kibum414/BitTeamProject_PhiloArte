@@ -27,7 +27,7 @@ const ArtItem = ({ id, title, image, category, files }) => {
 
       <div className="portfolio-item">
         <Link to={`/art/read/${id}`}>
-          <img src={image} alt="" />
+          {<img src={image} alt="" />}
           <div className="portfolio-info white-bg">
             <div className="centrize">
               <div className="v-center dark-color">

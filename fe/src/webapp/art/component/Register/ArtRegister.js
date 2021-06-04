@@ -1,20 +1,22 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 // DATA Files
 import dataNavbar from "webapp/common/data/Navbar/main-navbar-data.json";
 // Components
 import { HeaderOne, FooterOne } from 'webapp/common';
-import PageTitleArt from 'webapp/art/component/PageTitleArt';
-import { getArtList, getArtRegister, getArtUpload } from 'webapp/art/reducer/art.reducer';
+import { PageTitleArt } from 'webapp/art';
+import { getArtRegister, getCategoryList } from 'webapp/art/reducer/art.reducer';
 
 import 'webapp/art/style/Art.css'
-import Slider from 'react-slick';
 import ArtUpload from './ArtUpload';
 
 const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
 
   const fileList = useSelector(state => state.arts.fileList)
+  const categories = useSelector(state => state.arts.category)
+
+  console.log("first", fileList)
 
   const titleRef = useRef()
   const categoryRef = useRef()
@@ -23,10 +25,14 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
   const dispatch = useDispatch()
   const history = useHistory()
 
+  useEffect(() => {
+    dispatch(getCategoryList())
+  }, [])
+  
   const ArtRegister = e => {
     e.stopPropagation()
     e.preventDefault()
-
+    
     const art = {
       title: titleRef.current.value,
       category: { categoryId: Number(categoryRef.current.value) },
@@ -36,7 +42,7 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
       resume: { resumeId: 1 }, // 레쥬메 정보 가져올 곳
     }
     
-    const data = {...art, files: fileList.map(i => i.file)}
+    const data = { ...art, files: fileList.map(i => i.file) }
 
     dispatch(getArtRegister(data))
 
@@ -98,10 +104,12 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
                       data-error="카테고리를 선택해주세요."
                       ref={categoryRef}
                     >
-                      <option>카테고리</option>
-                      <option value="1">예술</option>
-                      <option value="2">사진</option>
-                      <option value="3">연극</option>
+                      <option value="">카테고리</option>
+                      {categories.map(category => {
+                        return (
+                          <option key={category.categoryId} value={category.categoryId}>{category.categoryName}</option>
+                        )
+                      })}
                     </select>
                   </div>
                 </div>

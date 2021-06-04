@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // DATA Files
 import dataNavbar from "webapp/common/data/Navbar/main-navbar-data.json";
 // Components
@@ -7,35 +7,62 @@ import PageTitleArt from 'webapp/art/component/PageTitleArt';
 
 import 'webapp/art/style/Art.css'
 import { useDispatch, useSelector } from 'react-redux';
-import ArtUpload from '../Register/ArtUpload';
+import { addFileList, getArtModify, getArtRead, getCategoryList } from 'webapp/art/reducer/art.reducer';
+import { useParams } from 'react-router';
+import ModifyUpload from './ModifyUpload';
+import ModifyFile from './ModifyFile';
 
 const ArtModify = ({ tagline, title, backfont, dash, textBtn, classes }) => {
 
-  const art = useSelector(state => state.arts.current)
-  console.log(art)
+  const dispatch = useDispatch()
+
+  const { id } = useParams()
+
+  const art = useSelector(state => state.arts.current) // 작품 정보
+  const fileList = useSelector(state => state.arts.fileList) // 파일 리스트
+  const categories = useSelector(state => state.arts.category) // 카테고리 목록
+
+  useEffect(() => {
+    dispatch(getArtRead(id))
+    dispatch(getCategoryList())
+  }, [])
+
+  console.log(fileList)
 
   const [input, setInput] = useState({
-    title: art.title,
-    category: art.category.categoryId,
-    description: art.description,
+    title: art?.title,
+    category: { categoryId: art?.category.categoryId },
+    description: art?.description,
+    artist: art?.artist,
+    resume: art?.resume,
   })
-
-  const dispatch = useDispatch()
 
   const handleChange = e => {
     e.stopPropagation()
     e.preventDefault()
 
-    setInput({
-      [e.target.name]: e.target.value
-    })
+    input[e.target.name] = e.target.value
+    setInput({ ...input })
+  }
+
+  const categoryChange = e => {
+    e.stopPropagation()
+    e.preventDefault()
+
+    input.category.categoryId = Number(e.target.value)
+    setInput({ ...input })
   }
 
   const ArtModify = e => {
     e.stopPropagation()
     e.preventDefault()
 
-
+    const data = {
+      ...input, files: fileList.map(i => {
+        return i.file
+      })
+    }
+    dispatch(getArtModify(data))
   }
 
   return (
@@ -49,18 +76,7 @@ const ArtModify = ({ tagline, title, backfont, dash, textBtn, classes }) => {
       >
         <div className="col-md-6 col-sm-4 ">
           <div className="pt-50 pb-70 pl-70 pr-70 xs-pt-20 xs-pb-80 ">
-            <ArtUpload />
-            
-            {art?.files.map((image, i) => (
-              <div className="item" key={i}>
-                <img
-                  className="img-responsive"
-                  src={`http://localhost:8080/art_files/display?fileName=${image.saveFileName}`}
-                  alt={image.originalFileName}
-                />
-                <button className="btn">삭제</button>
-              </div>
-            ))}
+            <ModifyUpload />
           </div>
         </div>
         <div className="container-fluid">
@@ -70,6 +86,7 @@ const ArtModify = ({ tagline, title, backfont, dash, textBtn, classes }) => {
               id="art-modify-form"
               method="POST"
               className="contact-form-style-02"
+              onSubmit={ArtModify}
             >
               <div className="messages"></div>
               <div className="row">
@@ -85,7 +102,7 @@ const ArtModify = ({ tagline, title, backfont, dash, textBtn, classes }) => {
                       id="title"
                       required
                       data-error="작품명을 입력하세요."
-                      value={input.title}
+                      value={input?.title}
                       onChange={e => handleChange(e)}
                     />
                   </div>
@@ -102,12 +119,14 @@ const ArtModify = ({ tagline, title, backfont, dash, textBtn, classes }) => {
                       id="category"
                       required
                       data-error="카테고리를 선택해주세요."
-                      onChange={e => handleChange(e)}
+                      onChange={e => categoryChange(e)}
                     >
-                      <option>{art.category.categoryName}</option>
-                      <option value="1">예술</option>
-                      <option value="2">사진</option>
-                      <option value="3">연극</option>
+                      <option value={art?.category.categoryId}>{art?.category.categoryName}</option>
+                      {categories.filter(category => category.categoryId !== art?.category.categoryId).map(category => {
+                        return (
+                          <option key={category.categoryId} value={category.categoryId}>{category.categoryName}</option>
+                        )
+                      })}
                     </select>
                   </div>
                 </div>

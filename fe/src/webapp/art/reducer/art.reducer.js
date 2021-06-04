@@ -38,6 +38,7 @@ export const getArtRead = createAsyncThunk("ART_READ",
 
 export const getArtModify = createAsyncThunk("ART_MODIFY",
   async (args) => {
+    console.log(args)
     const response = await ArtService.artModify(args)
 
     return response.data
@@ -61,6 +62,13 @@ export const getArtSearch = createAsyncThunk("ART_SEARCH",
   }
 )
 
+export const getCategoryList = createAsyncThunk("CATEGORY_LIST",
+  async () => {
+  const response = await ArtService.categoryList()
+
+  return response.data
+})
+
 const isRejectedAction = action => (action.type.endsWith('rejected'))
 
 const artSlice = createSlice({
@@ -78,7 +86,7 @@ const artSlice = createSlice({
     fileList: [],
     type: '',
     keyword: '',
-    category: '',
+    category: [],
     
   },
   reducers: {
@@ -92,9 +100,10 @@ const artSlice = createSlice({
     changeFileList: (state, { payload }) => {
       const idx = state.fileList?.findIndex(file => file.uuid === payload.uuid)
 
-      state.fileList[idx].file = payload.file
+      state.fileList[idx] = payload
     },
     deleteFileList: (state, { payload }) => {
+      console.log(payload)
       state.fileList = state.fileList.filter(file => file.uuid !== payload.uuid)
     }
   },
@@ -112,16 +121,20 @@ const artSlice = createSlice({
       })
       .addCase(getArtRead.fulfilled, (state, { payload }) => {
         state.current = payload
-        console.log(`바바바: ` + JSON.stringify(state.current.files.length))
+        state.fileList = payload.files
+        // console.log(`바바바: ` + JSON.stringify(state.current))
       })
       .addCase(getArtModify.fulfilled, (state, { payload }) => {
-
+        return state.findIndex(art => art.artId === payload)
       })
       .addCase(getArtDelete.fulfilled, (state, { payload }) => {
 
       })
       .addCase(getArtSearch.fulfilled, (state, { payload }) => {
         state.pageResult = payload
+      })
+      .addCase(getCategoryList.fulfilled, (state, { payload }) => {
+        state.category = payload
       })
       .addMatcher(isRejectedAction).addDefaultCase()
       .addDefaultCase((state, payload) => { })

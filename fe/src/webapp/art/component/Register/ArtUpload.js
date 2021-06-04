@@ -1,23 +1,16 @@
-import React, { useImperativeHandle, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ArtService } from 'webapp/art'
 import { addFileList } from 'webapp/art/reducer/art.reducer'
 import ArtFile from './ArtFile'
 
-const ArtUpload = ({ cref, getUploadFiles, fileParam = [] }) => {
+const ArtUpload = ({ fileParam = [] }) => {
 
   const dispatch = useDispatch()
   const fileList = useSelector(state => state.arts.fileList)
-  const [files, setFiles] = useState([])
   const [uploadResult, setUploadResult] = useState(fileParam)
 
-  useImperativeHandle(cref, () => ({
-    send() {
-      getUploadFiles(uploadResult)
-      setFiles([])
-      setUploadResult([])
-    }
-  }))
+  console.log("upload", fileList)
 
   const uploadFile = async (e) => {
     e.preventDefault()
@@ -37,7 +30,7 @@ const ArtUpload = ({ cref, getUploadFiles, fileParam = [] }) => {
         res.data.forEach(uploadFileInfo => {
           uploadResult.push(uploadFileInfo)
 
-          dispatch(addFileList({ uuid: uploadFileInfo.uuid, file: uploadFileInfo }))
+          dispatch(addFileList(uploadFileInfo))
         })
         console.log("uploadResult Before", uploadResult)
         setUploadResult(uploadResult.slice(0))
@@ -65,7 +58,7 @@ const ArtUpload = ({ cref, getUploadFiles, fileParam = [] }) => {
           />
           {fileList?.map(fileObj => {
             return (
-              <ArtFile key={fileObj.uuid} {...fileObj.file} />
+              <ArtFile key={fileObj.uuid} {...fileObj} />
             )
           })}
         </div>
