@@ -120,7 +120,7 @@ public class ArtRepositoryTests {
                     ArtFile.builder()
                             .uuid(uuid)
                             .originalFileName("Vuex.png")
-                            .saveFileName(uuid + "_Vuex.png")
+                            .savedFileName(uuid + "_Vuex.png")
                             .art(Art.builder().artId((long) (Math.random() * 27 + 104)).build())
                             .build());
         }
@@ -200,13 +200,13 @@ public class ArtRepositoryTests {
     @Transactional
     @Test
     public void testList() {
-        PageRequestDTO pageRequestDTO = new PageRequestDTO();
-
-        PageResultDTO<ArtDTO, Object[]> result = artService.getList(pageRequestDTO);
-
-        for (ArtDTO artDTO : result.getDtoList()) {
-            System.out.println(artDTO);
-        }
+//        PageRequestDTO pageRequestDTO = new PageRequestDTO();
+//
+//        PageResultDTO<ArtDTO, Object[]> result = artService.getList(pageRequestDTO);
+//
+//        for (ArtDTO artDTO : result.getDtoList()) {
+//            System.out.println(artDTO);
+//        }
     }
 
     @Transactional

@@ -13,9 +13,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public interface ArtService {
-    Long register(ArtDTO artDTO, List<MultipartFile> files);
+    Long register(ArtDTO artDTO);
 
     PageResultDTO<ArtDTO, Object[]> getList(PageRequestDTO pageRequestDTO); // 목록 처리
+
+    PageResultDTO<ArtDTO, Object[]> getSearch(PageRequestDTO pageRequestDTO);
 
     ArtDTO get(Long artId);
 
@@ -80,7 +82,9 @@ public interface ArtService {
         return ArtFile.builder()
                 .uuid(artFileDTO.getUuid())
                 .originalFileName(artFileDTO.getOriginalFileName())
-                .saveFileName(artFileDTO.getSaveFileName())
+                .savedFileName(artFileDTO.getUuid() + "_" + artFileDTO.getOriginalFileName())
+                .workedDate(artFileDTO.getWorkedDate())
+                .repImg(artFileDTO.getRepImg())
                 .build();
     }
 
@@ -89,7 +93,9 @@ public interface ArtService {
                 .fileId(artFile.getFileId())
                 .uuid(artFile.getUuid())
                 .originalFileName(artFile.getOriginalFileName())
-                .saveFileName(artFile.getSaveFileName())
+                .savedFileName(artFile.getSavedFileName())
+                .workedDate(artFile.getWorkedDate())
+                .repImg(artFile.getRepImg())
                 .art(ArtDTO.builder()
                         .artId(artFile.getArt().getArtId())
                         .build())

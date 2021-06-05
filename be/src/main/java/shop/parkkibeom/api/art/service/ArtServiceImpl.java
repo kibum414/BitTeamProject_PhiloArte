@@ -32,26 +32,24 @@ public class ArtServiceImpl implements ArtService {
 
     @Transactional
     @Override
-    public Long register(ArtDTO artDTO, List<MultipartFile> files) {
+    public Long register(ArtDTO artDTO) {
 
         Art art = dtoToEntity(artDTO);
 
         artRepository.save(art);
 
-        log.info(files);
+        log.info(art);
 
-        System.out.println(artFileService.uploadFiles(files, art.getArtId()));
+        List<ArtFileDTO> artFileDtos = artDTO.getFiles();
 
-//        List<ArtFileDTO> artFileDtos = artDTO.getFiles();
-//
-//        if (artFileDtos != null && artFileDtos.size() > 0) {
-//            artFileDtos.forEach(artFileDTO -> {
-//                ArtFile artFile = dtoToEntityFiles(artFileDTO);
-//                artFile.setArt(art);
-//                log.info("ArtFile: " + artFile);
-//                artFileRepository.save(artFile);
-//            });
-//        }
+        if (artFileDtos != null && artFileDtos.size() > 0) {
+            artFileDtos.forEach(artFileDTO -> {
+                ArtFile artFile = dtoToEntityFiles(artFileDTO);
+                artFile.setArt(art);
+                log.info("ArtFile: " + artFile);
+                artFileRepository.save(artFile);
+            });
+        }
 
         return art.getArtId();
 
@@ -62,6 +60,19 @@ public class ArtServiceImpl implements ArtService {
     public PageResultDTO<ArtDTO, Object[]> getList(PageRequestDTO pageRequestDTO) {
 
         log.info(pageRequestDTO);
+
+        Function<Object[], ArtDTO> fn = (entity ->
+                entityToDto((Art) entity[0], (Artist) entity[1], (Category) entity[2], (Resume) entity[3], getFilesByArtId(((Art) entity[0]).getArtId())));
+
+        Page<Object[]> result = artRepository.getArts(pageRequestDTO.getPageable(Sort.by("artId").descending()));
+
+        return new PageResultDTO<>(result, fn);
+
+    }
+
+    @Transactional
+    @Override
+    public PageResultDTO<ArtDTO, Object[]> getSearch(PageRequestDTO pageRequestDTO) {
 
         Function<Object[], ArtDTO> fn = (entity ->
                 entityToDto((Art) entity[0], (Artist) entity[1], (Category) entity[2], (Resume) entity[3], getFilesByArtId(((Art) entity[0]).getArtId())));
@@ -128,18 +139,25 @@ public class ArtServiceImpl implements ArtService {
 
         Art art = artRepository.getOne(artDTO.getArtId());
 
-        System.out.println(art.toString());
-        System.out.println(artDTO.toString());
+        System.out.println(art);
 
         art.changeTitle(artDTO.getTitle());
         art.changeDescription(artDTO.getDescription());
-        art.changeMainImg(artDTO.getMainImg());
 
-        System.out.println(art.toString());
-        System.out.println("-------------변경 직전");
-        System.out.println(artRepository.save(art));
+        artRepository.save(art);
 
-        return 1L;
+        List<ArtFileDTO> artFileDtos = artDTO.getFiles();
+
+        if (artFileDtos != null && artFileDtos.size() > 0) {
+            artFileDtos.forEach(artFileDTO -> {
+                ArtFile artFile = dtoToEntityFiles(artFileDTO);
+                artFile.setArt(art);
+                log.info("ArtFile: " + artFile);
+                artFileRepository.save(artFile);
+            });
+        }
+
+        return art.getArtId();
 
     }
 

@@ -50,6 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/users/findAll").permitAll()
                 .antMatchers("/arts/**").permitAll()
                 .antMatchers("/art_files/**").permitAll()
+                .antMatchers("/categories/**").permitAll()
                 .antMatchers("/h2-console/**/**").permitAll() // ant 표기법 (** : 0개 이상의 폴더, * : 0개 이상의 파일)
                 .anyRequest().authenticated(); // 나머지 요청들은 인증된 사용자만 접근 허용
         http.exceptionHandling().accessDeniedPage("/login"); // 실패했을 때 뜨는 화면

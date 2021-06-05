@@ -7,8 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import shop.parkkibeom.api.art.domain.Art;
 import shop.parkkibeom.api.art.repository.ArtRepository;
+import shop.parkkibeom.api.category.repository.CategoryRepository;
 import shop.parkkibeom.api.crawling.repository.ArtistRepository;
-import shop.parkkibeom.api.crawling.repository.CategoryRepository;
 import shop.parkkibeom.api.crawling.repository.ResumeRepository;
 
 import java.io.DataOutputStream;

@@ -8,15 +8,15 @@ import shop.parkkibeom.api.art.domain.ArtFileDTO;
 import java.util.List;
 
 public interface ArtFileService {
-    List<ArtFileDTO> uploadFiles(List<MultipartFile> files, Long artId);
+    List<ArtFileDTO> uploadFiles(List<MultipartFile> files);
     List<ArtFileDTO> updateFiles(List<MultipartFile> files);
-    Long deleteFiles(Long fileId);
+    Long deleteFiles(ArtFileDTO artFileDTO);
 
     default ArtFile dtoToEntity(ArtFileDTO artFileDTO) {
         return ArtFile.builder()
                 .uuid(artFileDTO.getUuid())
                 .originalFileName(artFileDTO.getOriginalFileName())
-                .saveFileName(artFileDTO.getSaveFileName())
+                .savedFileName(artFileDTO.getSavedFileName())
                 .art(Art.builder().artId(artFileDTO.getArt().getArtId()).build())
                 .build();
     }

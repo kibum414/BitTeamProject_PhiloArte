@@ -26,12 +26,18 @@ public class ArtController {
         return ResponseEntity.ok(artService.getList(pageRequestDTO));
     }
 
-    @PostMapping("/register")
-    public ResponseEntity<Long> register(@RequestPart("input") ArtDTO artDTO, @RequestPart("files") List<MultipartFile> files) {
-        System.out.println("register() : " + artDTO);
-        System.out.println("files: " + files);
+    @GetMapping("/search")
+    public ResponseEntity<PageResultDTO<ArtDTO, Object[]>> search(PageRequestDTO pageRequestDTO) {
+        System.out.println("search() : " + pageRequestDTO);
 
-        return ResponseEntity.ok(artService.register(artDTO, files));
+        return ResponseEntity.ok(artService.getSearch(pageRequestDTO));
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<Long> register(@RequestBody ArtDTO artDTO) {
+        System.out.println("register() : " + artDTO);
+
+        return ResponseEntity.ok(artService.register(artDTO));
     }
 
     @GetMapping("/read/{artId}")
@@ -51,7 +57,7 @@ public class ArtController {
 
     @DeleteMapping("/delete")
     public ResponseEntity<Long> delete(@RequestBody ArtDTO artDTO) {
-        System.out.println("delete");
+        System.out.println("delete" + artDTO);
 
         return ResponseEntity.ok(artService.delete(artDTO.getArtId()));
     }

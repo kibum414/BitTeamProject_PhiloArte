@@ -18,7 +18,11 @@ public class ArtFileDTO {
 
     private String originalFileName;
 
-    private String saveFileName;
+    private String savedFileName;
+
+    private String workedDate;
+
+    private Boolean repImg;
 
     // Art
     private ArtDTO art;

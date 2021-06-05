@@ -29,20 +29,20 @@ public class ArtFileController {
     @Value("${shop.parkkibeom.upload.path}")
     private String uploadPath;
 
-//    @PostMapping("/upload")
-//    public ResponseEntity<List<ArtFileDTO>> uploadFiles(List<MultipartFile> files) {
-//
-//        for (MultipartFile file : files) {
-//            if (!file.getContentType().startsWith("image")) {
-//                log.warn("이미지 파일이 아닙니다.");
-//
-//                return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-//            }
-//        }
-//
-//        return new ResponseEntity<>(artFileService.uploadFiles(files), HttpStatus.OK);
-//
-//    }
+    @PostMapping("/upload")
+    public ResponseEntity<List<ArtFileDTO>> uploadFiles(List<MultipartFile> files) {
+
+        for (MultipartFile file : files) {
+            if (!file.getContentType().startsWith("image")) {
+                log.warn("이미지 파일이 아닙니다.");
+
+                return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+            }
+        }
+
+        return new ResponseEntity<>(artFileService.uploadFiles(files), HttpStatus.OK);
+
+    }
 
     @GetMapping("/display")
     public ResponseEntity<byte[]> getFiles(String fileName) {
@@ -78,9 +78,11 @@ public class ArtFileController {
         return new ResponseEntity<>(artFileService.updateFiles(files), HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{fileId}")
-    public ResponseEntity<Long> deleteFiles(@PathVariable("fileId") Long fileId) {
-        return new ResponseEntity<>(artFileService.deleteFiles(fileId), HttpStatus.OK);
+    @DeleteMapping("/delete")
+    public ResponseEntity<Void> deleteFiles(@RequestBody String uuid) {
+        log.info(uuid);
+//        return new ResponseEntity<>(artFileService.deleteFiles(artFileDTO), HttpStatus.OK);
+        return null;
     }
 
 }

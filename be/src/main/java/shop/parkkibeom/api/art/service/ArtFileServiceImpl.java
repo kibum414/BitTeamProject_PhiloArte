@@ -30,7 +30,7 @@ public class ArtFileServiceImpl implements ArtFileService {
     private String uploadPath;
 
     @Override
-    public List<ArtFileDTO> uploadFiles(List<MultipartFile> files, Long artId) {
+    public List<ArtFileDTO> uploadFiles(List<MultipartFile> files) {
 
         List<ArtFileDTO> resultDtoList = new ArrayList<>();
 
@@ -45,8 +45,8 @@ public class ArtFileServiceImpl implements ArtFileService {
             String uuid = UUID.randomUUID().toString();
 
             // 저장할 파일 이름 중간에 "_"를 이용해서 구분하여 파일 경로 포함한 저장 파일명
-            String saveFileName = uploadPath + File.separator + uuid + "_" + fileName;
-            Path savePath = Paths.get(saveFileName);
+            String savedFileName = uploadPath + File.separator + uuid + "_" + fileName;
+            Path savePath = Paths.get(savedFileName);
 
             try {
                 // 원본 파일 저장
@@ -58,18 +58,14 @@ public class ArtFileServiceImpl implements ArtFileService {
                 File thumbnailFile = new File(thumbnailSaveName);
 
                 // 썸네일 생성
-                Thumbnailator.createThumbnail(savePath.toFile(), thumbnailFile, 100, 100);
+                Thumbnailator.createThumbnail(savePath.toFile(), thumbnailFile, 250, 250);
 
                 ArtFileDTO artFileDTO = ArtFileDTO.builder()
                         .uuid(uuid)
                         .originalFileName(fileName)
-                        .saveFileName(uuid + "_" + fileName)
-                        .art(ArtDTO.builder().artId(artId).build())
                         .build();
 
                 resultDtoList.add(artFileDTO);
-
-                artFileRepository.save(dtoToEntity(artFileDTO));
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -85,11 +81,11 @@ public class ArtFileServiceImpl implements ArtFileService {
     }
 
     @Override
-    public Long deleteFiles(Long fileId) {
+    public Long deleteFiles(ArtFileDTO artFileDTO) {
 //        File file = new File(
 //                uploadPath
 //                        + File.separator
-//                        + artFileRepository.findById(fileId).get().getSaveFileName()
+//                        + artFileRepository.findByUuid(artFileDTO.getUuid()).getSaveFileName()
 //        );
 //
 //        File thumbnail = new File(

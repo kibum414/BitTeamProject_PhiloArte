@@ -26,7 +26,13 @@ public class ArtFile extends BaseEntity {
     private String originalFileName;
 
     @Column
-    private String saveFileName;
+    private String savedFileName;
+
+    @Column
+    private String workedDate;
+
+    @Column
+    private Boolean repImg;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "art_id")
