@@ -363,4 +363,11 @@ public class ArtRepositoryTests {
 
     }
 
+    @Test
+    public void testFindFile() {
+
+        System.out.println(artFileRepository.findByUuid("1db5dc1c-6d96-4277-be4e-0165a118bec7"));
+
+    }
+
 }

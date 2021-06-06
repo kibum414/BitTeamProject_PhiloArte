@@ -134,6 +134,7 @@ public class ArtServiceImpl implements ArtService {
 
     }
 
+    @Transactional
     @Override
     public Long modify(ArtDTO artDTO) {
 
@@ -150,9 +151,18 @@ public class ArtServiceImpl implements ArtService {
 
         if (artFileDtos != null && artFileDtos.size() > 0) {
             artFileDtos.forEach(artFileDTO -> {
+                Long fileId = artFileRepository.findByUuid(artFileDTO.getUuid());
+
                 ArtFile artFile = dtoToEntityFiles(artFileDTO);
+
+                if (fileId != null) { // 존재하는 파일이면
+                    artFile.setFileId(fileId);
+                }
+
                 artFile.setArt(art);
+
                 log.info("ArtFile: " + artFile);
+
                 artFileRepository.save(artFile);
             });
         }

@@ -22,7 +22,7 @@ public interface ArtFileRepository extends JpaRepository<ArtFile, Long> {
     @Query("DELETE FROM ArtFile f WHERE f.art.artId = :artId")
     void deleteByArtId(@Param("artId") Long artId);
 
-    @Query("SELECT f FROM ArtFile f WHERE f.uuid = :uuid")
-    ArtFile findByUuid(@Param("uuid") String uuid);
+    @Query("SELECT f.fileId FROM ArtFile f WHERE f.uuid = :uuid")
+    Long findByUuid(@Param("uuid") String uuid);
 
 }

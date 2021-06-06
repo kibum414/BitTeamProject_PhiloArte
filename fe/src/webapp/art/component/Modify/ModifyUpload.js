@@ -1,15 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ArtService } from 'webapp/art'
 import { addFileList } from 'webapp/art/reducer/art.reducer'
 import ModifyFile from './ModifyFile'
 
-const ModifyUpload = ({ fileParam = [] }) => {
+const ModifyUpload = () => {
 
   const dispatch = useDispatch()
   const fileList = useSelector(state => state.arts.fileList)
-
-  const [uploadResult, setUploadResult] = useState(fileParam)
 
   const uploadFile = async (e) => {
     e.preventDefault()
@@ -27,14 +25,9 @@ const ModifyUpload = ({ fileParam = [] }) => {
       .then(res => {
         console.log("res: ", res)
         res.data.forEach(uploadFileInfo => {
-          uploadResult.push(uploadFileInfo)
-
-          dispatch(addFileList({ uuid: uploadFileInfo.uuid, file: uploadFileInfo }))
+          dispatch(addFileList(uploadFileInfo))
         })
-        console.log("uploadResult Before", uploadResult)
-        setUploadResult(uploadResult.slice(0))
-        console.log("uploadResult After", uploadResult)
-    })
+      })
   }
 
   return (
@@ -57,7 +50,7 @@ const ModifyUpload = ({ fileParam = [] }) => {
           {fileList?.map(fileObj => {
             console.log("sdfsdfdsf", fileObj)
             return (
-              <ModifyFile key={fileObj.uuid} {...fileObj.file} />
+              <ModifyFile key={fileObj.uuid} {...fileObj} />
             )
           })}
         </div>

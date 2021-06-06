@@ -21,7 +21,7 @@ const ModifyFile = ({ workedDate, uuid, originalFileName, repImg }) => {
     artFile[name] = value
     setArtFile({ ...artFile })
 
-    dispatch(changeFileList({ uuid: e.target.getAttribute("data-uuid"), file: artFile }))
+    dispatch(changeFileList(artFile))
   }
 
   const repImgChange = e => {
@@ -32,14 +32,14 @@ const ModifyFile = ({ workedDate, uuid, originalFileName, repImg }) => {
 
     setArtFile({ ...artFile })
 
-    dispatch(changeFileList({ uuid: e.target.getAttribute("data-uuid"), file: artFile }))
+    dispatch(changeFileList(artFile))
   }
 
   const artFileDelete = e => {
     e.stopPropagation()
     e.preventDefault()
 
-    dispatch(deleteFileList({ uuid: e.target.getAttribute("data-uuid"), file: artFile }))
+    dispatch(deleteFileList(artFile))
   }
 
   return (
@@ -90,8 +90,8 @@ const ModifyFile = ({ workedDate, uuid, originalFileName, repImg }) => {
               <button
                 name="repImg"
                 className="btn btn-md btn-dark-outline btn-square mt-10"
-                value={artFile.repImg}
                 data-uuid={artFile.uuid}
+                value={artFile.repImg}
                 onClick={e => repImgChange(e)}
               >
                 Yes

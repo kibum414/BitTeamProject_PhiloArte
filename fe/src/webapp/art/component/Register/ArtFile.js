@@ -46,8 +46,7 @@ const ArtFile = ({ uuid, originalFileName }) => {
     e.preventDefault()
 
     console.log("artFile", artFile)
-    dispatch(deleteFileList({ uuid: e.target.getAttribute("data-uuid"), file: { ...artFile } }))
-    
+    dispatch(deleteFileList(artFile))
   }
 
   return (

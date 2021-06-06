@@ -1,16 +1,23 @@
 import React from "react";
 import Icofont from "react-icofont";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { getArtDelete } from "webapp/art/reducer/art.reducer";
 
 const ArtSidebar = ({ post, name, category }) => {
   
   const dispatch = useDispatch()
+  const history = useHistory()
+
   console.log("post", post)
 
-  const deleteArt = () => {
+  const deleteArt = e => {
+    e.stopPropagation()
+    e.preventDefault()
+
     dispatch(getArtDelete(post))
+
+    history.push('/art/list')
   }
 
   return (
@@ -24,7 +31,7 @@ const ArtSidebar = ({ post, name, category }) => {
       </Link>
         <button
           className="btn btn-lg btn-dark-outline btn-square mt-10 ml-30"
-          onClick={deleteArt}
+          onClick={e => deleteArt(e)}
         >
           삭제
       </button>

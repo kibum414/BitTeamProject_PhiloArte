@@ -50,14 +50,14 @@ public class ArtController {
 
     @PutMapping("/modify")
     public ResponseEntity<Long> modify(@RequestBody ArtDTO artDTO) {
-        System.out.println("modify()");
+        System.out.println("modify() : " + artDTO);
 
         return ResponseEntity.ok(artService.modify(artDTO));
     }
 
     @DeleteMapping("/delete")
     public ResponseEntity<Long> delete(@RequestBody ArtDTO artDTO) {
-        System.out.println("delete" + artDTO);
+        System.out.println("delete() : " + artDTO);
 
         return ResponseEntity.ok(artService.delete(artDTO.getArtId()));
     }

@@ -125,7 +125,7 @@ const artSlice = createSlice({
         // console.log(`바바바: ` + JSON.stringify(state.current))
       })
       .addCase(getArtModify.fulfilled, (state, { payload }) => {
-        return state.findIndex(art => art.artId === payload)
+        
       })
       .addCase(getArtDelete.fulfilled, (state, { payload }) => {
 

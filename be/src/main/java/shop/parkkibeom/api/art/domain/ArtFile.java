@@ -38,6 +38,10 @@ public class ArtFile extends BaseEntity {
     @JoinColumn(name = "art_id")
     private Art art;
 
+    public void setFileId(Long fileId) {
+        this.fileId = fileId;
+    }
+
     public void setArt(Art art) {
         this.art = art;
     }

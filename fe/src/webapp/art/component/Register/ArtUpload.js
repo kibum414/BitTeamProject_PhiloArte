@@ -1,14 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ArtService } from 'webapp/art'
 import { addFileList } from 'webapp/art/reducer/art.reducer'
 import ArtFile from './ArtFile'
 
-const ArtUpload = ({ fileParam = [] }) => {
+const ArtUpload = () => {
 
   const dispatch = useDispatch()
   const fileList = useSelector(state => state.arts.fileList)
-  const [uploadResult, setUploadResult] = useState(fileParam)
 
   console.log("upload", fileList)
 
@@ -28,13 +27,8 @@ const ArtUpload = ({ fileParam = [] }) => {
       .then(res => {
         console.log("res: ", res)
         res.data.forEach(uploadFileInfo => {
-          uploadResult.push(uploadFileInfo)
-
           dispatch(addFileList(uploadFileInfo))
         })
-        console.log("uploadResult Before", uploadResult)
-        setUploadResult(uploadResult.slice(0))
-        console.log("uploadResult After", uploadResult)
       })
 
   }

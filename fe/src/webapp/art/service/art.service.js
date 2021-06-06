@@ -24,7 +24,13 @@ const artUpload = (formData) => axios.post(`http://localhost:8080/art_files/uplo
 const artFileDelete = (payload) => axios.delete(`http://localhost:8080/art_files/delete`, payload)
 const artRead = (payload) => axios.get(`http://localhost:8080/arts/read/${payload}`)
 const artModify= (payload) => axios.put(`http://localhost:8080/arts/modify`, payload)
-const artDelete = (payload) => axios.delete(`http://localhost:8080/arts/delete`, payload)
+const artDelete = (payload) => {
+  return axios({
+    url: `http://localhost:8080/arts/delete`,
+    method: 'delete',
+    data: payload
+  })
+}
 
 const categoryList = () => axios.get(`http://localhost:8080/categories/list`)
 

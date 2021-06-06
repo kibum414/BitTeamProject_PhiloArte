@@ -30,6 +30,7 @@ const ArtModify = ({ tagline, title, backfont, dash, textBtn, classes }) => {
   console.log(fileList)
 
   const [input, setInput] = useState({
+    artId: art?.artId,
     title: art?.title,
     category: { categoryId: art?.category.categoryId },
     description: art?.description,
@@ -57,11 +58,7 @@ const ArtModify = ({ tagline, title, backfont, dash, textBtn, classes }) => {
     e.stopPropagation()
     e.preventDefault()
 
-    const data = {
-      ...input, files: fileList.map(i => {
-        return i.file
-      })
-    }
+    const data = { ...input, files: fileList }
     dispatch(getArtModify(data))
   }
 

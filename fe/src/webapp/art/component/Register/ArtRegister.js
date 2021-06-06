@@ -39,10 +39,10 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
       description: descriptionRef.current.value,
       mainImg: "http://www.yck.kr/_data/file/bbsData/86d2f471ffc196ee508845737375d38d.jpg",
       artist: { artistId: 333 }, // 아티스트 정보 가져올 곳
-      resume: { resumeId: 1 }, // 레쥬메 정보 가져올 곳
+      resume: { resumeId: 10 }, // 레쥬메 정보 가져올 곳
     }
     
-    const data = { ...art, files: fileList.map(i => i.file) }
+    const data = { ...art, files: fileList }
 
     dispatch(getArtRegister(data))
 
