@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+
 import { ArtService } from 'webapp/art'
 
 export const getArtList = createAsyncThunk("ART_LIST",
@@ -115,6 +116,7 @@ const artSlice = createSlice({
       })
       .addCase(getArtRegister.fulfilled, (state, { payload }) => {
         alert(`${payload}번 게시물 등록 완료 !`)
+        state.fileList = []
       })
       .addCase(getArtUpload.fulfilled, (state, { payload }) => {
         alert(`${payload[0]} 파일 등록 완료 !`)

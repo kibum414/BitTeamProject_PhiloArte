@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { ArtService } from 'webapp/art'
+
 import { changeFileList, deleteFileList } from 'webapp/art/reducer/art.reducer'
 
 const ArtFile = ({ uuid, originalFileName }) => {

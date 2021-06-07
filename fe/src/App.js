@@ -7,9 +7,8 @@ import { ResumeList, ResumeModify, ResumeRead, ResumeRegister } from 'webapp/res
 import { FundingList, FundingModify, FundingRead, FundingRegister } from 'webapp/funding/index'
 import { ItemList, ItemModify, ItemRead, ItemRegister } from 'webapp/item/index'
 import { ReviewList, ReviewModify, ReviewRead, ReviewRegister } from 'webapp/review/index'
-import { ArtPage, ArtRegister, ArtDetail, ArtModify } from 'webapp/art/index'
+import { ArtApp, ArtRegister, ArtDetail, ArtModify } from "webapp/art"
 import { HomeVideoBg } from "webapp/common/index";
-import PortfolioFilter from "webapp/art/component/List/PortfolioFilter";
 
 const App = () => {
 
@@ -48,7 +47,7 @@ const App = () => {
             <Route exact path='/review/review-register' component={ReviewRegister} />
 
             {/*Art*/}
-            <Route exact path='/art/list' component={ArtPage} />
+            <Route exact path='/art' component={ArtApp} />
             <Route exact path='/art/register' component={ArtRegister} />
             <Route exact path='/art/read/:id' component={ArtDetail} />
             <Route exact path='/art/modify/:id' component={ArtModify} />

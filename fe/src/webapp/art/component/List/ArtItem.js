@@ -1,24 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ArtItem = ({ id, title, image, category, files }) => {
-  console.log(category)
+const ArtItem = ({ artId, title, category, files=[]}) => {
 
-  const repImg = files.map(file => (
-    file.repImg ?
-      <img
-        key={file.fileId}
-        src={`http://localhost:8080/art_files/display?fileName=${"s_" + file.savedFileName}`}
-        alt="대표 이미지가 없습니다"
-      />
-      : <></>
-  ))
+  const repImg = files.map(file => {
+    return (
+      file.repImg ?
+        <div key={file.fileId}>
+          <img key={file.fileId} src={`http://localhost:8080/art_files/display?fileName=${"s_" + file.uuid + "_" + file.originalFileName}`} alt="이미지가 없습니다" />
+        </div>
+        :
+        <div key={file.fileId}></div>
+    )
+  })
 
   return (
+  
     <div
       className={
         // "cbp-wrapper-outer cbp-wrapper cbp-item 
-        "cbp-item col-md-3 col-sm-6 " + category
+        "item-wrap cbp-item col-md-3 col-sm-6 " + category
         // +
         // categories.join(',').replace(/\s+/g, "-").replace(/,/g, ' ').toLowerCase().split()
       }
@@ -26,9 +27,9 @@ const ArtItem = ({ id, title, image, category, files }) => {
     >
 
       <div className="portfolio-item">
-        <Link to={`/art/read/${id}`}>
-          {<img src={image} alt="" />}
-          <div className="portfolio-info white-bg">
+        <Link to={`/art/read/${artId}`}>
+          {repImg}
+          <div className="portfolio-info white-bg" style={{ margin: "0 auto" }}>
             <div className="centrize">
               <div className="v-center dark-color">
                 <h3>{title}</h3>
@@ -39,7 +40,7 @@ const ArtItem = ({ id, title, image, category, files }) => {
         </Link>
       </div>
     </div>
-  );
+  )
 }
 
 export default ArtItem;

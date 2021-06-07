@@ -107,7 +107,7 @@ const HeroMarketing = () => (
                 borderWidth: "0px",
               }}
             >
-              Anno Studio
+              Philo Arte
             </div>
 
             <div

@@ -2,12 +2,9 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // DATA Files
 import dataNavbar from "webapp/common/data/Navbar/main-navbar-data.json";
-import dataClients from "webapp/common/data/Clients/clients-data.json";
-// Images
 // Components
 import { HeaderOne, FooterOne } from "webapp/common";
-import ClientsCarousel from "webapp/common/Carousel/ClientsCarousel";
-import { PageTitle, ArtList, SearchBar } from "webapp/art";
+import { HeroMarketing, PresentationTwo, ArtList, SearchBar, PageList } from "webapp/art";
 
 import { getArtList, getArtSearch } from 'webapp/art/reducer/art.reducer'
 
@@ -15,6 +12,8 @@ const ArtPage = () => {
   const pageResult = useSelector(state => state.arts.pageResult)
   const type = useSelector(state => state.arts.type)
   const keyword = useSelector(state => state.arts.keyword)
+  const page = pageResult.page
+  const param = { type: type, keyword: keyword, page: page }
 
   const dispatch = useDispatch()
 
@@ -24,16 +23,26 @@ const ArtPage = () => {
 
   useEffect(() => {
     (!type && !keyword) ?
-      dispatch(getArtList(pageResult.page))
+      dispatch(getArtList(page))
       :
-      dispatch(getArtSearch({ type: type, keyword: keyword, page: pageResult.page }))
+      dispatch(getArtSearch(param))
   }, [])
 
   return (
     <>
       <HeaderOne data={dataNavbar} />
-      <PageTitle title="작품 목록" image={""} />
+      <HeroMarketing />
+      <PresentationTwo
+        title="Superb Website Template <br /> for Startups & Small Businesses."
+        text="당신의 작품을 등록해 보세요."
+        textBtn="작품 등록"
+        pathBtn={"/art/register"}
+      />
       <ArtList
+        tagline="Show Your Works"
+        title="Our Arts"
+        dash="show"
+        dashColor="dark"
         data={pageResult.dtoList}
         filter={true}
         categories={[
@@ -43,7 +52,7 @@ const ArtPage = () => {
         ]}
       />
       <SearchBar />
-      <ClientsCarousel data={dataClients} />
+      <PageList />
       <FooterOne />
     </>
   )

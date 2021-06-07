@@ -84,7 +84,7 @@
   {
     "id": 5,
     "title": "ART",
-    "path": "/art/list",
+    "path": "/art",
     "subMenu": [
       {
         "id": 1,

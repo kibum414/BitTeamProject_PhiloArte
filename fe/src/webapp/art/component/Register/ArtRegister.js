@@ -5,11 +5,11 @@ import { useHistory } from 'react-router-dom';
 import dataNavbar from "webapp/common/data/Navbar/main-navbar-data.json";
 // Components
 import { HeaderOne, FooterOne } from 'webapp/common';
-import { PageTitleArt } from 'webapp/art';
+import { PageTitleArt, ArtUpload } from 'webapp/art';
+
 import { getArtRegister, getCategoryList } from 'webapp/art/reducer/art.reducer';
 
 import 'webapp/art/style/Art.css'
-import ArtUpload from './ArtUpload';
 
 const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
 
@@ -46,7 +46,7 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
 
     dispatch(getArtRegister(data))
 
-    history.push('/art/list')
+    history.push('/art')
   }
 
   return (

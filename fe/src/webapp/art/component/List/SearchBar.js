@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { useDispatch } from 'react-redux'
+
 import { changeSearch, getArtSearch } from 'webapp/art/reducer/art.reducer'
 
 const SearchBar = () => {
@@ -22,13 +23,19 @@ const SearchBar = () => {
     await dispatch(getArtSearch(param))
   }
 
-  return (
-    <form role="search" className="text-center search-bar" onSubmit={e => e.preventDefault()}>
+  const handleRefresh = async () => {
+    dispatch(changeSearch({ type: "", keyword: "" }))
+    await window.location.reload()
+  }
+
+  return (<>
+    <form role="search" className="text-center search-bar pt-30">
       <select
         type="text"
         name="type"
         className="md-input sel_arrow search-select"
         id="type"
+        required
         ref={typeRef}
       >
         <option value="">선택</option>
@@ -52,9 +59,20 @@ const SearchBar = () => {
         className="btn btn-lg btn-color btn-square remove-margin search-button"
         onClick={e => handleClick(e)}
         value={"검색"}
-        />
+      />
+      {
+        typeRef || keywordRef ?
+          <input
+            type="submit"
+            className="btn btn-lg btn-color btn-square remove-margin search-button"
+            onClick={() => handleRefresh()}
+            value={"새로고침"}
+          />
+          :
+          <></>
+      }
     </form>
-  )
+  </>)
 }
 
 export default SearchBar

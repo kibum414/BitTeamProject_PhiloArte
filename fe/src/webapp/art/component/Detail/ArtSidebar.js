@@ -2,6 +2,7 @@ import React from "react";
 import Icofont from "react-icofont";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
+
 import { getArtDelete } from "webapp/art/reducer/art.reducer";
 
 const ArtSidebar = ({ post, name, category }) => {
@@ -17,7 +18,7 @@ const ArtSidebar = ({ post, name, category }) => {
 
     dispatch(getArtDelete(post))
 
-    history.push('/art/list')
+    history.push('/art')
   }
 
   return (

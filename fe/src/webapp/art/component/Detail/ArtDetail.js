@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
+import { useParams } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
 // DATA Files
 import dataNavbar from "webapp/common/data/Navbar/main-navbar-data.json";
-// Images
 // Components
 import HeaderOne from "webapp/common/Header/HeaderOne";
-import PageTitleArt from "webapp/art/component/PageTitleArt";
-import ArtContent from "webapp/art/component/Detail/ArtContent";
+import { PageTitleArt, ArtContent } from "webapp/art";
 import FooterOne from "webapp/common/Footer/FooterOne";
-import { useSelector, useDispatch } from "react-redux";
+
 import { getArtRead } from "webapp/art/reducer/art.reducer";
-import { useParams } from "react-router";
 
 const ArtDetail = () => {
 

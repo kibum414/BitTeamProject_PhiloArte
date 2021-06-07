@@ -1,8 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { ArtService } from 'webapp/art'
+
+import { ArtService, ArtFile } from 'webapp/art'
+
 import { addFileList } from 'webapp/art/reducer/art.reducer'
-import ArtFile from './ArtFile'
 
 const ArtUpload = () => {
 

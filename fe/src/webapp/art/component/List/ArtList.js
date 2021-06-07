@@ -1,28 +1,26 @@
-import React, { useCallback } from "react";
+import React from "react";
 import parse from "html-react-parser";
-import ArtItem from "webapp/art/component/List/ArtItem";
-import PortfolioFilter from "webapp/art/component/List/PortfolioFilter";
+
+import { ArtItem, PortfolioFilter } from "webapp/art";
 import LoadScript from "webapp/common/helpers/LoadScript";
-import PageList from "./PageList";
 
 const ArtList = ({ title, tagline, backfont, data, filter, categories, classes, dash, dashColor }) => {
   LoadScript("js/portfolio/portfolio-grid.js");
 
-  const getList = data.map((art, i) => {
-    return (
-      <ArtItem
-        key={i}
-        id={art.artId}
-        title={art.title}
-        image={art.mainImg}
-        category={art.category.categoryName}
-        files={art.files}
-      />
-    )
-  })
+  // const getList = data.map(art => {
+  //   return (
+  //     <ArtItem
+  //       key={art.artId}
+  //       artId={art.artId}
+  //       title={art.title}
+  //       category={art.category.categoryName}
+  //       files={art.files}
+  //     />
+  //   )
+  // })
 
   return (
-    <section id="portfolio" className={"pt-0 pb-0 " + classes}>
+    <section id="portfolio" className={"pt-50 pb-0 " + classes}>
       <div className="container">
         <div className="row">
           <div className="col-md-12">
@@ -43,11 +41,20 @@ const ArtList = ({ title, tagline, backfont, data, filter, categories, classes, 
         <div className={"row " + (!filter ? "mt-80" : "")}>
           <div className="col-md-12">
             <div id="portfolio-gallery" className="cbp">
-              {getList}
+              {data.map(art => {
+                return (
+                  <ArtItem
+                    key={art.artId}
+                    artId={art.artId}
+                    title={art.title}
+                    category={art.category.categoryName}
+                    files={art.files}
+                  />
+                )
+              })}
             </div>
           </div>
         </div>
-        <PageList />
       </div>
     </section>
   );

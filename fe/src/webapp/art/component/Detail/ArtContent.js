@@ -1,7 +1,8 @@
 import React from "react";
 import Slider from "react-slick";
-import ArtSidebar from "webapp/art/component/Detail/ArtSidebar";
 import Icofont from "react-icofont";
+
+import { ArtSidebar } from "webapp/art"
 
 const ArtContent = ({ post, data }) => {
 

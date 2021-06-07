@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory, useParams } from 'react-router';
 // DATA Files
 import dataNavbar from "webapp/common/data/Navbar/main-navbar-data.json";
 // Components
 import { HeaderOne, FooterOne } from 'webapp/common'
-import PageTitleArt from 'webapp/art/component/PageTitleArt';
+import { PageTitleArt, ModifyUpload } from 'webapp/art'
 
-import 'webapp/art/style/Art.css'
-import { useDispatch, useSelector } from 'react-redux';
-import { addFileList, getArtModify, getArtRead, getCategoryList } from 'webapp/art/reducer/art.reducer';
-import { useParams } from 'react-router';
-import ModifyUpload from './ModifyUpload';
-import ModifyFile from './ModifyFile';
+import { getArtModify, getArtRead, getCategoryList } from 'webapp/art/reducer/art.reducer';
 
 const ArtModify = ({ tagline, title, backfont, dash, textBtn, classes }) => {
 
   const dispatch = useDispatch()
+  const history = useHistory()
 
   const { id } = useParams()
 
@@ -60,6 +58,8 @@ const ArtModify = ({ tagline, title, backfont, dash, textBtn, classes }) => {
 
     const data = { ...input, files: fileList }
     dispatch(getArtModify(data))
+
+    history.push('/art')
   }
 
   return (

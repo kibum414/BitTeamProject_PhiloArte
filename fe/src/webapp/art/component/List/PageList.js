@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Icofont from 'react-icofont';
 import { useSelector, useDispatch } from "react-redux";
+
 import { getArtList, getArtSearch } from 'webapp/art/reducer/art.reducer';
 
 const PageList = () => {
@@ -11,28 +12,21 @@ const PageList = () => {
 
   const dispatch = useDispatch()
 
-  // const movePage = (page) => {
-  //   dispatch(getArtList(page))
-  // }
-  const movePage = (page) => {
-    console.log("page", page)
-    console.log("type", type)
-    console.log("keyword", keyword)
-
+  const movePage = async (page) => {
     return (!type && !keyword) ?
-      dispatch(getArtList(page))
+      await dispatch(getArtList(page))
       :
-      dispatch(getArtSearch({ type: type, keyword: keyword, page: page }))
+      await dispatch(getArtSearch({ type: type, keyword: keyword, page: page }))
   }
 
   const list = pageList.map(i => (
-    <li className={i} key={i} onClick={() => movePage(i)}>
+    <li className="" key={i} onClick={() => movePage(i)}>
       {i}
     </li>
   ))
 
-  return (
-    <div className="row mt-100">
+  return (<>
+    <div className="row pt-50 pb-50 background-sky">
       <div className="col-md-12">
         <div className="text-center">
           <div className="pagination dark-color">
@@ -65,7 +59,7 @@ const PageList = () => {
         </div>
       </div>
     </div>
-  )
+  </>)
 }
 
 export default PageList
