@@ -7,14 +7,14 @@ const PresentationTwo = ({ title, text, textBtn, pathBtn, backfont }) => {
   const loginValue = JSON.parse(localStorage.getItem("artist"))
 
   const login = () => {
-    { loginValue ?
-      <Link to={pathBtn} className="btn btn-lg btn-color btn-square">
-        {textBtn || "Read More"}
-      </Link>
-      :
-      alert('로그인을 해주세요 !')
-      window.location('/artist/artist_signin')
-    }
+    // { loginValue ?
+    //   <Link to={pathBtn} className="btn btn-lg btn-color btn-square">
+    //     {textBtn || "Read More"}
+    //   </Link>
+    //  :
+    //   alert('로그인을 해주세요 !')
+    //   window.location('/artist/artist_signin')
+    // }
   }
   
   return (

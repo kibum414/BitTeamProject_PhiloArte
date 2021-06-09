@@ -66,6 +66,8 @@ public class ArtServiceImpl implements ArtService {
 
         Page<Object[]> result = artRepository.getArts(pageRequestDTO.getPageable(Sort.by("artId").descending()));
 
+        System.out.println("result: " + result);
+
         return new PageResultDTO<>(result, fn);
 
     }
@@ -87,6 +89,8 @@ public class ArtServiceImpl implements ArtService {
                 pageRequestDTO.getKeyword(),
                 pageRequestDTO.getPageable(Sort.by("artId").descending())
         );
+
+        System.out.println("result: " + result);
 
         return new PageResultDTO<>(result, fn);
 
@@ -118,19 +122,6 @@ public class ArtServiceImpl implements ArtService {
     public List<ArtFile> getFilesByArtId(Long artId) {
 
         return artFileRepository.getFilesByArtId(artId);
-
-    }
-
-    @Transactional
-    @Override
-    public Long delete(Long artId) {
-
-        // 파일 부터 삭제
-        artFileRepository.deleteByArtId(artId);
-
-        artRepository.deleteById(artId);
-
-        return artRepository.findById(artId).isPresent() ? 0L : 1L;
 
     }
 
@@ -169,6 +160,24 @@ public class ArtServiceImpl implements ArtService {
 
         return art.getArtId();
 
+    }
+
+    @Transactional
+    @Override
+    public Long delete(Long artId) {
+
+        // 파일 부터 삭제
+        artFileRepository.deleteByArtId(artId);
+
+        artRepository.deleteById(artId);
+
+        return artRepository.findById(artId).isPresent() ? 0L : 1L;
+
+    }
+
+    @Override
+    public List<Object[]> countByArtistId(Long artistId) {
+        return artRepository.countByArtistId(artistId);
     }
 
 }

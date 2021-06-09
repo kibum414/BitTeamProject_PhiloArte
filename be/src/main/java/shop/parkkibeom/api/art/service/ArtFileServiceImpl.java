@@ -58,7 +58,7 @@ public class ArtFileServiceImpl implements ArtFileService {
                 File thumbnailFile = new File(thumbnailSaveName);
 
                 // 썸네일 생성
-                Thumbnailator.createThumbnail(savePath.toFile(), thumbnailFile, 250, 250);
+                Thumbnailator.createThumbnail(savePath.toFile(), thumbnailFile, 800, 800);
 
                 ArtFileDTO artFileDTO = ArtFileDTO.builder()
                         .uuid(uuid)

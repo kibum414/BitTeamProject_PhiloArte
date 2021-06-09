@@ -23,9 +23,11 @@ public interface ArtService {
 
     List<ArtFile> getFilesByArtId(Long artId);
 
+    Long modify(ArtDTO artDTO);
+
     Long delete(Long artId);
 
-    Long modify(ArtDTO artDTO);
+    List<Object[]> countByArtistId(Long artistId);
 
     default Art dtoToEntity(ArtDTO artDTO) {
         return Art.builder()

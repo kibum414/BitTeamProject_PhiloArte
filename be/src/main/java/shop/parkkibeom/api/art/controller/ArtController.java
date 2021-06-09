@@ -23,7 +23,9 @@ public class ArtController {
     public ResponseEntity<PageResultDTO<ArtDTO, Object[]>> list(PageRequestDTO pageRequestDTO) {
         System.out.println("list() : " + pageRequestDTO);
 
-        return ResponseEntity.ok(artService.getList(pageRequestDTO));
+        PageResultDTO<ArtDTO, Object[]> result = artService.getList(pageRequestDTO);
+
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping("/search")
@@ -60,6 +62,13 @@ public class ArtController {
         System.out.println("delete() : " + artDTO);
 
         return ResponseEntity.ok(artService.delete(artDTO.getArtId()));
+    }
+
+    @GetMapping("/count/{artistId}")
+    public ResponseEntity<List<Object[]>> count(@PathVariable("artistId") Long artistId) {
+        System.out.println("count() : " + artistId);
+
+        return ResponseEntity.ok(artService.countByArtistId(artistId));
     }
 
 }

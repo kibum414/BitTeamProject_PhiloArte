@@ -29,10 +29,15 @@ public interface ArtRepository extends JpaRepository<Art, Long>, SearchArtReposi
     @Query("SELECT a, a.artist, a.category, a.resume, f FROM Art a LEFT JOIN ArtFile f ON f.art = a WHERE a.artId = :artId")
     List<Object[]> getArtByArtId(@Param("artId") Long artId);
 
-    @Query("SELECT a, a.artist, a.category, a.resume FROM Art a")
+    @EntityGraph(attributePaths = {"artist", "category", "resume"}, type = EntityGraph.EntityGraphType.FETCH)
+    @Query("SELECT a, a.artist, a.category, a.resume, f FROM Art a LEFT JOIN ArtFile f ON f.art = a")
     Page<Object[]> getArts(Pageable pageable);
 
+    @Query("SELECT DATE_FORMAT(reg_date, '%Y-%m-%d') AS date, count(*) AS count FROM Art WHERE artist.artistId = :artistId GROUP BY DATE_FORMAT(reg_date, '%Y-%m-%d') ORDER BY date DESC")
+    List<Object[]> countByArtistId(@Param("artistId") Long artistId);
 
+    @Query("SELECT a, a.artist, a.category, a.resume, f FROM Art a LEFT JOIN ArtFile f ON f.art = a GROUP BY a")
+    Page<Object[]> getArtsss(Pageable pageable);
 
 
 

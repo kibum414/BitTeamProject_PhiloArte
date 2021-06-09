@@ -20,10 +20,7 @@ import shop.parkkibeom.api.artist.domain.Artist;
 import shop.parkkibeom.api.category.domain.Category;
 import shop.parkkibeom.api.resume.domain.Resume;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @SpringBootTest
@@ -220,7 +217,7 @@ public class ArtRepositoryTests {
     @Test
     public void testArts() {
 
-        Page<Object[]> result = artRepository.getArts(PageRequest.of(0, 10, Sort.by("artId").descending()));
+        Page<Object[]> result = artRepository.getArtsss(PageRequest.of(0, 10, Sort.by("artId").descending()));
 
         result.get().forEach(arr -> {
             System.out.println(Arrays.toString(arr));
@@ -359,7 +356,9 @@ public class ArtRepositoryTests {
                         Sort.by("artId").descending()
                                 .and(Sort.by("title").ascending()));
 
-        Page<Object[]> result = artRepository.searchPage("", "",pageable);
+        Page<Object[]> result = artRepository.searchPage("", "", pageable);
+
+        System.out.println(result);
 
     }
 
