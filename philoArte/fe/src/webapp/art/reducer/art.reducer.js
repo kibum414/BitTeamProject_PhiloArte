@@ -145,7 +145,7 @@ const artSlice = createSlice({
         // console.log(`바바바: ` + JSON.stringify(state.current))
       })
       .addCase(getArtModify.fulfilled, (state, { payload }) => {
-        
+        alert(`${payload} 수정 완료 !`)
       })
       .addCase(getArtDelete.fulfilled, (state, { payload }) => {
 
