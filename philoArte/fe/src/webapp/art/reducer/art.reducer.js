@@ -148,7 +148,7 @@ const artSlice = createSlice({
         alert(`${payload} 수정 완료 !`)
       })
       .addCase(getArtDelete.fulfilled, (state, { payload }) => {
-
+        alert(`삭제 완료 !`)
       })
       .addCase(getArtSearch.fulfilled, (state, { payload }) => {
         state.pageResult = payload
