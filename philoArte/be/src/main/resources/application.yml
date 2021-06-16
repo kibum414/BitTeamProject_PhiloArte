@@ -3,10 +3,10 @@ server:
 
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://112.169.196.99:3306/arte?allowPublicKeyRetrieval=true
-    username: arte
-    password: Arte1234
+    url: jdbc:mariadb://secret.ctdfqwzhp8k2.ap-northeast-2.rds.amazonaws.com:3306/SECRET?useSSLd=false&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: SECRET
+    password: Secret414!
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect

@@ -50,14 +50,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.authorizeRequests()
 
-                .antMatchers("/page/**/**").permitAll().antMatchers("/h2-console/**/**").permitAll()
-                .antMatchers("/artists/**/**").permitAll().antMatchers("/artist_files/**/**").permitAll()
-                .antMatchers("/reviews/**/**").permitAll().antMatchers("/replies/**/**").permitAll()
-                .antMatchers("/review_files/**/**").permitAll().antMatchers("/arts/**").permitAll()
-                .antMatchers("/art_files/**").permitAll().antMatchers("/categories/**").permitAll()
-                .antMatchers("/funding/**/**").permitAll().antMatchers("/funding_file/**/**").permitAll()
-                .antMatchers("/resume/**/**").permitAll().antMatchers("/resume_file/**/**").permitAll()
-                .antMatchers("/category/**/**").permitAll().anyRequest().authenticated();
+                .antMatchers("/**").permitAll()
+                .antMatchers("/page/**/**").permitAll()
+                .antMatchers("/h2-console/**/**").permitAll()
+                .antMatchers("/artists/**/**").permitAll()
+                .antMatchers("/artist_files/**/**").permitAll()
+                .antMatchers("/reviews/**/**").permitAll()
+                .antMatchers("/replies/**/**").permitAll()
+                .antMatchers("/review_files/**/**").permitAll()
+                .antMatchers("/arts/**").permitAll()
+                .antMatchers("/art_files/**").permitAll()
+                .antMatchers("/categories/**").permitAll()
+                .antMatchers("/funding/**/**").permitAll()
+                .antMatchers("/funding_file/**/**").permitAll()
+                .antMatchers("/resume/**/**").permitAll()
+                .antMatchers("/resume_file/**/**").permitAll()
+                .antMatchers("/category/**/**").permitAll()
+                .anyRequest().authenticated();
 
         http.exceptionHandling().accessDeniedPage("/login");
         http.apply(new SecurityConfig(provider));
