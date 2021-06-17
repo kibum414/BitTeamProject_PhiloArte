@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'webapp/artist/style/ArtistSignin.css';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { signinPage } from 'webapp/artist/reducer/artist.reducer';
 
@@ -10,7 +10,6 @@ const Signin = () => {
         password: '',
     });
 
-    const history = useHistory();
     const dispatch = useDispatch();
     const goSignin = (e) => {
         e.preventDefault();
@@ -64,19 +63,6 @@ const Signin = () => {
                 <span className="psw">
                     Forgot <a href="#">password?</a>
                 </span>
-            </div>
-
-            <div className="container SupporterSignup">
-                <label>
-                    <Link to="/artist/artist-signup">
-                        <button className="buttonSelect1">서포터 회원가입</button>
-                    </Link>
-                </label>
-                <label>
-                    <Link to="/artist/artist-signup">
-                        <button className="buttonSelect2">아티스트 회원가입</button>
-                    </Link>
-                </label>
             </div>
         </>
     );

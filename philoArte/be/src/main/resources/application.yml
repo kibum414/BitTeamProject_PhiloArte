@@ -3,10 +3,10 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mariadb://secret.ctdfqwzhp8k2.ap-northeast-2.rds.amazonaws.com:3306/SECRET?useSSLd=false&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mariadb://localhost:3306/arte
     driver-class-name: org.mariadb.jdbc.Driver
-    username: SECRET
-    password: Secret414!
+    username: root
+    password: Hyosung
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect

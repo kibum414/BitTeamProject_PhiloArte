@@ -27,7 +27,7 @@ public interface ArtistRepository extends JpaRepository<Artist, Long>, QuerydslP
     // @Query("select a from Artist a group by a order by a.artistId desc")
     // Page<Artist> getAllDataPaging(Pageable pageable);
 
-    @Query(value = "select * from artists where username=:username and password=:password", nativeQuery = true)
+    @Query("SELECT a from Artist a WHERE a.username = :username AND a.password = :password")
     Artist signin(@Param("username") String username, @Param("password") String password);
 
     // @Query("select a from Artist a order by a.artistId=?, a.username=?,
