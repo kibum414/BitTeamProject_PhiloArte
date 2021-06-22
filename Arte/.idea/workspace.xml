@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8910f703-841b-4c30-82a3-7d85b061fbb1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/ApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/ApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/controller/ReplyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/controller/ReplyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/controller/ReviewFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/controller/ReviewFileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/domain/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/domain/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/domain/dto/PageRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/domain/dto/PageRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/domain/dto/PageResultDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/domain/dto/PageResultDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/domain/dto/ReplyDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/domain/dto/ReplyDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/domain/dto/ReviewDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/domain/dto/ReviewDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/domain/dto/ReviewFileDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/domain/dto/ReviewFileDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/domain/dto/UploadResultDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/domain/dto/UploadResultDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/repository/search/SearchReviewRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/repository/search/SearchReviewRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/service/ReplyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/service/ReplyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/service/ReplyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/service/ReplyServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/service/ReviewFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/service/ReviewFileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/service/ReviewFileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/service/ReviewFileServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/service/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/service/ReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/review/service/ReviewServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/security/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/java/shop/philoarte/api/security/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/be/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/be/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/art/component/Register/ArtRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/art/component/Register/ArtRegister.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/artist/component/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/artist/component/Signin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/artist/reducer/artist.reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/artist/reducer/artist.reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/artist/service/artist.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/artist/service/artist.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/Counters/CountersOne.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/Counters/CountersOne.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/Footer/FooterOne.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/Footer/FooterOne.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/Header/HeaderOne.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/Header/HeaderOne.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/Header/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/Header/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/Header/NavbarHeader/NavbarHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/Header/NavbarHeader/NavbarHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/Header/NavbarHeader/NavbarHeaderTwo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/HeroSlider/HeroBusinessSlider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/HeroSlider/HeroCreativeAgency.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/HeroSlider/HeroHomeImageBg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/HeroSlider/HeroHomeMain.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/HeroSlider/HeroKenburn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/HeroSlider/HeroMarketing.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/HeroSlider/HeroMinimalAgency.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/HeroSlider/HeroParallax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/HeroSlider/HeroStartup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/HeroSlider/HeroStudio.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/HeroSlider/HomeDigitalSlider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/Team/TeamFive.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/Team/TeamFour.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/Team/TeamSix.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/Team/TeamThree.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/Team/TeamTwo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/Team/TeamTwoMember.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/WhatWeOffer/WhatWeOfferEight.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/WhatWeOffer/WhatWeOfferFive.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/WhatWeOffer/WhatWeOfferFour.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/WhatWeOffer/WhatWeOfferNine.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/WhatWeOffer/WhatWeOfferOne.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/WhatWeOffer/WhatWeOfferSeven.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/WhatWeOffer/WhatWeOfferSix.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/WhatWeOffer/WhatWeOfferTen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/WhatWeOffer/WhatWeOfferThree.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/WhatWeOffer/WhatWeOfferTwelve.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/WhatWeOffer/WhatWeOfferTwo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/component/HomeVideoBg.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/component/HomeVideoBg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/component/Navbar/HeaderOneMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/component/Navbar/HeaderOneMain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Blog/blog-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Clients/clients-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Demo/demo-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Maps/style-1-map.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Maps/style-2-map.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Maps/style-3-map.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Navbar/main-navbar-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Navbar/main-navbar-data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Navbar/main-navbar-login.json" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Navbar/main-navbar-login.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Navbar/topmostBar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Portfolio/main-portfolio-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Pricings/pricings-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Process/process-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Process/process-marketing-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Process/process-studio-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Skills/skills-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Skills/skills-ring-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Slider/home-business-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Slider/minimal-agency-slider.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Social/social-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/Tabs/tabs-data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/common/data/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/FundingDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/FundingDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/FundingDetailForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/FundingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/FundingList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/FundingListForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/FundingListForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/FundingRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/FundingRegister.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/FundingUpdate.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/FundingUpdate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/css/Detail.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/home/HomeList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/home/HomeList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/home/ItemHandle.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/home/ItemHandle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/list/ListHandle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/register/FileRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/register/FileRegister.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/register/TextRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/register/TextRegister.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/showing/AboutTwo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/showing/BlogCarousel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/showing/BlogSection.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/showing/HeroMarketing.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/showing/ParallaxTwo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/showing/PortfolioBoxedSpaceThree.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/showing/PortfolioOne.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/showing/PresentationOne.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/showing/Skillbar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/showing/SkillbarSection.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/showing/TabsTwo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/component/showing/TestimonialsTwo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/container/FundingHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/container/FundingHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/container/funding.container.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/reducer/funding.reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/reducer/funding.reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/service/funding.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/funding/service/funding.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/about-me.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/agency-img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/astro-img.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/background/career.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/background/comingsoon_bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/background/galaxy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/background/parallax-bg-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/background/parallax_bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/background/parallax_bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/background/parallax_bg_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/background/parallax_bg_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/background/sampleImg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/background/sampleImg2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/background/stars_bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/background/stars_bg_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/background/stars_bg_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/background/stars_bg_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/bg-left-img-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/bg-left-img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/bg-right-img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/browser-screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/banner1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-21.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/demo-imgs/demo-9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/dummy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/iMac-screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/icons/009-day-and-night.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/icons/icon-diagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/icons/icon-flask.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/icons/icon-form.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/icons/icon-graphic-tablet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/icons/icon-horse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/icons/icon-idea.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/icons/icon-laptop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/icons/icon-paper-plane-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/icons/icon-paper-plane.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/icons/icon-planets.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/icons/icon-rocket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/icons/icon-startup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/ihpone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/ipad-screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/ipad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/macbook-screen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/macbookpro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/memphis-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/memphis-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/memphis-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/mockup-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/mockup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/object/OBJ_ipad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/object/OBJ_pen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/object/OBJ_phone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/object/OBJ_triangle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/object/OBJ_triangle_s.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/parallax-text-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/phone-slide-img.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/pin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/planet-img-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/planet-img-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/planet-img-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/planet-img-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/planet-img.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/planet-x-left-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/planet-x-left-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/planet-x-left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/planet-x-right-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/planet-x-right-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/planet-x-right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/portfolio/cbp-loading.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/portfolio/grid/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/portfolio/grid/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/portfolio/grid/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/portfolio/grid/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/portfolio/grid/13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/portfolio/grid/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/portfolio/grid/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/portfolio/grid/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/portfolio/grid/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/portfolio/grid/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/portfolio/grid/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/portfolio/grid/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/portfolio/grid/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/post/post-01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/post/post-02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/post/post-03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/post/post-04.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/post/post-05.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/post/post-06.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/post/post-07.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/post/post-08.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/post/post-09.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/post/post-10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/resume/image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/resume/portfolio_first.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/resume/yg.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/resume/포트폴리오 첫이미지.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/rvsldr-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/screen1_content.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/screen2_content.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/screen3_content.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/screen3_content.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/dot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/home-bg-9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/sm-slide-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/slides/sm-slide-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/team/1030.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/team/12321.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/team/3333.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/team/avatar-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/team/avatar-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/team/avatar-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/team/avatar-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/team/team-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/team/team-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/team/team-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/team/team-sm-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/team/team-sm-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/team/team-sm-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/team/team-sm-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/title-bg/title-bg-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/title-bg/title-bg-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/title-bg/title-bg-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/title-bg/title-bg-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/title-bg/title-bg-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/transparent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/images/video-mockup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/reply/service/reply.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/reply/service/reply.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/list/ResumeItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/list/ResumeItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/list/ResumeList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/list/ResumeList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/modify/ModifyFile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/modify/ModifyFile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/modify/ModifyFileItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/modify/ModifyFileItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/modify/ResumeModify.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/modify/ResumeModify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/page/Paging.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/page/Paging.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/presentation/AboutFive.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/presentation/AboutFive.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/presentation/PresentationTwo.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/presentation/PresentationTwo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/read/ArtPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/read/ArtPost.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/read/ReadSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/read/ReadSidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/read/ResumeRead.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/read/ResumeRead.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/register/ResumeRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/register/ResumeRegister.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/search/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/component/search/SearchBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/container/ResumeApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/container/ResumeApp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/container/ResumeAppWithoutLogin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/service/resume.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/resume/service/resume.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/review/service/review.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/review/service/review.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../philoArte/fe/src/webapp/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/users/component/SignUp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/users/component/UserList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/users/component/UserLogin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/users/component/UserModify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/users/component/UserRead.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/users/component/UserRegister.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/users/container/SignUpForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/users/container/user.container.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/users/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/users/reducer/user.reducer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/users/service/user.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/users/style/Login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/users/style/SignUp.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../philoArte/fe/src/webapp/users/style/UserDetail.css" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1uI46hOBPJX3auDL5oXBH7nwAN1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="external.system.task.project.file.to.start" value="$PROJECT_DIR$/be" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+  </component>
+  <component name="RunManager">
+    <configuration name="/Users/superstar_pkb/project/BitCamp Team Project V2/Arte/be" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/be" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8910f703-841b-4c30-82a3-7d85b061fbb1" name="Default Changelist" comment="" />
+      <created>1624339595897</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1624339595897</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
