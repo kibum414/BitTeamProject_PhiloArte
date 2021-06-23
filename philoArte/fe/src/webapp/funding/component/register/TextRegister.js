@@ -1,25 +1,19 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import TextField from '@material-ui/core/TextField';
 import {Button, Grid, MenuItem} from "@material-ui/core";
 import { FormControl } from '@material-ui/core';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getLocalArtist } from 'webapp/artist/reducer/artist.reducer';
+import { currentFunding } from 'webapp/funding/reducer/funding.reducer';
+import { Link } from 'react-router-dom';
 
-const TextRegister = ({pno, title ='', content ='',goalPrice='',hashtag='', regDate, modDate, sendTextForm}) => {
+const TextRegister = ({pno,title ='', content ='',goalPrice='',hashtag='', regDate, modDate, sendTextForm}) => {
     const dispatch = useDispatch()
-  
-    
-
-    // const [funding, setFunding] = useState({
-    //     title : "",
-    //     content : "",
-    //     goalPrice : "",
-    //     hashtag : "",
-    // })
-    // const textForm = e =>{
-    //     const fileFunding={title:funding.title, content:funding.content,goalPrice:funding.goalPrice,hashtag:funding.hashtag}
-    //     setFunding("")
-    // }
-
+    const param = useSelector(currentFunding)
+    useEffect(()=>{
+        getLocalArtist()
+    },[])
+    console.log(param,"==================param")
     const [titleState, setTitleState] = useState(title)
     const [contentState, setContentState] = useState(content)
     const [goalPriceState, setGoalPriceState] = useState(goalPrice)
@@ -38,30 +32,39 @@ const TextRegister = ({pno, title ='', content ='',goalPrice='',hashtag='', regD
     const changeHashtag = useCallback(e => {
         setHashtagState(e.target.value)
     });
-    console.log("title=================",titleState)
-    console.log("content=================",contentState)
-    console.log("goalPrice=================",goalPriceState)
-    console.log("hashtag=================",hashtagState)
     const sendForm = useCallback(e => {
         sendTextForm(titleState, contentState,goalPriceState,hashtagState)
         setTitleState('')
         setContentState('')
         setGoalPriceState('')
         setHashtagState('')
+        window.location.href=`/funding/list`
     })
 
     const hashtags = [
         {
-            value:'약',
-            label:'약'
+            value:'그림',
+            label:'그림'
         },
         {
-            value:'건강기능',
-            label:'건강기능'
+            value:'조형',
+            label:'조형'
         },
         {
-            value:'여행',
-            label:'여행'
+            value:'조각',
+            label:'조각'
+        },
+        {
+            value:'건축',
+            label:'건축'
+        },
+        {
+            value:'의상',
+            label:'의상'
+        },
+        {
+            value:'소품',
+            label:'소품'
         }
 
     ]
@@ -105,6 +108,7 @@ const TextRegister = ({pno, title ='', content ='',goalPrice='',hashtag='', regD
                     </MenuItem>
                 ))}
             </TextField>
+
             </Grid>
             
             </Grid>
@@ -149,6 +153,13 @@ const TextRegister = ({pno, title ='', content ='',goalPrice='',hashtag='', regD
         </Grid>
         </FormControl>
         <Button onClick={sendForm}>SUBMIT</Button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <Link to={'/funding/list'}>
+                            <Button variant="outlined" size="large" color="primary">
+                                리스트로 돌아가기
+                            </Button>
+                        </Link>
+
         </>
     );
 };

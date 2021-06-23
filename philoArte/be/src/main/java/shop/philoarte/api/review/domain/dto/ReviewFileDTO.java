@@ -11,7 +11,7 @@ import shop.philoarte.api.review.domain.Review;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ReviewFileDTO {
+public class ReviewFileDto {
 
     private Long reviewFileId;
     private String uuid;

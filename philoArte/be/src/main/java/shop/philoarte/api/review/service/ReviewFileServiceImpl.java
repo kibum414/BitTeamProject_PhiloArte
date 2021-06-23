@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-import shop.philoarte.api.review.domain.dto.ReviewFileDTO;
+import shop.philoarte.api.review.domain.dto.ReviewFileDto;
 import shop.philoarte.api.review.repository.ReviewFileRepository;
 
 import javax.imageio.ImageIO;
@@ -31,8 +31,8 @@ public class ReviewFileServiceImpl implements ReviewFileService {
 
     @Transactional
     @Override
-    public ArrayList<ReviewFileDTO> saveFile(List<MultipartFile> uploadFiles) {
-        ArrayList<ReviewFileDTO> resultDtoList = new ArrayList<>();
+    public ArrayList<ReviewFileDto> saveFile(List<MultipartFile> uploadFiles) {
+        ArrayList<ReviewFileDto> resultDtoList = new ArrayList<>();
         for (MultipartFile uploadFile : uploadFiles) {
             String ofname = uploadFile.getOriginalFilename();
             int idx = ofname.lastIndexOf(".");
@@ -54,7 +54,7 @@ public class ReviewFileServiceImpl implements ReviewFileService {
                                 ImageIO.read(new File(uploadPath + File.separator + "84432_320.jpg")), 0.5f)
                         .toFile(new File(uploadPath + File.separator + "w_" + uuid + "_" + ofname));
 
-                ReviewFileDTO reviewFileDto = ReviewFileDTO.builder().uuid(uuid).imgName(ofname).build();
+                ReviewFileDto reviewFileDto = ReviewFileDto.builder().uuid(uuid).imgName(ofname).build();
                 resultDtoList.add(reviewFileDto);
             } catch (Exception e) {
                 e.printStackTrace();

@@ -11,10 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import shop.philoarte.api.review.domain.dto.PageRequestDTO;
-import shop.philoarte.api.review.domain.dto.PageResultDTO;
-import shop.philoarte.api.review.domain.dto.ReviewDTO;
-import shop.philoarte.api.review.domain.dto.ReviewFileDTO;
+import shop.philoarte.api.review.domain.dto.PageRequestDto;
+import shop.philoarte.api.review.domain.dto.PageResultDto;
+import shop.philoarte.api.review.domain.dto.ReviewDto;
+import shop.philoarte.api.review.domain.dto.ReviewFileDto;
 import shop.philoarte.api.review.service.ReviewFileServiceImpl;
 import shop.philoarte.api.review.service.ReviewServiceImpl;
 
@@ -41,7 +41,7 @@ public class ReviewController {
 
     @PostMapping("/register")
     @ApiOperation(value = "리뷰 게시글 등록", notes = "리뷰 게시글을 등록 합니다.")
-    public ResponseEntity<Map<String, Long>> reviewSave(ReviewDTO reviewDto) {
+    public ResponseEntity<Map<String, Long>> reviewSave(ReviewDto reviewDto) {
 
         ArrayList<MultipartFile> files = reviewDto.getFiles();
 
@@ -63,7 +63,7 @@ public class ReviewController {
                 // FileOutputStream(thumbnailSaveName));
                 Thumbnails.of(new File(saveName)).size(600, 600).outputFormat("jpg").toFile(thumbnailSaveName);
 
-                ReviewFileDTO fileDto = ReviewFileDTO.builder().uuid(uuid).imgName(f.getOriginalFilename())
+                ReviewFileDto fileDto = ReviewFileDto.builder().uuid(uuid).imgName(f.getOriginalFilename())
                         .path(uploadPath).build();
 
                 reviewDto.addReviewFileDto(fileDto);
@@ -84,14 +84,14 @@ public class ReviewController {
 
     @GetMapping("/list/pages")
     @ApiOperation(value = "리뷰 게시글 목록", notes = "리뷰 게시글을 목록을 보여줍니다.")
-    public ResponseEntity<PageResultDTO<ReviewDTO, Object[]>> reviewList(PageRequestDTO pageRequestDto) {
+    public ResponseEntity<PageResultDto<ReviewDto, Object[]>> reviewList(PageRequestDto pageRequestDto) {
         log.info("pageRequestDto : " + pageRequestDto);
         return ResponseEntity.ok(service.getList(pageRequestDto));
     }
 
     @GetMapping("/read/{reviewId}")
     @ApiOperation(value = "하나의 리뷰 읽기", notes = "하나의 리뷰를 읽어 줍니다.")
-    public ResponseEntity<ReviewDTO> reviewRead(@PathVariable("reviewId") Long reviewId) {
+    public ResponseEntity<ReviewDto> reviewRead(@PathVariable("reviewId") Long reviewId) {
 
         log.info("리뷰 읽기 : " + reviewId);
         return ResponseEntity.ok(service.get(reviewId));
@@ -99,7 +99,7 @@ public class ReviewController {
 
     @PutMapping("/modify/{reviewId}")
     @ApiOperation(value = "하나의 리뷰 수정", notes = "하나의 리뷰를 수정 합니다.")
-    public ResponseEntity<Map<String, String>> reviewModify(ReviewDTO reviewDto) {
+    public ResponseEntity<Map<String, String>> reviewModify(ReviewDto reviewDto) {
         log.info("++++++++++++++++++");
         log.info(reviewDto);
         log.info("++++++++++++++++++");
@@ -123,7 +123,7 @@ public class ReviewController {
                         new FileOutputStream(saveName, Boolean.parseBoolean(thumbnailSaveName)));
                 Thumbnails.of(new File(saveName)).size(1000, 1000).outputFormat("jpg").toFile(thumbnailSaveName);
 
-                ReviewFileDTO fileDto = ReviewFileDTO.builder().uuid(uuid).imgName(f.getOriginalFilename())
+                ReviewFileDto fileDto = ReviewFileDto.builder().uuid(uuid).imgName(f.getOriginalFilename())
                         .path(uploadPath).build();
                 reviewDto.addReviewFileDto(fileDto);
             } catch (Exception e) {

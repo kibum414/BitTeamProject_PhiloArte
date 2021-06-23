@@ -76,7 +76,7 @@ public class SearchReviewRepositoryImpl extends QuerydslRepositorySupport implem
         }
         tuple.where(booleanBuilder);
 
-        //order by
+        // order by
         Sort sort = pageable.getSort();
 
         sort.stream().forEach(order -> {
@@ -89,7 +89,7 @@ public class SearchReviewRepositoryImpl extends QuerydslRepositorySupport implem
 
         tuple.groupBy(review);
 
-        //page 처리
+        // page 처리
         log.info(pageable.getOffset());
         log.info(pageable.getPageSize());
         System.out.println("========================");
@@ -104,10 +104,9 @@ public class SearchReviewRepositoryImpl extends QuerydslRepositorySupport implem
 
         log.info("COUNT : " + count);
 
-
-        return new PageImpl<Object[]>(result.stream().map(t -> t.toArray()).collect(Collectors.toList()), pageable, count);
+        return new PageImpl<Object[]>(result.stream().map(t -> t.toArray()).collect(Collectors.toList()), pageable,
+                count);
     }
-
 
     @Override
     public Review search() {

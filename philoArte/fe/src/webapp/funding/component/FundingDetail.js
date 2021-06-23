@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFundingDetail, currentFunding } from 'webapp/funding/reducer/funding.reducer';
+import { getFundingDetail, currentFunding, deleteFunding } from 'webapp/funding/reducer/funding.reducer';
 import { Link, useParams } from 'react-router-dom';
-import HeaderSocial from 'webapp/common/Header/HeaderSocial';
-import HomeMarketingSlider from 'webapp/funding/component/showing/HeroMarketing';
-import dataNavbar from 'webapp/common/data/Navbar/main-navbar-data.json';
+import HomeMarketingSlider from 'webapp/funding/component/presentation/HeroMarketing';
 import FooterOne from 'webapp/common/Footer/FooterOne';
 import { Grid, makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
@@ -16,6 +14,7 @@ import Divider from '@material-ui/core/Divider';
 import ShareIcon from '@material-ui/icons/Share';
 import LaunchIcon from '@material-ui/icons/Launch';
 import Button from '@material-ui/core/Button';
+import HeaderOneMain from 'webapp/common/component/Navbar/HeaderOneMain';
 
 const FundingDetail = () => {
     const dispatch = useDispatch();
@@ -25,14 +24,6 @@ const FundingDetail = () => {
     useEffect(() => {
         dispatch(getFundingDetail(read));
     }, []);
-    console.log('param.fundingFilees=======', param.fundingFiles);
-    //   useEffect(()=>{
-    //     const fetchData = async() =>{
-    //         const result = getFundingDetail(read);
-    //         setUpdate(result.data)
-    // }
-    // fetchData();
-    // },[])
 
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -240,23 +231,10 @@ const FundingDetail = () => {
     }));
 
     const classes = useStyles();
-    const [open, setOpen] = useState(false);
-    const handleClick = () => {
-        setOpen(!open);
-    };
-    // {param.fundingFiles?.map((image,i)=>(
-    //   <CardMedia>
-    //   <img key={i} src={`http://localhost:8080/funding_file/display?fileName=${image.uuid}_${image.fname}`}/>
-    //   </CardMedia>
-    //     )
-    // )}
-    const mainImg = param.fundingFiles?.map((image) => {
-        return image.map ? <img key={param.fundingId} src={`http://localhost:8080/funding_file/display?fileName=${image.uuid}_${image.fname}`} /> : <></>;
-    });
-    const numberWithComma = (number) => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
     return (
         <>
-            <HeaderSocial data={dataNavbar} />
+        <HeaderOneMain />
             <HomeMarketingSlider />
             <div className={classes.root}>
                 <Grid container spacing={4} className={classes.productgrid}>
@@ -279,7 +257,7 @@ const FundingDetail = () => {
                             </Typography>
 
                             <Typography className={classes.body1} variant="body1" color="textSecondary" component="p">
-                                {param.goalPrice}원
+                                {Number(param.goalPrice).toLocaleString('en')}원
                             </Typography>
                         </Box>
                     </Grid>
@@ -290,8 +268,6 @@ const FundingDetail = () => {
                                 Shadow={3}
                                 className={classes.media}
                                 image={param.fundingFiles?.map((img) => `http://localhost:8080/funding_file/display?fileName=${img.uuid}_${img.fname}`)[0]}
-
-                                // title={title}
                             />
 
                             <CardContent className={classes.content}>
@@ -381,9 +357,18 @@ const FundingDetail = () => {
                             </Button>
                         </Link>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        
+
+
                         <Link to={`/funding/modify/${param.fundingId}`}>
                             <Button variant="outlined" size="large" color="primary" key={param.fundingId} onClick={() => dispatch(getFundingDetail(param.fundingId))}>
                                 수정하기
+                            </Button>
+                        </Link>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <Link to={`/funding/list`}>
+                            <Button variant="outlined" size="large" color="primary" key={param.fundingId} onClick={() => dispatch(deleteFunding(param.fundingId))}>
+                                삭제하기
                             </Button>
                         </Link>
                     </Grid>

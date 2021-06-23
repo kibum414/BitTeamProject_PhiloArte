@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class ReviewDTO {
+public class ReviewDto {
 
 
     private Long reviewId;
@@ -36,9 +36,9 @@ public class ReviewDTO {
     private ArrayList<MultipartFile> files = new ArrayList<>();
 
     @Builder.Default
-    private List<ReviewFileDTO> reviewFileDtoList = new ArrayList<>();
+    private List<ReviewFileDto> reviewFileDtoList = new ArrayList<>();
 
-    public void addReviewFileDto(ReviewFileDTO reviewFileDto){
+    public void addReviewFileDto(ReviewFileDto reviewFileDto){
         reviewFileDtoList.add(reviewFileDto);
     }
 

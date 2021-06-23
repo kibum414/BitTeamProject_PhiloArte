@@ -1,7 +1,7 @@
 import React from 'react';
 import parse from 'html-react-parser';
 // Images
-import imgBg from 'webapp/images/background/stars_bg_4.png';
+import imgBg from 'webapp/resume/image/kkkk.png';
 // Components
 import { SkillbarSection } from 'webapp/resume/index';
 const AboutFive = ({ data, title, backfont, text, children }) => (

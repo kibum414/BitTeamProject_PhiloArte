@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import shop.philoarte.api.review.domain.dto.ReplyDTO;
+import shop.philoarte.api.review.domain.dto.ReplyDto;
 import shop.philoarte.api.review.service.ReplyServiceImpl;
 import shop.philoarte.api.review.service.ReviewFileServiceImpl;
 
@@ -36,7 +36,7 @@ public class ReplyController {
 
     @PostMapping("/register")
     @ApiOperation(value = "리뷰 댓글 등록", notes = "리뷰 댓글을 등록 합니다.")
-    public ResponseEntity<String> replySave(ReplyDTO replyDto) {
+    public ResponseEntity<String> replySave(ReplyDto replyDto) {
         log.info(replyDto);
 
         for (MultipartFile file : replyDto.getReplyFiles()) {
@@ -65,7 +65,7 @@ public class ReplyController {
 
     @GetMapping(value = "/list/{reviewId}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "댓글 목록", notes = "댓글 목록을 보여줍니다.")
-    public ResponseEntity<List<ReplyDTO>> replyList(@PathVariable("reviewId") Long reviewId) {
+    public ResponseEntity<List<ReplyDto>> replyList(@PathVariable("reviewId") Long reviewId) {
 
         log.info("reviewId : " + reviewId);
         return ResponseEntity.ok(service.getList(reviewId));
@@ -73,7 +73,7 @@ public class ReplyController {
 
     @PutMapping("/modify/{rno}")
     @ApiOperation(value = "하나의 리뷰 댓글 수정", notes = "하나의 리뷰 댓글을 수정 합니다.")
-    public ResponseEntity<String> replyModify(ReplyDTO replyDto) {
+    public ResponseEntity<String> replyModify(ReplyDto replyDto) {
         log.info(replyDto);
         for (MultipartFile file : replyDto.getReplyFiles()) {
             String uuid = UUID.randomUUID().toString();

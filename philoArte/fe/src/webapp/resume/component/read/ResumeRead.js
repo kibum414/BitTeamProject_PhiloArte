@@ -60,6 +60,8 @@ const ResumeRead = ({ open, handleClose }) => {
     const items = useSelector((state) => state.resumes.current);
     const files = items.resumeFiles;
     const [resumeItem, setResumeItem] = useState({});
+    
+    const loginValue = JSON.parse(localStorage.getItem('artist'))
 
     useEffect(() => {
         setResumeItem(items);
@@ -99,15 +101,19 @@ const ResumeRead = ({ open, handleClose }) => {
                             <CloseIcon className={useStyles().closeSize} />
                         </IconButton>
                         <Typography className={useStyles().title}>{resumeItem.name}</Typography>
-
+                        {loginValue?.artistId !== resumeItem.artistId ? <></>:
+                        <>
                         <Link to={'/resume/modify/' + resumeItem.resumeId}>
-                            <button className="btn btn-light-outline btn-square" onClick={handleClose}>
-                                EDIT
-                            </button>
+                        <button className="btn btn-light-outline btn-square" onClick={handleClose}>
+                            EDIT
+                        </button>
                         </Link>
                         <button className="btn btn-light-outline btn-square" style={{ marginTop: '4px', marginLeft: '10px' }} onClick={(e) => onDelete(e)}>
-                            DELETE
+                        DELETE
                         </button>
+                        </>
+                        }
+                        
                     </Toolbar>
                 </AppBar>
                 <div className="container" style={{ marginTop: '40px' }}>

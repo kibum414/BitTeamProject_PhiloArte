@@ -14,7 +14,7 @@ import java.util.ArrayList;
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
-public class ReplyDTO {
+public class ReplyDto {
 
     private Long rno;
 

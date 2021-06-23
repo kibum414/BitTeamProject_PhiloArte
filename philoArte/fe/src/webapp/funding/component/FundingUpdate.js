@@ -1,14 +1,13 @@
 import React, { useState, useCallback, useEffect, useRef} from 'react'
-import HeaderSocial from 'webapp/common/Header/HeaderSocial'
-import dataNavbar from "webapp/common/data/Navbar/main-navbar-data.json";
-import HomeMarketingSlider from "webapp/funding/component/showing/HeroMarketing";
-import FooterOne from "webapp/common/Footer/FooterOne";
+import HomeMarketingSlider from "webapp/funding/component/presentation/HeroMarketing";
+import FooterOne from 'webapp/common/Footer/FooterOne';
 import {Link, useParams} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import {updateFunding, deleteFile, getFundingDetail} from 'webapp/funding/reducer/funding.reducer'
 import { Button,Grid, MenuItem, TextField } from '@material-ui/core';
 import FileRegister from './register/FileRegister';
 import axios from 'axios';
+import HeaderOneMain from 'webapp/common/component/Navbar/HeaderOneMain';
 const FundingUpdate = () =>{
     const dispatch = useDispatch()
     const param = useSelector(state => state.fundings.current)
@@ -39,9 +38,6 @@ const FundingUpdate = () =>{
         uploadedFiles = uplodedFilesResult
         data.fundingFiles = uploadedFiles
     }
-// const fetchRead=()=>{
-//     dispatch(getFundingDetail)
-// }
 useEffect(()=>{
     getFundingDetail(update)
     const fetchData = async() =>{
@@ -57,45 +53,45 @@ fetchData();
        e.preventDefault()
        e.stopPropagation()
        childRef.current.send()
-       dispatch(updateFunding({fundingId, data}))
+       const del = window.confirm("수정을 완료하시겠습니까?")
+       if(del){
+            dispatch(updateFunding({fundingId, data}))
+            
+       }
+       
        window.location.href=`/funding/list`
    }
-const [checked, setChecked] = useState(true)
-const handleCheck = e =>{
-    setChecked(e.target.checked)
-}
 const ondelete=async(id)=>{
     dispatch(deleteFile(id))
     alert("삭제되었습니다.")
     window.location.reload()
-    // const btnElement =document.getElementById("btn")
-    // this.btnElement.innerText='삭제되었습니다.'
 }
 const hashtags = [
     {
-        value:'약',
-        label:'약'
+        value:'그림',
+        label:'그림'
     },
     {
-        value:'건강기능',
-        label:'건강기능'
+        value:'조형',
+        label:'조형'
     },
     {
-        value:'여행',
-        label:'여행'
+        value:'건축',
+        label:'건축'
     },
     {
-        value:'화장품',
-        label:'화장품'
+        value:'의상',
+        label:'의상'
+    },
+    {
+        value:'소품',
+        label:'소품'
     }
 
-]
-
-const numberWithComma = (number) =>(number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
-let num = (param.goalPrice)
+] 
     return(
         <>
-        <HeaderSocial data={dataNavbar} />
+        <HeaderOneMain />
               <HomeMarketingSlider/>
         <form>
         <h1> 펀 딩 업 데 이 트</h1>
@@ -138,7 +134,6 @@ let num = (param.goalPrice)
                 ))}
             </TextField>
             </Grid>
-            {/* <ImagesUploader></ImagesUploader> */}
             <hr/>
             <div>
             {data.fundingFiles?.map((image,i)=>(
@@ -149,7 +144,6 @@ let num = (param.goalPrice)
                 )
             )}
             </div>
-            {/* ()=>dispatch(deleteFile(image.fundingFileId)) */}
             <hr/>
             <div>추가될 사진</div>
             <FileRegister cref={childRef} getUploadedFiles = {getUploadedFiles}></FileRegister>

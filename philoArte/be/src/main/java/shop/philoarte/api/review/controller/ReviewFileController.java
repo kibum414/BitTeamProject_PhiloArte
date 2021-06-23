@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import shop.philoarte.api.review.domain.dto.ReviewFileDTO;
+import shop.philoarte.api.review.domain.dto.ReviewFileDto;
 import shop.philoarte.api.review.service.ReviewFileServiceImpl;
 
 import java.io.File;
@@ -28,7 +28,7 @@ public class ReviewFileController {
     private final ReviewFileServiceImpl service;
 
     @PostMapping("/upload_file")
-    public ResponseEntity<List<ReviewFileDTO>> uploadFile(List<MultipartFile> files) {
+    public ResponseEntity<List<ReviewFileDto>> uploadFile(List<MultipartFile> files) {
         for (MultipartFile file : files) {
             System.out.println("file" + file);
             if (!file.getContentType().startsWith("image")) {
@@ -60,7 +60,7 @@ public class ReviewFileController {
     }
 
     @PutMapping("/update_file/{reviewFileId")
-    public ResponseEntity<ArrayList<ReviewFileDTO>> updateFile(List<MultipartFile> files) {
+    public ResponseEntity<ArrayList<ReviewFileDto>> updateFile(List<MultipartFile> files) {
         return ResponseEntity.ok(service.saveFile(files));
     }
 

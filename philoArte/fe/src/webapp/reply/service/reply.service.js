@@ -1,39 +1,52 @@
 import axios from 'axios';
-const SERVER = 'http://localhost:8080';
-const register = (fd) => {
-    console.log(fd);
 
-    return axios
-        .post(`${SERVER}/replies/register`, fd, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        })
-        .then((response) => {
-            return response.data;
-        });
+const userInfo = typeof window !== `undefined` ? JSON.parse(localStorage.getItem('artist')) : null;
+
+const register = (fd) => {
+
+  return axios({
+    url: `/replies/register`,
+    method: 'post',
+    data: fd,
+    headers: {
+      Authorization: `Bearer ${userInfo.token}`,
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+
 };
 
 const list = (reviewId) => {
-    return axios.get(`${SERVER}/replies/list/${reviewId}`);
+  return axios({
+    url: `/replies/list/${reviewId}`,
+    method: 'get',
+    headers: {
+      Authorization: 'JWT fefege..'
+    }
+  })
 };
 
 const modify = (reply) => {
-    console.log('modify');
-    return axios
-        .put(`${SERVER}/replies/modify/` + reply.rno, reply, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        })
-        .then((response) => {
-            return response.data;
-        });
+  return axios({
+    url: '/replies/modify/' + reply.rno,
+    method: 'put',
+    data: reply,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      Authorization: `Bearer ${userInfo.token}`
+    }
+  })
 };
 
 const deletes = (rno) => {
-    console.log('Delete reply');
-    return axios.delete(`${SERVER}/replies/remove/${rno}`, { data: { ...rno } });
+  return axios({
+    url: `/replies/remove/${rno}`,
+    method: 'delete',
+    data: { ...rno },
+    headers: {
+      Authorization: 'JWT fefege..'
+    }
+  })
 };
 
 export default { register, list, modify, deletes };

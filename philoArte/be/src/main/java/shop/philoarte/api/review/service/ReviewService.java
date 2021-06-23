@@ -3,10 +3,10 @@ package shop.philoarte.api.review.service;
 import shop.philoarte.api.artist.domain.Artist;
 import shop.philoarte.api.review.domain.Review;
 import shop.philoarte.api.review.domain.ReviewFile;
-import shop.philoarte.api.review.domain.dto.PageRequestDTO;
-import shop.philoarte.api.review.domain.dto.PageResultDTO;
-import shop.philoarte.api.review.domain.dto.ReviewDTO;
-import shop.philoarte.api.review.domain.dto.ReviewFileDTO;
+import shop.philoarte.api.review.domain.dto.PageRequestDto;
+import shop.philoarte.api.review.domain.dto.PageResultDto;
+import shop.philoarte.api.review.domain.dto.ReviewDto;
+import shop.philoarte.api.review.domain.dto.ReviewFileDto;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,18 +14,18 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public interface ReviewService {
-    Long save(ReviewDTO reviewDto);
+    Long save(ReviewDto reviewDto);
 
-    ReviewDTO get(Long reviewId);
+    ReviewDto get(Long reviewId);
 
-    void modify(ReviewDTO reviewDto);
+    void modify(ReviewDto reviewDto);
 
     void removeWithReplies(Long reviewId);
 
-    PageResultDTO<ReviewDTO, Object[]> getList(PageRequestDTO PageRequestDto);
+    PageResultDto<ReviewDto, Object[]> getList(PageRequestDto PageRequestDto);
 
 
-    default Map<String, Object> dtoToEntity(ReviewDTO reviewDto) {
+    default Map<String, Object> dtoToEntity(ReviewDto reviewDto) {
         Map<String, Object> entityMap = new HashMap<>();
         Artist artists = Artist.builder().artistId(reviewDto.getWriterId()).build();
         Review review = Review.builder()
@@ -36,7 +36,7 @@ public interface ReviewService {
                 .build();
         entityMap.put("review", review);
 
-        List<ReviewFileDTO> fileDtoList = reviewDto.getReviewFileDtoList();
+        List<ReviewFileDto> fileDtoList = reviewDto.getReviewFileDtoList();
 
         if (fileDtoList != null && fileDtoList.size() > 0) {
             List<ReviewFile> reviewFileList = fileDtoList.stream().map(reviewFileDto -> {
@@ -54,8 +54,8 @@ public interface ReviewService {
         return entityMap;
     }
 
-    default ReviewDTO entityToDto(Review review, Artist artist, Long replyCount, List<ReviewFile> reviewFiles) {
-        ReviewDTO reviewDto = ReviewDTO.builder()
+    default ReviewDto entityToDto(Review review, Artist artist, Long replyCount, List<ReviewFile> reviewFiles) {
+        ReviewDto reviewDto = ReviewDto.builder()
                 .reviewId(review.getReviewId())
                 .title(review.getTitle())
                 .content(review.getContent())
@@ -67,12 +67,12 @@ public interface ReviewService {
                 .build();
         if(reviewFiles != null && reviewFiles.size() > 0) {
             System.out.println("size : " +reviewFiles.size());
-            List<ReviewFileDTO> reviewFileDtoList = reviewFiles.stream().map(reviewFile -> {
+            List<ReviewFileDto> reviewFileDtoList = reviewFiles.stream().map(reviewFile -> {
 
                 if(reviewFile == null) {
                     return null;
                 }
-                return ReviewFileDTO.builder()
+                return ReviewFileDto.builder()
                         .reviewFileId(reviewFile.getReviewFileId())
                         .imgName(reviewFile.getImgName())
                         .path(reviewFile.getPath())

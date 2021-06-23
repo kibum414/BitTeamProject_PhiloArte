@@ -1,49 +1,69 @@
 import axios from 'axios'
-import { useRef } from 'react';
 
-const SERVER = 'http://localhost:8080';
+const userInfo = typeof window !== `undefined` ? JSON.parse(localStorage.getItem('artist')) : null;
 
-const register=(fd)=>{
+const register = (fd) => {
 
-    console.log(fd)
-
-    return axios.post(`${SERVER}/reviews/register`, fd,{
-        headers:{
-            'Content-Type': 'multipart/form-data'
-        }
-    })
-    .then(response=>{
-        return response.data
-    })
+  return axios({
+    url: `/reviews/register`,
+    method: 'post',
+    data: fd,
+    headers: {
+      Authorization: `Bearer ${userInfo.token}`,
+      'Content-Type': 'multipart/form-data'
+    }
+  })
 }
 
-const list=(pageResult)=>{
-    console.log('service hireList pageRequest: ' + JSON.stringify(pageResult));
+const list = (pageResult) => {
 
-    const str = "page=" + (!pageResult.page?1:pageResult.page) +"&type="+ (pageResult.type) +"&keyword=" + (pageResult.keyword)
-    
-    return axios.get(`${SERVER}/reviews/list/pages?` + str)
+  const str = "page=" + (!pageResult.page ? 1 : pageResult.page) + "&type=" + (pageResult.type) + "&keyword=" + (pageResult.keyword)
+
+  return axios({
+    url: `/reviews/list/pages?` + str,
+    method: 'get',
+    headers: {
+      Authorization: 'JWT fefefg...'
+    }
+  })
+
 }
 
-const read=(reviewId)=>{
-    return axios.get(`${SERVER}/reviews/read/${reviewId}`)
+const read = (reviewId) => {
+  return axios({
+    url: `/reviews/read/${reviewId}`,
+    method: 'get',
+    headers: {
+      Authorization: 'JWT fefefg...'
+    }
+  })
 }
 
-const modify=(review)=>{
+const modify = (review) => {
 
-    return axios.put(`${SERVER}/reviews/modify/`+review.reviewId, review,{
-        headers:{
-            'Content-Type': 'multipart/form-data'
-        }
-    })
-    .then(response=>{
-        return response.data
-})
+  return axios({
+    url: `/reviews/modify/` + review.reviewId,
+    method: "put",
+    data: review,
+    headers: {
+      Authorization: `Bearer ${userInfo.token}`,
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+
 }
 
-const deletes=(reviewId)=>{
-    console.log("Delete Review")
-    return axios.delete(`${SERVER}/reviews/remove/${reviewId}`, {data:{...reviewId}})
+const deletes = (reviewId) => {
+
+  return axios({
+    url: `/reviews/remove/${reviewId}`,
+    method: 'delete',
+    data: { ...reviewId },
+    headers: {
+      Authorization: 'JWT fefefg...'
+    }
+  })
+
 }
 
-export default{register, list, read, modify, deletes}
+export default { register, list, read, modify, deletes }

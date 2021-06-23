@@ -44,31 +44,30 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.eraseCredentials(false);
     }
 
-    @Override // 오버라이드 할때 열쇠있는걸로 오버라이드해야한다.
+    @Override // 오버라이드 할 때 열쇠 있는 걸로 오버라이드 해야 한다.
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable(); // csrf 기능 비활성화
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.authorizeRequests()
-
-                .antMatchers("/**").permitAll()
+                .antMatchers("**").permitAll()
+                .antMatchers("/js/**").permitAll()
+                .antMatchers("/public/**").permitAll()
+                .antMatchers("/manifest.json").permitAll()
+                .antMatchers("/favicon.ico").permitAll()
+                .antMatchers("/image/**").permitAll()
+                .antMatchers("/logo192.png").permitAll()
                 .antMatchers("/page/**/**").permitAll()
                 .antMatchers("/h2-console/**/**").permitAll()
-                .antMatchers("/artists/**/**").permitAll()
-                .antMatchers("/artist_files/**/**").permitAll()
-                .antMatchers("/reviews/**/**").permitAll()
+                .antMatchers("/arts/**").permitAll().antMatchers("/art_files/**").permitAll()
+                .antMatchers("/artists/**/**").permitAll().antMatchers("/artist_files/**/**").permitAll()
+                .antMatchers("/category/**").permitAll()
+                .antMatchers("/reviews/**/**").permitAll().antMatchers("/review_files/**/**").permitAll()
                 .antMatchers("/replies/**/**").permitAll()
-                .antMatchers("/review_files/**/**").permitAll()
-                .antMatchers("/arts/**").permitAll()
-                .antMatchers("/art_files/**").permitAll()
-                .antMatchers("/categories/**").permitAll()
-                .antMatchers("/funding/**/**").permitAll()
-                .antMatchers("/funding_file/**/**").permitAll()
-                .antMatchers("/resume/**/**").permitAll()
-                .antMatchers("/resume_file/**/**").permitAll()
-                .antMatchers("/category/**/**").permitAll()
+                .antMatchers("/funding/**/**").permitAll().antMatchers("/funding_file/**/**").permitAll()
+                .antMatchers("/resume/**/**").permitAll().antMatchers("/resume_file/**/**").permitAll()
                 .anyRequest().authenticated();
 
-        http.exceptionHandling().accessDeniedPage("/login");
+        http.exceptionHandling().accessDeniedPage("/artist/artist_signin");
         http.apply(new SecurityConfig(provider));
 
     }
@@ -76,6 +75,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers(HttpMethod.OPTIONS, "/*/**") // 모든 곳에서 접속
-                .antMatchers("/", "/h2-console/**");
+                .antMatchers("/", "/h2-console/**")
+                .antMatchers("/css/**", "/script/**", "image/**");
     }
 }

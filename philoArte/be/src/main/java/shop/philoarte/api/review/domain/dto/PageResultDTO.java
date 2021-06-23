@@ -18,7 +18,7 @@ import java.util.stream.IntStream;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PageResultDTO<DTO, EN> {
+public class PageResultDto<DTO, EN> {
 
     private List<DTO> dtoList;
 
@@ -34,7 +34,7 @@ public class PageResultDTO<DTO, EN> {
 
     private List<Integer> pageList;
 
-    public PageResultDTO(Page<EN> result, Function<EN,DTO> fn ){
+    public PageResultDto(Page<EN> result, Function<EN,DTO> fn ){
 
         dtoList = result.stream().map(fn).collect(Collectors.toList());
 

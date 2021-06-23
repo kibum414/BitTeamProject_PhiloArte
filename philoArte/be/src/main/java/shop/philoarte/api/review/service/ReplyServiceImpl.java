@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import shop.philoarte.api.review.domain.Reply;
 import shop.philoarte.api.review.domain.Review;
-import shop.philoarte.api.review.domain.dto.ReplyDTO;
+import shop.philoarte.api.review.domain.dto.ReplyDto;
 import shop.philoarte.api.review.repository.ReplyRepository;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public class ReplyServiceImpl implements ReplyService {
 
     @Transactional
     @Override
-    public Long save(ReplyDTO replyDto) {
+    public Long save(ReplyDto replyDto) {
         Reply replySave = dtoToEntity(replyDto);
 
         repository.save(replySave);
@@ -29,13 +29,13 @@ public class ReplyServiceImpl implements ReplyService {
     }
 
     @Override
-    public List<ReplyDTO> getList(Long reviewId) {
+    public List<ReplyDto> getList(Long reviewId) {
         List<Reply> result = repository.getRepliesByReviewOrderByRegDate(Review.builder().reviewId(reviewId).build());
         return result.stream().map(reply -> entityToDto(reply)).collect(Collectors.toList());
     }
 
     @Override
-    public void modify(ReplyDTO replyDto) {
+    public void modify(ReplyDto replyDto) {
         Reply reply = dtoToEntity(replyDto);
         repository.save(reply);
 //        repository.deleteById(replyDto.getRno());

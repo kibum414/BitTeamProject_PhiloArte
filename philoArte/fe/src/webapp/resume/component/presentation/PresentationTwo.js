@@ -1,9 +1,10 @@
 import React from 'react';
 import parse from 'html-react-parser';
-import img from 'webapp/images/resume/portfolio_first.jpeg';
+import img from 'webapp/resume/image/portfolio_first.jpeg';
 import { Link } from 'react-router-dom';
-
-const PresentationTwo = ({ title, text, textBtn, textBtn2, backfont }) => (
+const PresentationTwo = ({ title, text, textBtn, textBtn2, backfont}) => {
+    const loginValue = JSON.parse(localStorage.getItem('artist'))
+    return (
     <section style={{ background: `url(${img}) center center no-repeat #24182e` }} className="height-600px">
         <div className="container">
             <div className="row">
@@ -13,19 +14,19 @@ const PresentationTwo = ({ title, text, textBtn, textBtn2, backfont }) => (
                     </h1>
                     <p className="mt-30">{text && parse(text)}</p>
                     <p className="mt-30">
-                        <Link to="/resume/register">
-                            <button className="btn btn-lg btn-color btn-square">{textBtn || 'REGISTER'}</button>
-                        </Link>
-                        <Link to="로그인하러가기">
+                        {!loginValue ?
+                        <Link to="/artist/artist_signin">
                             <button className="btn btn-lg btn-color btn-square" style={{ marginLeft: '20px' }}>
                                 {textBtn2 || 'LOGIN'}
                             </button>
-                        </Link>
+                        </Link>: 
+                        <Link to="/resume/register">
+                            <button className="btn btn-lg btn-color btn-square">{textBtn || 'REGISTER'}</button>
+                        </Link>}
                     </p>
                 </div>
             </div>
         </div>
     </section>
-);
-
+)};
 export default PresentationTwo;

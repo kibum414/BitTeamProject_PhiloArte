@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Philo-Arte",
-    "path": "#home"
+    "path": "/"
      
   },
   {
@@ -18,7 +18,7 @@
   {
     "id": 4,
     "title": "Funding",
-    "path": "/funding/list"
+    "path": "/funding/home"
   },
 
   {

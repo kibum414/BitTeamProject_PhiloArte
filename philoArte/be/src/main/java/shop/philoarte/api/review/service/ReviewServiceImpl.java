@@ -9,9 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import shop.philoarte.api.artist.domain.Artist;
 import shop.philoarte.api.review.domain.Review;
 import shop.philoarte.api.review.domain.ReviewFile;
-import shop.philoarte.api.review.domain.dto.PageRequestDTO;
-import shop.philoarte.api.review.domain.dto.PageResultDTO;
-import shop.philoarte.api.review.domain.dto.ReviewDTO;
+import shop.philoarte.api.review.domain.dto.PageRequestDto;
+import shop.philoarte.api.review.domain.dto.PageResultDto;
+import shop.philoarte.api.review.domain.dto.ReviewDto;
 import shop.philoarte.api.review.repository.ReplyRepository;
 import shop.philoarte.api.review.repository.ReviewFileRepository;
 import shop.philoarte.api.review.repository.ReviewRepository;
@@ -33,7 +33,7 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Transactional
     @Override
-    public Long save(ReviewDTO reviewDto) {
+    public Long save(ReviewDto reviewDto) {
         log.info(reviewDto);
         Map<String, Object> entityMap = dtoToEntity(reviewDto);
         Review review = (Review) entityMap.get("review");
@@ -51,7 +51,7 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public ReviewDTO get(Long reviewId) {
+    public ReviewDto get(Long reviewId) {
 
         List<Object[]> result = repository.getRevieWithReply(reviewId);
         Review review = (Review) result.get(0)[0];
@@ -71,7 +71,7 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Transactional
     @Override
-    public void modify(ReviewDTO reviewDto) {
+    public void modify(ReviewDto reviewDto) {
         Map<String, Object> entityMap = dtoToEntity(reviewDto);
         Review review = repository.getOne(reviewDto.getReviewId());
         review.changeTitle(reviewDto.getTitle());
@@ -105,11 +105,11 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public PageResultDTO<ReviewDTO, Object[]> getList(PageRequestDTO pageRequestDto) {
+    public PageResultDto<ReviewDto, Object[]> getList(PageRequestDto pageRequestDto) {
         log.info(pageRequestDto);
 
 //        Pageable pageable = pageRequestDto.getPage(Sort.by("reviewId").descending());
-        Function<Object[], ReviewDTO> fn = (arr -> entityToDto(
+        Function<Object[], ReviewDto> fn = (arr -> entityToDto(
                 (Review) arr[0],
                 (Artist) arr[1],
                 (Long) arr[2],
@@ -124,7 +124,7 @@ public class ReviewServiceImpl implements ReviewService {
         );
 
 
-        return new PageResultDTO<>(result, fn);
+        return new PageResultDto<>(result, fn);
     }
 
 

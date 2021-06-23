@@ -2,22 +2,22 @@ package shop.philoarte.api.review.service;
 
 import shop.philoarte.api.review.domain.Reply;
 import shop.philoarte.api.review.domain.Review;
-import shop.philoarte.api.review.domain.dto.ReplyDTO;
+import shop.philoarte.api.review.domain.dto.ReplyDto;
 
 import java.util.List;
 
 public interface ReplyService {
 
-    Long save(ReplyDTO replyDto);
+    Long save(ReplyDto replyDto);
 
     void remove(Long rno);
 
-    void modify(ReplyDTO replyDto);
+    void modify(ReplyDto replyDto);
 
 
-    List<ReplyDTO> getList(Long reviewId);
+    List<ReplyDto> getList(Long reviewId);
 
-    default Reply dtoToEntity(ReplyDTO replyDto) {
+    default Reply dtoToEntity(ReplyDto replyDto) {
         Review review = Review.builder().reviewId(replyDto.getReviewId()).build();
 
         Reply reply = Reply.builder()
@@ -33,8 +33,8 @@ public interface ReplyService {
         return reply;
     }
 
-    default ReplyDTO entityToDto(Reply reply) {
-        ReplyDTO replyDto = ReplyDTO.builder()
+    default ReplyDto entityToDto(Reply reply) {
+        ReplyDto replyDto = ReplyDto.builder()
                 .rno(reply.getRno())
                 .text(reply.getText())
                 .uuid(reply.getUuid())

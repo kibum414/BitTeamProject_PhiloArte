@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Philo-Arte",
-    "path": "#home"
+    "path": "/"
      
   },
   {
@@ -14,17 +14,19 @@
     "id": 3,
     "title": "Resume",
     "path": "/resume/home"
+    
   },
   {
     "id": 4,
     "title": "Funding",
-    "path": "/funding/list"
+    "path": "/funding/home"
   },
 
   {
     "id": 5,
     "title": "Review",
     "path": "/reviews/review_list"
+    
   },
   {
     "id": 6,

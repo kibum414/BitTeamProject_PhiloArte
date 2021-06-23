@@ -16,6 +16,7 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
 
   const fileList = useSelector(state => state.arts.fileList)
   const categories = useSelector(state => state.arts.category)
+  const loginValue = JSON.parse(localStorage.getItem("artist"))
 
   console.log("first", fileList)
 
@@ -29,23 +30,27 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
   useEffect(() => {
     dispatch(getCategoryList())
   }, [])
-  
+
   const ArtRegister = e => {
     e.stopPropagation()
     e.preventDefault()
-    
-    const art = {
-      title: titleRef.current.value,
-      category: { categoryId: Number(categoryRef.current.value) },
-      description: descriptionRef.current.value,
-      mainImg: "http://www.yck.kr/_data/file/bbsData/86d2f471ffc196ee508845737375d38d.jpg",
-      artist: { artistId: 4 }, // 아티스트 정보 가져올 곳
-      resume: { resumeId: 1 }, // 레쥬메 정보 가져올 곳
-    }
-  
-    const data = { ...art, files: fileList }
 
-    dispatch(getArtRegister(data))
+    if (loginValue) {
+      const art = {
+        title: titleRef.current.value,
+        category: { categoryId: Number(categoryRef.current.value) },
+        description: descriptionRef.current.value,
+        mainImg: "http://www.yck.kr/_data/file/bbsData/86d2f471ffc196ee508845737375d38d.jpg",
+        artist: { artistId: loginValue.artistId }, // 아티스트 정보 가져올 곳
+        resume: { resumeId: 1 }, // 레쥬메 정보 가져올 곳
+      }
+
+      const data = { ...art, files: fileList }
+
+      dispatch(getArtRegister(data))
+    } else {
+      alert('로그인 해주세요 !')
+    }
 
     history.push('/art')
   }
@@ -108,7 +113,8 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
                       <option value="">카테고리</option>
                       {categories.map(category => {
                         return (
-                          <option key={category.categoryId} value={category.categoryId}>{category.categoryName}</option>
+                          <option key={category.categoryId}
+                            value={category.categoryId}>{category.categoryName}</option>
                         )
                       })}
                     </select>
@@ -144,7 +150,7 @@ const ArtRegister = ({ tagline, title, backfont, dash, textBtn, classes }) => {
                 </div>
               </div>
             </form>
-            
+
           </div>
         </div>
       </section>

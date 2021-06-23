@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import parse from "html-react-parser";
-import LoadScript from "webapp/common/helpers/LoadScript";
+import LoadScript from 'webapp/common/helpers/LoadScript';
 import ItemHandle from "./ItemHandle";
-import { currentFunding } from "webapp/funding/reducer/funding.reducer";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Button} from "@material-ui/core";
 
-const HomeList = ({ title, tagline, backfont,data, hashtag,dash, dashColor, id }) => {
+const HomeList = ({ title, tagline, backfont,data, dash, dashColor}) => {
 
   LoadScript("js/portfolio/portfolio-grid.js");
     
-  const totalList = data.map( (funding, i) => {
+  const totalList = data.map((funding, i) => {
     return (
       <ItemHandle 
         key={funding.fundingId}
@@ -39,7 +37,6 @@ const HomeList = ({ title, tagline, backfont,data, hashtag,dash, dashColor, id }
       </div>
       <div className="container-fluid remove-padding">
           <div className="col-md-12">
-                  {/* {filterButton} */}
             <div id="portfolio-gallery" className="cbp">
                   {totalList}
             </div>

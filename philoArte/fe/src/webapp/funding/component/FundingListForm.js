@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
@@ -16,23 +15,9 @@ import { Box, CardHeader, Input } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import ShareIcon from '@material-ui/icons/Share';
 
-const FundingListForm = ({ fundingId, title, content, hashtag, image, goalPrice, mainTitle, tagline, backfont }) => {
+const FundingListForm = ({ fundingId, title, content, hashtag, image, goalPrice}) => {
     const param = useSelector(currentFunding);
     const dispatch = useDispatch();
-    // const selectContent = fundingId =>{
-    //     console.log("SElect이동!!!!!(!#*(!#*(!#*(!#*(!&*#("+ fundingId)
-    //     dispatch(getFundingDetail(fundingId))
-    //   }
-    const useStyles = makeStyles((theme) => ({
-        root: {
-            flexGrow: 1,
-        },
-        paper: {
-            padding: theme.spacing(2),
-            textAlign: 'center',
-            color: theme.palette.text.secondary,
-        },
-    }));
 
     const selectContent = (fundingId) => {
         dispatch(getFundingDetail(fundingId));
@@ -62,11 +47,6 @@ const FundingListForm = ({ fundingId, title, content, hashtag, image, goalPrice,
                                         <Button variant="outlined" size="small" color="primary">
                                             {hashtag}
                                         </Button>
-                                        <Link to={`/funding/modify/${fundingId}`}>
-                                            <Button variant="outlined" size="small" color="primary" key={param.fundingId} onClick={() => dispatch(getFundingDetail(fundingId))}>
-                                                수정하기
-                                            </Button>
-                                        </Link>
                                         <Typography color="initial" align="right">
                                             목표 금액 : <Input defaultValue={numberWithComma(goalPrice)} error inputProps={{ 'aria-label': 'description' }} /> 원
                                         </Typography>

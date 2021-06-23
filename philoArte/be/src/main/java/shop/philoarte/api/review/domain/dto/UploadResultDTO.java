@@ -15,7 +15,7 @@ import java.net.URLEncoder;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class UploadResultDTO implements Serializable {
+public class UploadResultDto implements Serializable {
     private String fileName;
     private String uuid;
     private String folderPath;
