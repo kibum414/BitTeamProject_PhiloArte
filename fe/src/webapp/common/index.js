@@ -1,5 +1,0 @@
-export { default as HomeVideoBg } from 'webapp/common/component/HomeVideoBg'
-export { default as NavBar } from 'webapp/common/component/Navbar'
-export { default as HeaderOne } from 'webapp/common/Header/HeaderOne'
-export { default as HeaderSocial } from 'webapp/common/Header/HeaderSocial'
-export { default as FooterOne } from 'webapp/common/Footer/FooterOne'
