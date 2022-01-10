@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react";
 // DATA Files
 import dataServices from "webapp/resume/data/services-studio-data.json";
 import dataSkills from "webapp/resume/data/skills-data.json";
-import dataCounters from "webapp/common/data/Counters/counters-data.json";
+import dataCounters from "webapp/resume/data/counters-data.json";
 import dataTeam from "webapp/common/data/Team/team-data.json";
-
-import FooterOne from "webapp/common/Footer/FooterOne";
-import { ResumeList, Paging, SearchBar, AboutFive,CounterRowOne, PresentationTwo, TeamOne, WhatWeOfferSix} from "webapp/resume/index"
+import FooterOne from  "webapp/common/Footer/FooterOne";
+import TeamOne from "webapp/common/Team/TeamOne"
+import { ResumeList, Paging, SearchBar, AboutFive,CounterRowOne, PresentationTwo, WhatWeOfferSix} from "webapp/resume/index"
 import { useDispatch, useSelector } from "react-redux";
 import { listResume, searchResume } from "webapp/resume/reducer/resume.reducer";
 import HeaderOneMain from "webapp/common/component/Navbar/HeaderOneMain";
 import { getLocalArtist } from "webapp/artist/reducer/artist.reducer";
+
+
+
 
 const ResumeApp = () => {
   const searchType = useSelector(state => state.resumes.type)
@@ -23,6 +26,8 @@ const ResumeApp = () => {
   useEffect((e)=>{
     (!searchType && !searchKeyword) ? dispatch(listResume(page)): dispatch(searchResume(param))
   },[])
+
+
 
   return(<>
     <HeaderOneMain/>

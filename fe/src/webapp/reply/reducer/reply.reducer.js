@@ -7,11 +7,15 @@ export const getReplyList = createAsyncThunk('replies/list/reviewId', async (rev
 });
 
 export const getReplyRegister = createAsyncThunk('replies/register', async (input) => {
+    console.log('=======', input);
     const response = await ReplyService.register(input);
+    console.log('======', response);
     return response;
 });
 
 export const getReplyModify = createAsyncThunk('replies/modify/rno', async (reply) => {
+    console.log('===========================');
+    console.log(reply);
     const response = await ReplyService.modify(reply);
     return response.data;
 });
@@ -50,11 +54,12 @@ const replySlice = createSlice({
                 return { ...state, msg };
             })
             .addCase(getReplyModify.fulfilled, (state, { payload }) => {
-                state.reply = []; 
+                state.reply = []; // 페이로드로 받으면 서버에서 success modify(string)로 호출되니 일단은 빈배열로 받고 replylist로 간다.
                 console.log(payload);
             })
             .addCase(getReplyDelete.fulfilled, (state, { payload }) => {
                 state.rno = payload;
+                console.log(payload); // 서버의 리턴 타입이 string일 경우 payload는 해당 string 값이 된다.
             })
             .addMatcher(isRejectAction, () => {})
             .addDefaultCase((state, payload) => {});
@@ -63,4 +68,5 @@ const replySlice = createSlice({
 
 const { actions, reducer } = replySlice;
 export const currentReply = (state) => state.replies.reply;
+export const {} = actions;
 export default reducer;

@@ -1,21 +1,20 @@
 import axios from 'axios';
-
-
+const SERVER = 'http://13.209.194.227:8080'
 const list = (page) => {
     console.log('page :: ', page);
     const str = 'page=' + (!page.page ? 1 : page.page) + '&type=' + (page.type ? page.type : '') + '&keyword=' + (page.keyword ? page.keyword : '');
-    return axios.get(`/artists/list/pages?` + str);
+    return axios.get(`${SERVER}/artists/list/pages?` + str);
 };
 
 const imgList = (imgList) => {
     console.log('imgList :: ', imgList);
     const str = 'page=' + (!imgList.page ? 1 : imgList.page) + '&type=' + (imgList.type ? imgList.type : '') + '&keyword=' + (imgList.keyword ? imgList.keyword : '') + '&pageFileDto=' + (imgList.pageFileDto ? imgList.pageFileDto : '');
-    return axios.get(`/artist_files/imgList/pages` + str);
+    return axios.get(`${SERVER}/artist_files/imgList/pages` + str);
 };
 
 const signin = (signin) => {
     return axios({
-        url: `http://13.209.194.227:8080/artists/signin`,
+        url: `${SERVER}/artists/signin`,
         method: 'post',
         data: {
             username: signin.username,
@@ -28,7 +27,7 @@ const signin = (signin) => {
 
 const signup = (param) => {
     return axios({
-        url: `http://13.209.194.227:8080/artists/signup`,
+        url: `${SERVER}/artists/signup`,
         method: 'post',
         data: param,
         headers: {
@@ -40,7 +39,7 @@ const signup = (param) => {
 
 const mypage = (artist) => {
     return axios({
-        url: `http://13.209.194.227:8080/artists/mypage`,
+        url: `${SERVER}/artists/mypage`,
         method: 'put',
         data: artist,
         headers: {
@@ -51,5 +50,16 @@ const mypage = (artist) => {
 
 };
 
+const deleteSelect = (deleteSelect) => {
+    return axios.put(`${SERVER}/artists/delete`, deleteSelect);
+};
 
-export default {list, signin, signup, mypage};
+const totalSearchBar = (totalSearchBar) => {
+    return axios.put(`${SERVER}/page/totalSearchBar`, totalSearchBar);
+};
+
+const imgDel = (imgDel) => {
+    return axios.put(`${SERVER}/page/imgDel`, imgDel);
+};
+
+export default {list, signin, signup, mypage, totalSearchBar, deleteSelect, imgDel, imgList};

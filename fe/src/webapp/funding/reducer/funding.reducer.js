@@ -25,15 +25,15 @@ export const searchSomething = createAsyncThunk(
 export const getFundingDetail = createAsyncThunk(
     "funding/Detail",
     async(fundingId)=>{
-        const response = await FundingService.showDetail(fundingId)
-        return response.data
+        const response = await FundingService.showDetail(fundingId) 
+        return response.data 
     }
 )
 export const updateFunding = createAsyncThunk(
     'funding/update',
-    async (obj)=>{
-        const response = await FundingService.fundingUpdate(obj.fundingId,obj.data)
-        return response.data
+        async (obj)=>{
+            const response = await FundingService.fundingUpdate(obj.fundingId,obj.data)
+            return response.data
     }
 )
 
@@ -53,7 +53,7 @@ export const deleteFile = createAsyncThunk(
 )
 
 const isRejectAction=action=>
-    (action.type.endsWith('rejected'))
+     (action.type.endsWith('rejected'))
 
 const fundingSlice = createSlice({
     name: "fundings",
@@ -71,40 +71,40 @@ const fundingSlice = createSlice({
         fileList:[],
         keyword:'',
         current:{}
-
+        
     },
     reducers:{
         addFileList:(state,{payload})=>{
             state.fileList.push(payload)
         }
-
+        
     },
     extraReducers: (builder)=>{
         builder
-            .addCase(getFundingList.fulfilled,(state, {payload})=>{
-                state.pageResult = payload
-            })
-            .addCase(searchSomething.fulfilled,(state,{payload})=>{
-                state.pageResult = payload
-            })
-            .addCase(getFundingDetail.fulfilled,(state,{payload})=>{
-                state.current = payload
-            })
-            .addCase(updateFunding.fulfilled,(state,{payload})=>{
-                state.fundingId = payload
-            })
-            .addCase(saveFunding.fulfilled,(state,{payload})=>{
-                state.fundings = payload
-            })
-            .addCase(deleteFunding.fulfilled,(state,{payload})=>{
-                alert(`delete : ${payload}`)
-                return state.filter((funding) => funding.fundingId == payload)
-            })
-            .addCase(deleteFile.fulfilled,(state,{payload})=>{
-                state.fundingId=payload
-            })
-            .addMatcher(isRejectAction,() =>{})
-            .addDefaultCase((state, payload)=>{})
+        .addCase(getFundingList.fulfilled,(state, {payload})=>{
+            state.pageResult = payload
+        })
+        .addCase(searchSomething.fulfilled,(state,{payload})=>{
+            state.pageResult = payload
+        })
+        .addCase(getFundingDetail.fulfilled,(state,{payload})=>{
+            state.current = payload
+        })
+        .addCase(updateFunding.fulfilled,(state,{payload})=>{
+            state.fundingId = payload
+        })
+        .addCase(saveFunding.fulfilled,(state,{payload})=>{
+            state.fundings = payload
+        })
+        .addCase(deleteFunding.fulfilled,(state,{payload})=>{
+            alert(`delete : ${payload}`)
+            return state.filter((funding) => funding.fundingId == payload)
+        })
+        .addCase(deleteFile.fulfilled,(state,{payload})=>{
+            state.fundingId=payload
+        })
+        .addMatcher(isRejectAction,() =>{})
+        .addDefaultCase((state, payload)=>{})
     },
 })
 
@@ -116,4 +116,4 @@ export const dtoPath = state => state.fundings.pageResult.dtoList
 export const nomalDto = state => state.fundings.current
 
 export const {addFileList}=actions
-export default reducer
+export default reducer 

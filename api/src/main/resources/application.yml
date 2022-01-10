@@ -1,0 +1,36 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://root.cwjff3qij1v0.ap-northeast-2.rds.amazonaws.com/arte?useSSLd=false&characterEncoding=UTF-8&serverTimezone=UTC
+    username: wlsdnr4675
+    password: wlsdnr4675
+
+    servlet:
+      multipart:
+        enabled: true
+        location: Users/jinwookoh/Desktop/ResumeFile/
+        max-request-size: 30MB
+        max-file-size: 30MB
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+security:
+  jwt:
+    secret: secret-value
+shop:
+  upload:
+    path: /Users/jinwookoh/Desktop/ResumeFile
+
+UserController:
+  signup: Creates user and returns its JWT token
+  signin: Authenticates user and returns its JWT token

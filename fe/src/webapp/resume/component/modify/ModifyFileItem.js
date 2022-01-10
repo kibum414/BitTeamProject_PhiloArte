@@ -6,6 +6,7 @@ import { changeFileList, delFileList } from 'webapp/resume/reducer/resume.reduce
 const ModifyFileItem = ({ uuid, fname, fileDetail, fileTitle, fileWorkedDate, resumeFileId, repImg }) => {
     const { resumeId } = useParams();
     const dispatch = useDispatch();
+    const fileList = useSelector((state) => state.resumes.current.resumeFiles);
 
     const [resumeFile, setResumeFile] = useState({
         fileTitle: fileTitle,
@@ -17,12 +18,16 @@ const ModifyFileItem = ({ uuid, fname, fileDetail, fileTitle, fileWorkedDate, re
         repImg: repImg,
         resumeId: resumeId,
     });
+    console.log('resumeId:', resumeId);
+    console.log('fanme', resumeFile);
+
     const resumeFileChange = (e) => {
         e.stopPropagation();
         e.preventDefault();
         const { name, value } = e.target;
         resumeFile[name] = value;
         setResumeFile({ ...resumeFile });
+        console.log('resumeFileChange : ', resumeFile);
         dispatch(changeFileList(resumeFile));
     };
 

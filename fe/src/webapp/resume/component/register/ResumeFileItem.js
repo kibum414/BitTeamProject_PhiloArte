@@ -41,7 +41,7 @@ const ResumeFileItem = ({ uuid, fname }) => {
     return (
         <>
             <div>
-                <img src={`http://localhost:8080/resume_file/display?fileName=${resumeFile.uuid + '_' + resumeFile.fname}`} />
+                <img src={`http://3.35.175.249/resume_file/display?fileName=${resumeFile.uuid + '_' + resumeFile.fname}`} />
                 <br />
                 {resumeFile.fname}
                 <button className="btn mt-10" style={{ marginLeft: '10px' }} data-uuid={resumeFile.uuid} onClick={(e) => resumeFileDelete(e)}>

@@ -17,6 +17,7 @@ const ArtistsDelete = () => {
         e.preventDefault();
         e.stopPropagation();
         const obj = { artistId: artistsState.artistId };
+        console.log('SEND BEFORE', obj);
         dispatch(deleteSelect(obj));
         history.push('/');
     };

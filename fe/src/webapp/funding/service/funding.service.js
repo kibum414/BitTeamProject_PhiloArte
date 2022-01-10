@@ -2,10 +2,10 @@ import axios from 'axios'
 
 
 const userInfo = typeof window !== `undefined` ? JSON.parse(localStorage.getItem('artist')) : null;
-
+const SERVER = 'http://13.209.194.227:8080'
 const getList=(page) =>{
     return axios({
-        url:"http://13.209.194.227:8080/funding/list?page=" +page,
+        url:`${SERVER}/funding/list?page=` +page,
         method: 'get',
         headers:{
             Authorization: 'JWT fefege...'
@@ -14,7 +14,7 @@ const getList=(page) =>{
 }
 const fundingRegister = (data) =>{
     return axios({
-        url: "http://13.209.194.227:8080/funding/register",
+        url: `${SERVER}/funding/register`,
         method: "post",
         data: data,
         headers:{
@@ -25,7 +25,7 @@ const fundingRegister = (data) =>{
 
 const showDetail =(fundingId)=>{
     return axios({
-        url: `http://13.209.194.227:8080/funding/${fundingId}`,
+        url: `${SERVER}/funding/${fundingId}`,
         method: 'get',
         headers:{
             Authorization: 'JWT fefege...'
@@ -35,7 +35,7 @@ const showDetail =(fundingId)=>{
 
 const fundingUpdate = (fundingId,data) =>{
     return axios({
-        url: `http://13.209.194.227:8080/funding/edit/${fundingId}`,
+        url: `${SERVER}/funding/edit/${fundingId}`,
         method: 'put',
         data: data,
         headers:{
@@ -48,31 +48,31 @@ const fundingUpdate = (fundingId,data) =>{
 const deleteFunding = (funding) =>{
     const del = window.confirm("글 삭제를 진행 하시겠습니까?")
     if(del){
-        axios({
-            url: `http://13.209.194.227:8080/funding/${funding}`,
-            method:'DELETE',
-            headers:{
-                Authorization: 'JWT fefege...'
-            }
-        }).then(res =>{
-            alert("삭제 완료")
-        }).catch(err =>{
-            alert("삭제과정에서 에러 발생" +err)
-        })}
+    axios({
+        url: `${SERVER}/funding/${funding}`,
+        method:'DELETE',
+        headers:{
+            Authorization: 'JWT fefege...'
+        }
+    }).then(res =>{
+        alert("삭제 완료")
+    }).catch(err =>{
+        alert("삭제과정에서 에러 발생" +err)
+    })}
 }
 const fileUpload = (formData) => {
     return axios({
-        url: `http://13.209.194.227:8080/funding_file/upload_file`,
+        url: `${SERVER}/funding_file/upload_file`,
         method: 'post',
         data: formData,
         headers:{ "Content-Type": "multipart/form-data",
-            Authorization: 'JWT fefege...'}
+        Authorization: 'JWT fefege...'}
     })
 }
 
 const deleteFile = (id) =>{
     return axios({
-        url: `http://13.209.194.227:8080/funding_file/delete_file/${id}`,
+        url: `${SERVER}/funding_file/delete_file/${id}`,
         method: 'delete',
         headers:{
             Authorization: 'JWT fefege...'
@@ -82,12 +82,12 @@ const deleteFile = (id) =>{
 
 const searchSomething = (page,keyword)=>{
     return axios({
-        url: "http://13.209.194.227:8080/funding/list/search",
+        url: "${SERVER}/funding/list/search",
         method: page,keyword,
         headers:{
             Authorization: 'JWT fefege...'
         }
     })
-
+    
 }
 export default {getList, fundingRegister,showDetail,deleteFunding,fundingUpdate,searchSomething,fileUpload,deleteFile}

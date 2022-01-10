@@ -38,7 +38,7 @@
   },
   {
     "id": 8,
-    "title": "",
-    "path": ""
+    "title": "User List",
+    "path": "/artist/artist_list"
   }
 ]

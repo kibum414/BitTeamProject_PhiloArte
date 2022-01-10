@@ -15,7 +15,7 @@ export { default as PageList } from 'webapp/artist/component/pageComponent/PageL
 export { default as ArtistPageSearch } from 'webapp/artist/component/pageComponent/ArtistPageSearch';
 
 // container
-export { default as ArtistPageContainer } from 'webapp/artist/container/ArtistPageContainer';
+export { default as AristPageContainer } from 'webapp/artist/container/AristPageContainer';
 
 // reducer
 export { default as ArtistReducer } from 'webapp/artist/reducer/artist.reducer';

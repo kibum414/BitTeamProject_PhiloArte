@@ -3,6 +3,7 @@ import {ReviewService} from 'webapp/review/index'
 
 export const getReviewList = createAsyncThunk("reviews/list",
 async(pageResult)=>{
+    console.log("pageRequest" + JSON.stringify(pageResult))
     const response = await ReviewService.list(pageResult)
     return response.data
 })
@@ -11,7 +12,11 @@ export const getReviewRegister = createAsyncThunk("reviews/register",
 
 async(input)=>{
 
+    console.log("=========================", input)
+
     const response = await ReviewService.register(input)
+
+    console.log("=================", response)
 
     return response
  })
@@ -25,6 +30,8 @@ async(reviewId)=>{
  export const getReviewModify = createAsyncThunk('reviews/modify/reviewId',
     async(review)=>{
 
+        console.log("===========================")
+        console.log(review)
         const response = await ReviewService.modify(review)
         return response.data
     }
@@ -69,6 +76,8 @@ async(reviewId)=>{
                 console.log("................" + file.uuid, payload.uuid)
                 return file.uuid === payload.uuid 
             })
+            console.log("payload", payload)
+            console.log("findFile: ", idx)
 
             state.params.reviewFileDtoList.splice(idx,1)
         }
@@ -77,6 +86,7 @@ async(reviewId)=>{
      },
      extraReducers : (builder)=>{
          builder.addCase(getReviewList.fulfilled,(state, {meta,payload})=>{
+             console.log(payload)
              state.pageResult =payload
          })
          .addCase(getReviewRegister.fulfilled, (state, {payload})=>{
@@ -85,9 +95,11 @@ async(reviewId)=>{
          })
          .addCase(getReviewRead.fulfilled, (state, {payload})=>{
            state.params = payload
+           console.log(payload)
          })
          .addCase(getReviewModify.fulfilled,(state, {payload})=>{
             state.reviewId = payload
+            console.log(payload)
          })
          .addCase(getReviewDelete.fulfilled,(state, {payload})=>{
             state.params = payload

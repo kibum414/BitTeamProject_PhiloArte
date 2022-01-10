@@ -3,10 +3,12 @@ import { useRef } from 'react';
 
 const userInfo = typeof window !== `undefined` ? JSON.parse(localStorage.getItem('artist')) : null;
 
+const SERVER = 'http://13.209.194.227:8080'
+
 const register=(fd)=>{
 
     return axios({
-        url: `http://13.209.194.227:8080/reviews/register`,
+        url: `${SERVER}/reviews/register`,
         method:'post',
         data: fd,
         headers:{
@@ -21,7 +23,7 @@ const list=(pageResult)=>{
     const str = "page=" + (!pageResult.page?1:pageResult.page) +"&type="+ (pageResult.type) +"&keyword=" + (pageResult.keyword)
 
     return axios({
-        url : `http://13.209.194.227:8080/reviews/list/pages?`+str,
+        url : `${SERVER}/reviews/list/pages?`+str,
         method : 'get',
         headers:{
             Authorization : 'JWT fefefg...'
@@ -32,7 +34,7 @@ const list=(pageResult)=>{
 
 const read=(reviewId)=>{
     return axios({
-        url : `http://13.209.194.227:8080/reviews/read/${reviewId}`,
+        url : `${SERVER}/reviews/read/${reviewId}`,
         method:'get',
         headers:{
             Authorization : 'JWT fefefg...'
@@ -43,7 +45,7 @@ const read=(reviewId)=>{
 const modify=(review)=>{
 
     return axios({
-        url : `http://13.209.194.227:8080/reviews/modify/`+review.reviewId,
+        url : `${SERVER}/reviews/modify/`+review.reviewId,
         method : "put",
         data : review,
         headers:{
@@ -57,7 +59,7 @@ const modify=(review)=>{
 const deletes=(reviewId)=>{
 
     return axios({
-        url : `http://13.209.194.227:8080/reviews/remove/${reviewId}`,
+        url : `${SERVER}/reviews/remove/${reviewId}`,
         method : 'delete',
         data : {...reviewId},
         headers :{

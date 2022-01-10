@@ -13,6 +13,7 @@ const TextRegister = ({pno,title ='', content ='',goalPrice='',hashtag='', regDa
     useEffect(()=>{
         getLocalArtist()
     },[])
+    console.log(param,"==================param")
     const [titleState, setTitleState] = useState(title)
     const [contentState, setContentState] = useState(content)
     const [goalPriceState, setGoalPriceState] = useState(goalPrice)

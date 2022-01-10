@@ -92,5 +92,4 @@ const ResumeRegister = () => {
         </>
     );
 };
-
 export default ResumeRegister;

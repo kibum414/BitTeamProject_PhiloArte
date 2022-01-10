@@ -1,22 +1,11 @@
+import { Link } from '@material-ui/core';
 import React, { useEffect } from 'react';
-import Slider from 'react-slick';
 import Icofont from 'react-icofont';
 import { useDispatch, useSelector } from 'react-redux';
-import 'webapp/resume/css/ResumeCss.css';
 import { getArtPosts } from 'webapp/art/reducer/art.reducer';
-import { Link } from 'react-router-dom';
+import 'webapp/resume/css/ResumeCss.css';
 const ArtPost = ({ data }) => {
-    const settings = {
-        dots: false,
-        infinite: true,
-        centerMode: true,
-        autoplay: true,
-        autoplaySpeed: 5000,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        centerPadding: '0',
-        className: 'blog-grid-slider slick',
-    };
+
     const dispatch = useDispatch()
    
     const items = useSelector((state) => state.resumes.current);
